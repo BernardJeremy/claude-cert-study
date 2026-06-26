@@ -31,7 +31,6 @@ export default function QuizGame({ questions }: Props) {
 
   useEffect(() => {
     setDeck(shuffle(questions))
-    console.log(`${questions.length} questions loaded.`)
   }, [questions])
 
   const current = deck[index]
