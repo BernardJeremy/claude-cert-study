@@ -1,0 +1,257 @@
+{
+  "lesson": "introduction-to-agent-skills",
+  "questions": [
+    {
+      "question": "Where do personal skills live and how do they differ from project skills?",
+      "options": [
+        "Personal skills live in ~/.claude/skills and follow you across all projects, while project skills live in .claude/skills inside a repository and are shared with anyone who clones it",
+        "Personal skills live in .claude/skills inside a repository, while project skills live in ~/.claude/skills and are only available on Windows",
+        "Personal skills live in C:/Users/<your-user>/.claude/skills on all operating systems, while project skills live in ~/.claude/skills",
+        "Personal skills and project skills both live in the same location but are distinguished by file naming conventions"
+      ],
+      "correctIndex": 0,
+      "explanation": "Personal skills in ~/.claude/skills follow you across projects, while project skills in .claude/skills are repository-specific and shared with clones.",
+      "id": "434525-what-are-skills-q0",
+      "classFile": "434525-what-are-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "How do skills differ from CLAUDE.md files in terms of when they load into conversations?",
+      "options": [
+        "Skills load into every conversation like CLAUDE.md files do",
+        "Skills load on demand when they match your request, while CLAUDE.md files load into every conversation",
+        "CLAUDE.md files load on demand, while skills load into every conversation automatically",
+        "Both skills and CLAUDE.md files require explicit invocation through slash commands"
+      ],
+      "correctIndex": 1,
+      "explanation": "Skills load on demand only when Claude detects a matching request, whereas CLAUDE.md files load into every conversation regardless of task.",
+      "id": "434525-what-are-skills-q1",
+      "classFile": "434525-what-are-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "According to the class content, what is the primary indicator that you need to create a skill?",
+      "options": [
+        "When you need to use a slash command more than once",
+        "When you find yourself explaining the same thing to Claude repeatedly",
+        "When you want Claude to use TypeScript's strict mode",
+        "When you need to update your CLAUDE.md file"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class explicitly states that if you find yourself explaining the same thing to Claude repeatedly, that's a skill waiting to be written.",
+      "id": "434525-what-are-skills-q2",
+      "classFile": "434525-what-are-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "Which two fields are required when configuring skill metadata in the SKILL.md frontmatter?",
+      "options": [
+        "name and description",
+        "name and allowed-tools",
+        "description and model",
+        "allowed-tools and model"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that 'name (required)' and 'description (required)' are the two required fields, while allowed-tools and model are optional.",
+      "id": "434526-configuration-and-multi-file-skills-q0",
+      "classFile": "434526-configuration-and-multi-file-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What is the primary purpose of the allowed-tools field in skill configuration?",
+      "options": [
+        "To specify which Claude model version to use for the skill",
+        "To restrict which tools Claude can use when the skill is active for security or read-only workflows",
+        "To define the maximum context window size for the skill",
+        "To list all the external APIs the skill can access"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that 'allowed-tools restricts which tools Claude can use when the skill is active — useful for read-only or security-sensitive workflows.'",
+      "id": "434526-configuration-and-multi-file-skills-q1",
+      "classFile": "434526-configuration-and-multi-file-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What is progressive disclosure and what is the recommended maximum size for SKILL.md?",
+      "options": [
+        "A method to gradually reveal skill features based on user experience level; maximum 1,000 lines",
+        "A technique to keep essential instructions in SKILL.md and put detailed reference material in separate files that Claude reads only when needed; maximum 500 lines",
+        "A security protocol that limits Claude's access to sensitive files; maximum 2,000 lines",
+        "A file organization system that requires all skill content to be in a single document; maximum 64 characters"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content defines progressive disclosure as keeping 'SKILL.md under 500 lines and link to supporting files (references, scripts, assets) that Claude reads only when needed.'",
+      "id": "434526-configuration-and-multi-file-skills-q2",
+      "classFile": "434526-configuration-and-multi-file-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What are the two main parts of a SKILL.md file and how are they separated?",
+      "options": [
+        "Header and body sections separated by a blank line",
+        "Frontmatter containing metadata and instructions below, separated by dashes (---)",
+        "Name section and description section separated by a comma",
+        "Configuration and content sections separated by a colon"
+      ],
+      "correctIndex": 1,
+      "explanation": "The SKILL.md file consists of frontmatter dashes containing the name and description, followed by instructions below the second set of dashes.",
+      "id": "434527-creating-your-first-skill-q0",
+      "classFile": "434527-creating-your-first-skill",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "When Claude Code starts up, what does it load from skills?",
+      "options": [
+        "The complete SKILL.md file content for all skills",
+        "Only the skill names and descriptions, not the full content",
+        "Only the instructions section of each skill",
+        "The directory structure but not the metadata"
+      ],
+      "correctIndex": 1,
+      "explanation": "Claude Code loads only skill names and descriptions at startup for semantic matching, and only reads the full SKILL.md content after the user confirms loading a matched skill.",
+      "id": "434527-creating-your-first-skill-q1",
+      "classFile": "434527-creating-your-first-skill",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What is the correct priority order when multiple skills have the same name?",
+      "options": [
+        "Personal → Enterprise → Project → Plugins",
+        "Project → Personal → Enterprise → Plugins",
+        "Enterprise → Personal → Project → Plugins",
+        "Plugins → Project → Personal → Enterprise"
+      ],
+      "correctIndex": 2,
+      "explanation": "The skill priority hierarchy is Enterprise (highest) → Personal → Project → Plugins (lowest), which allows organizations to enforce standards while enabling individual customization.",
+      "id": "434527-creating-your-first-skill-q2",
+      "classFile": "434527-creating-your-first-skill",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "When should you use CLAUDE.md instead of skills?",
+      "options": [
+        "When you have project-wide standards that should always apply to every conversation",
+        "When you need to perform a specific task that only applies sometimes",
+        "When you want to run automated operations triggered by file saves",
+        "When you need to delegate work to a separate execution context"
+      ],
+      "correctIndex": 0,
+      "explanation": "CLAUDE.md loads into every conversation and is designed for always-on project standards, while skills load on demand for task-specific expertise.",
+      "id": "434528-skills-vs-other-claude-code-features-q0",
+      "classFile": "434528-skills-vs-other-claude-code-features",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What is the key difference between skills and hooks?",
+      "options": [
+        "Skills are event-driven while hooks are request-driven",
+        "Skills are request-driven while hooks are event-driven",
+        "Skills run in isolated contexts while hooks share the main conversation context",
+        "Skills provide external tools while hooks provide internal knowledge"
+      ],
+      "correctIndex": 1,
+      "explanation": "Skills activate based on what you're asking (request-driven), while hooks fire on events like file saves or tool calls (event-driven).",
+      "id": "434528-skills-vs-other-claude-code-features-q1",
+      "classFile": "434528-skills-vs-other-claude-code-features",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "When should you use subagents instead of skills?",
+      "options": [
+        "When you want to enhance Claude's knowledge for the current task",
+        "When you want to delegate a task to a separate execution context with isolation from the main conversation",
+        "When you need to validate input before specific tool calls",
+        "When you need to provide external tools and integrations"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subagents run in isolated execution contexts and are used when you want to delegate work independently from the main conversation, unlike skills which add knowledge to the current context.",
+      "id": "434528-skills-vs-other-claude-code-features-q2",
+      "classFile": "434528-skills-vs-other-claude-code-features",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "Where should you place skills in your repository so that anyone who clones the repo gets them automatically?",
+      "options": [
+        ".claude/skills",
+        ".claude/agents",
+        ".claude/plugins",
+        ".claude/settings"
+      ],
+      "correctIndex": 0,
+      "explanation": "Project skills in .claude/skills are shared automatically through Git — anyone who clones the repo gets them without extra installation needed.",
+      "id": "434529-sharing-skills-q0",
+      "classFile": "434529-sharing-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What is a critical difference between built-in agents and custom subagents regarding skill access?",
+      "options": [
+        "Built-in agents can access skills while custom subagents cannot",
+        "Built-in agents cannot access skills at all, while custom subagents can use skills when explicitly listed",
+        "Both built-in and custom agents can access all skills automatically",
+        "Custom subagents can only access plugin skills, not repository skills"
+      ],
+      "correctIndex": 1,
+      "explanation": "Built-in agents like Explorer, Plan, and Verify can't access skills at all, while custom subagents can use skills when you explicitly list them in their frontmatter skills field.",
+      "id": "434529-sharing-skills-q1",
+      "classFile": "434529-sharing-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "When would enterprise managed settings be the most appropriate method for distributing skills?",
+      "options": [
+        "When skills are only useful for individual developers",
+        "When you want to share skills with the broader open-source community",
+        "When you need mandatory standards, security requirements, and compliance workflows that must be consistent across the organization",
+        "When skills are specific to a single project and rarely change"
+      ],
+      "correctIndex": 2,
+      "explanation": "Enterprise managed settings take the highest priority and should be used for mandatory standards, security requirements, compliance workflows, and coding practices that must be consistent across the organization.",
+      "id": "434529-sharing-skills-q2",
+      "classFile": "434529-sharing-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What is the first troubleshooting step you should take when skills don't work as expected?",
+      "options": [
+        "Use the skills validator tool to catch structural problems",
+        "Run chmod +x on all script files",
+        "Clear the cache and restart Claude Code",
+        "Check if your skill description matches your request phrasing"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that you should start with the skills validator tool — it catches structural problems before you spend time debugging other things.",
+      "id": "434530-troubleshooting-skills-q0",
+      "classFile": "434530-troubleshooting-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "What are the exact requirements for a skill's file structure to load correctly?",
+      "options": [
+        "The SKILL.md file can be at the skills root with any capitalization",
+        "The SKILL.md file must be inside a named directory and the file name must be exactly SKILL.md with all caps on SKILL and lowercase md",
+        "The skill file must be named skill.md and placed directly in the skills folder",
+        "The file can be named SKILL.md or Skill.md as long as it's in any subdirectory"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifies that the SKILL.md file must be inside a named directory (not at the skills root) and the file name must be exactly SKILL.md — all caps on 'SKILL', lowercase 'md'.",
+      "id": "434530-troubleshooting-skills-q1",
+      "classFile": "434530-troubleshooting-skills",
+      "lesson": "introduction-to-agent-skills"
+    },
+    {
+      "question": "When a skill doesn't trigger, what is the cause almost always?",
+      "options": [
+        "The skill is missing execute permissions",
+        "The description — Claude uses semantic matching and needs overlap with how you phrase requests",
+        "The plugin cache needs to be cleared",
+        "The skill has a priority conflict with an enterprise skill"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that when a skill doesn't trigger, the cause is almost always the description — Claude uses semantic matching, so your request needs to overlap with the description's meaning.",
+      "id": "434530-troubleshooting-skills-q2",
+      "classFile": "434530-troubleshooting-skills",
+      "lesson": "introduction-to-agent-skills"
+    }
+  ]
+}

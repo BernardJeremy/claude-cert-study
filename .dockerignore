@@ -1,0 +1,14 @@
+.next
+node_modules
+.git
+.gitignore
+.claude
+HTML
+scripts
+.env
+.env*.local
+*.tsbuildinfo
+yarn-debug.log*
+yarn-error.log*
+README.md
+CLAUDE.md

@@ -1,0 +1,425 @@
+{
+  "lesson": "introduction-to-model-context-protocol",
+  "questions": [
+    {
+      "question": "What is the primary problem that Model Context Protocol (MCP) solves?",
+      "options": [
+        "It eliminates the need for Claude to use tools entirely",
+        "It shifts the burden of tool definitions and execution from your server to specialized MCP servers",
+        "It allows Claude to directly access external APIs without any intermediary",
+        "It replaces the need for Claude API authentication"
+      ],
+      "correctIndex": 1,
+      "explanation": "MCP moves the responsibility of creating and maintaining tool definitions and execution code away from your server to dedicated MCP servers, reducing the integration burden.",
+      "id": "296689-introducing-mcp-q0",
+      "classFile": "296689-introducing-mcp",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "In the context of MCP, what role does an MCP Server play?",
+      "options": [
+        "It stores user authentication credentials",
+        "It acts as a specialized interface that exposes tools, prompts, and resources in a standardized way to connect external services",
+        "It directly replaces Claude's language processing capabilities",
+        "It manages Claude's model fine-tuning and training"
+      ],
+      "correctIndex": 1,
+      "explanation": "MCP Servers act as specialized interfaces that expose tools, prompts, and resources in a standardized way, handling the implementation details of external services like GitHub.",
+      "id": "296689-introducing-mcp-q1",
+      "classFile": "296689-introducing-mcp",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "How is MCP different from tool use?",
+      "options": [
+        "MCP is only used for authentication while tool use handles API calls",
+        "Tool use is a concept that MCP completely replaces",
+        "MCP servers provide pre-defined tool schemas and functions, while tool use is about how Claude actually calls those tools",
+        "MCP and tool use are identical concepts with different names"
+      ],
+      "correctIndex": 2,
+      "explanation": "MCP servers provide already-implemented tool schemas and functions, whereas tool use refers to the mechanism by which Claude executes those tools—they are complementary but different concepts.",
+      "id": "296689-introducing-mcp-q2",
+      "classFile": "296689-introducing-mcp",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the primary role of the MCP client in a Claude API application?",
+      "options": [
+        "It serves as a communication bridge between your server and MCP servers, handling message exchange and protocol details",
+        "It directly executes all user queries without needing to communicate with external servers",
+        "It stores all tool definitions and manages the database of available functions",
+        "It authenticates users and manages access permissions to different tools"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the MCP client serves as the communication bridge between your server and MCP servers, handling message exchange and protocol details.",
+      "id": "296690-mcp-clients-q0",
+      "classFile": "296690-mcp-clients",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "Which of the following is NOT mentioned as a supported communication protocol for MCP client-server communication?",
+      "options": [
+        "Standard input/output",
+        "HTTP",
+        "WebSockets",
+        "FTP"
+      ],
+      "correctIndex": 3,
+      "explanation": "The class content lists standard input/output, HTTP, and WebSockets as supported protocols, but FTP is not mentioned as a supported communication method.",
+      "id": "296690-mcp-clients-q1",
+      "classFile": "296690-mcp-clients",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "In the example flow described in the class, what is the purpose of the ListToolsRequest/ListToolsResult message exchange?",
+      "options": [
+        "To allow Claude to directly execute tools on the MCP server",
+        "To enable the server to discover what tools are available from the MCP server so they can be sent to Claude",
+        "To transfer repository data from GitHub back to the user",
+        "To authenticate the MCP client with the MCP server"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, the ListToolsRequest/ListToolsResult exchange allows the client to ask the server 'what tools do you provide?' so your server can learn what tools are available to send to Claude.",
+      "id": "296690-mcp-clients-q2",
+      "classFile": "296690-mcp-clients",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "Who controls when a Tool is executed in an MCP server?",
+      "options": [
+        "The user through UI interactions",
+        "Claude (the AI model)",
+        "Your application code",
+        "The MCP server automatically"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tools are model-controlled primitives, meaning Claude decides when to call these functions to accomplish tasks.",
+      "id": "296691-mcp-review-q0",
+      "classFile": "296691-mcp-review",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "Which MCP primitive should you use to fetch data for populating UI autocomplete options?",
+      "options": [
+        "Tools",
+        "Resources",
+        "Prompts",
+        "Workflows"
+      ],
+      "correctIndex": 1,
+      "explanation": "Resources are app-controlled and are used to fetch data for UI elements, as demonstrated in the project's autocomplete implementation.",
+      "id": "296691-mcp-review-q1",
+      "classFile": "296691-mcp-review",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What type of primitive are the workflow buttons below the chat input in Claude's interface an example of?",
+      "options": [
+        "Tools",
+        "Resources",
+        "Prompts",
+        "Extensions"
+      ],
+      "correctIndex": 2,
+      "explanation": "Prompts are user-controlled and triggered by user actions like button clicks, which is exactly what the workflow buttons below the chat input represent.",
+      "id": "296691-mcp-review-q2",
+      "classFile": "296691-mcp-review",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the primary purpose of the get_prompt method in the MCP client?",
+      "options": [
+        "To list all available prompts from the server",
+        "To retrieve specific prompts with variables filled in through argument interpolation",
+        "To create new prompts on the server",
+        "To delete prompts that are no longer needed"
+      ],
+      "correctIndex": 1,
+      "explanation": "The get_prompt method handles variable interpolation by taking a prompt name and arguments dictionary, where the arguments are passed as keyword arguments to fill in the prompt template variables.",
+      "id": "296692-prompts-in-the-client-q0",
+      "classFile": "296692-prompts-in-the-client",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "How are client-provided arguments used when retrieving a prompt from the server?",
+      "options": [
+        "They are stored in a database for future reference",
+        "They are used to filter which prompts are returned",
+        "They become keyword arguments that are passed to the prompt function for interpolation",
+        "They are sent directly to Claude without any processing"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to the class content, arguments provided by the client become keyword arguments in the prompt function, enabling variable interpolation within the prompt template.",
+      "id": "296692-prompts-in-the-client-q1",
+      "classFile": "296692-prompts-in-the-client",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What should prompts be according to the class content?",
+      "options": [
+        "Automatically generated by the system",
+        "High-quality, well-tested, and relevant to the MCP server's purpose",
+        "Simple one-line instructions for the AI",
+        "Modified by the client before each use"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that prompts should be high-quality, well-tested, and relevant to your MCP server's purpose.",
+      "id": "296692-prompts-in-the-client-q2",
+      "classFile": "296692-prompts-in-the-client",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What command is used to start the MCP Inspector for testing a Python MCP server?",
+      "options": [
+        "mcp dev mcp_server.py",
+        "mcp start mcp_server.py",
+        "mcp inspect mcp_server.py",
+        "mcp test mcp_server.py"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that you run the inspector with 'mcp dev mcp_server.py' to start a development server.",
+      "id": "296693-the-server-inspector-q0",
+      "classFile": "296693-the-server-inspector",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the typical local URL provided when starting the MCP Inspector?",
+      "options": [
+        "http://localhost:8080",
+        "http://127.0.0.1:6274",
+        "http://localhost:3000",
+        "http://127.0.0.1:5000"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifically mentions that the inspector typically provides a local URL of 'http://127.0.0.1:6274'.",
+      "id": "296693-the-server-inspector-q1",
+      "classFile": "296693-the-server-inspector",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What happens to the server state when testing multiple tool interactions in sequence using the MCP Inspector?",
+      "options": [
+        "The server state is reset after each tool call",
+        "The server state is maintained between tool calls so edits persist",
+        "The server state is automatically saved to a database",
+        "The server state must be manually refreshed between calls"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that 'the inspector maintains your server state between tool calls, so edits persist and you can verify the complete functionality.'",
+      "id": "296693-the-server-inspector-q2",
+      "classFile": "296693-the-server-inspector",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the primary advantage of using resources in MCP compared to tool calls?",
+      "options": [
+        "Resources allow data to be directly included in prompts rather than requiring separate tool calls",
+        "Resources can only handle JSON data while tool calls handle all data types",
+        "Resources eliminate the need for implementing a read_resource function",
+        "Resources automatically parse all content types without checking MIME types"
+      ],
+      "correctIndex": 0,
+      "explanation": "Resources provide a more efficient way to include information directly in prompts, creating immediate context for AI models rather than requiring separate tool calls to access data.",
+      "id": "296695-accessing-resources-q0",
+      "classFile": "296695-accessing-resources",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "How does the read_resource function handle different content types?",
+      "options": [
+        "It always parses content as JSON regardless of MIME type",
+        "It checks the MIME type and parses application/json as JSON objects while returning other content as raw text",
+        "It ignores MIME types and returns all content as plain text",
+        "It requires manual specification of the content type before processing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The function checks the MIME type to determine processing: if it's application/json, it parses the text as JSON; otherwise, it returns the raw text content.",
+      "id": "296695-accessing-resources-q1",
+      "classFile": "296695-accessing-resources",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "When a user types '@' followed by a resource name in the CLI application, what happens?",
+      "options": [
+        "The system immediately sends a request to the AI model without showing any options",
+        "The system shows available resources in an autocomplete list, allows selection with arrow keys and space, and includes the resource content directly in the prompt",
+        "The system requires the user to manually type the complete resource URI",
+        "The system creates a tool call that the AI model must execute to access the resource"
+      ],
+      "correctIndex": 1,
+      "explanation": "The '@' syntax triggers a user-friendly workflow where available resources appear in autocomplete, can be selected with arrow keys and space, and the content is included directly in the prompt sent to the AI model.",
+      "id": "296695-accessing-resources-q2",
+      "classFile": "296695-accessing-resources",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What are the two main components that make up the MCP client?",
+      "options": [
+        "MCP Client class and Client Session",
+        "MCP Server and Client Connection",
+        "Tool Manager and Resource Handler",
+        "Session Manager and Tool Executor"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, the MCP client consists of two main components: a custom MCP Client class created to make using the session easier, and the Client Session which is the actual connection to the server (part of the MCP Python SDK).",
+      "id": "296696-implementing-a-client-q0",
+      "classFile": "296696-implementing-a-client",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the primary purpose of wrapping the client session in a custom class?",
+      "options": [
+        "To increase the speed of tool execution",
+        "To handle all cleanup automatically and manage resources carefully",
+        "To encrypt the connection to the MCP server",
+        "To cache tool results for faster retrieval"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that we wrap the client session in our own class because the client session requires careful resource management, and we need to properly clean up connections when we're done.",
+      "id": "296696-implementing-a-client-q1",
+      "classFile": "296696-implementing-a-client",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "Which of the following correctly describes what the list_tools() function does?",
+      "options": [
+        "It executes a specific tool on the server and returns the result",
+        "It gets all available tools from the MCP server by accessing the session and calling the built-in list_tools() method",
+        "It sends tool definitions to Claude for processing",
+        "It manages and stores all tool definitions in a local database"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, the list_tools() function is straightforward - it accesses the session (the connection to the server), calls the built-in list_tools() method, and returns the tools from the result.",
+      "id": "296696-implementing-a-client-q2",
+      "classFile": "296696-implementing-a-client",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "How do you initialize an MCP server using the Python SDK?",
+      "options": [
+        "from mcp.server.fastmcp import FastMCP; mcp = FastMCP(\"DocumentMCP\", log_level=\"ERROR\")",
+        "from mcp.server import MCP; mcp = MCP(\"DocumentMCP\")",
+        "import mcp; mcp = mcp.Server(\"DocumentMCP\", log_level=\"ERROR\")",
+        "from mcp import FastMCP; mcp = FastMCP.create(\"DocumentMCP\")"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly shows that you initialize an MCP server with 'from mcp.server.fastmcp import FastMCP' followed by 'mcp = FastMCP(\"DocumentMCP\", log_level=\"ERROR\")'.",
+      "id": "296697-defining-tools-with-mcp-q0",
+      "classFile": "296697-defining-tools-with-mcp",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What are the three parameters required for the edit_document tool?",
+      "options": [
+        "doc_id, new_str, replacement_str",
+        "doc_id, old_str, new_str",
+        "document_id, find_text, replace_text",
+        "id, search_string, update_string"
+      ],
+      "correctIndex": 1,
+      "explanation": "The edit_document tool function takes exactly three parameters: doc_id, old_str, and new_str, as shown in the class content implementation.",
+      "id": "296697-defining-tools-with-mcp-q1",
+      "classFile": "296697-defining-tools-with-mcp",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "According to the class content, what happens when you use decorators to define tools in the MCP Python SDK?",
+      "options": [
+        "You must still write JSON schemas manually for each tool",
+        "The SDK automatically generates the proper schema that Claude can understand based on Python type hints",
+        "Claude receives tool definitions in plain text format",
+        "Tool registration requires separate configuration files"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that 'the SDK automatically generates the proper schema that Claude can understand' and that you no longer need to write JSON schemas manually when using type hints with decorators.",
+      "id": "296697-defining-tools-with-mcp-q2",
+      "classFile": "296697-defining-tools-with-mcp",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the primary advantage of using prompts in MCP servers instead of having users write their own instructions?",
+      "options": [
+        "Prompts allow users to bypass Claude's capabilities entirely",
+        "Pre-built prompts are thoroughly tested, handle edge cases, and follow best practices, giving users better results than they could achieve on their own",
+        "Prompts are the only way to make Claude perform any tasks",
+        "Prompts eliminate the need for users to have any knowledge of their documents"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that users get much better results with thoroughly tested, specialized prompts that handle edge cases and follow best practices compared to writing their own instructions.",
+      "id": "296698-defining-prompts-q0",
+      "classFile": "296698-defining-prompts",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "In the format command example, what does the prompt function return?",
+      "options": [
+        "A string containing the formatted markdown document",
+        "A single UserMessage object",
+        "A list of messages that get sent directly to Claude",
+        "A dictionary with formatting instructions"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content explicitly states that 'The function returns a list of messages that get sent directly to Claude' and can include multiple user and assistant messages.",
+      "id": "296698-defining-prompts-q1",
+      "classFile": "296698-defining-prompts",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the purpose of using the MCP Inspector when developing prompts?",
+      "options": [
+        "To deploy prompts directly to production without testing",
+        "To test prompts before deploying them and verify how variables are interpolated into the prompt template",
+        "To delete unused prompts from the server",
+        "To convert prompts into different programming languages"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that the MCP Inspector lets you test prompts, see exactly what messages will be sent to Claude, and verify the prompt looks correct before users rely on it.",
+      "id": "296698-defining-prompts-q2",
+      "classFile": "296698-defining-prompts",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "In the document mention feature example, what are the two operations required to implement the @document_name reference system?",
+      "options": [
+        "Getting a list of all available documents and fetching the contents of a specific document",
+        "Creating new documents and deleting existing documents",
+        "Updating document metadata and archiving old documents",
+        "Validating document permissions and encrypting document contents"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the document mention feature requires getting a list of all available documents for autocomplete and fetching the contents of a specific document when mentioned.",
+      "id": "296699-defining-resources-q0",
+      "classFile": "296699-defining-resources",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "What is the key difference between direct resources and templated resources in MCP servers?",
+      "options": [
+        "Direct resources have static URIs that never change, while templated resources include parameters in their URIs",
+        "Direct resources require authentication, while templated resources do not",
+        "Direct resources return JSON data, while templated resources return plain text",
+        "Direct resources are faster than templated resources"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content defines direct resources as having static URIs that never change and templated resources as including parameters in their URIs that are automatically parsed by the Python SDK.",
+      "id": "296699-defining-resources-q1",
+      "classFile": "296699-defining-resources",
+      "lesson": "introduction-to-model-context-protocol"
+    },
+    {
+      "question": "When using the MCP Inspector to test templated resources, what additional step is required compared to testing direct resources?",
+      "options": [
+        "You need to provide values for the parameters in the templated resource URI",
+        "You need to write additional Python code to validate the results",
+        "You need to restart the server between each test",
+        "You need to manually serialize the response data"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content states that for templated resources in the MCP Inspector, you will need to provide values for the parameters, whereas direct resources do not have parameters.",
+      "id": "296699-defining-resources-q2",
+      "classFile": "296699-defining-resources",
+      "lesson": "introduction-to-model-context-protocol"
+    }
+  ]
+}

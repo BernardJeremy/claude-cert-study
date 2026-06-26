@@ -1,0 +1,2777 @@
+{
+  "lesson": "claude-with-the-anthropic-api",
+  "questions": [
+    {
+      "question": "What are the three key parameters required by the client.messages.create() function?",
+      "options": [
+        "model, max_tokens, and messages",
+        "model, temperature, and messages",
+        "api_key, max_tokens, and prompt",
+        "model, messages, and response_format"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that client.messages.create() requires three key parameters: model, max_tokens, and messages.",
+      "id": "287725-making-a-request-q0",
+      "classFile": "287725-making-a-request",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the purpose of the max_tokens parameter?",
+      "options": [
+        "It sets a target for how many tokens Claude should generate",
+        "It acts as a safety mechanism to limit response length, stopping generation if the maximum is reached",
+        "It determines the minimum length of Claude's response",
+        "It controls the cost of the API request"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that max_tokens acts as a safety mechanism and that Claude doesn't try to reach this limit but simply stops if it hits the maximum.",
+      "id": "287725-making-a-request-q1",
+      "classFile": "287725-making-a-request",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How do you access the generated text from the response object returned by client.messages.create()?",
+      "options": [
+        "message.text",
+        "message.content.text",
+        "message.content[0].text",
+        "message.response.text"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content explicitly shows that the generated text is accessed using message.content[0].text to get clean, readable output.",
+      "id": "287725-making-a-request-q2",
+      "classFile": "287725-making-a-request",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why should you never make requests to the Anthropic API directly from client-side code?",
+      "options": [
+        "It is slower than making requests through a server",
+        "API requests require a secret API key for authentication, and exposing it in client code creates a serious security vulnerability",
+        "The Anthropic API only accepts requests from registered servers",
+        "Client-side requests cannot include the required model parameter"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that API requests require a secret API key and exposing it in client code creates a security vulnerability that would allow unauthorized access.",
+      "id": "287726-accessing-the-api-q0",
+      "classFile": "287726-accessing-the-api",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "During Claude's processing, what is the purpose of the contextualization stage?",
+      "options": [
+        "Converting tokens into long lists of numbers that represent word meanings",
+        "Breaking input text into smaller chunks called tokens",
+        "Refining each embedding based on surrounding words to determine the most likely meaning in context",
+        "Calculating probabilities for each possible next word"
+      ],
+      "correctIndex": 2,
+      "explanation": "The contextualization stage adjusts numerical representations of tokens based on surrounding words to highlight the appropriate definition for each word in its specific context.",
+      "id": "287726-accessing-the-api-q1",
+      "classFile": "287726-accessing-the-api",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following is NOT listed as an essential field that must be included in every request to the Anthropic API?",
+      "options": [
+        "API Key",
+        "Model",
+        "Messages",
+        "Temperature Setting"
+      ],
+      "correctIndex": 3,
+      "explanation": "The class content specifies that API Key, Model, Messages, and Max Tokens are the essential fields required in every request, with no mention of Temperature Setting as a required field.",
+      "id": "287726-accessing-the-api-q2",
+      "classFile": "287726-accessing-the-api",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the range of values for the temperature parameter in Claude?",
+      "options": [
+        "0 to 10",
+        "0 to 1",
+        "-1 to 1",
+        "1 to 100"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, temperature is a decimal value between 0 and 1 that controls how predictable or creative Claude's responses are.",
+      "id": "287728-temperature-q0",
+      "classFile": "287728-temperature",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which temperature range is recommended for factual responses and coding assistance?",
+      "options": [
+        "0.8 - 1.0",
+        "0.4 - 0.7",
+        "0.0 - 0.3",
+        "1.0 - 1.5"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content specifies that low temperature (0.0 - 0.3) is recommended for factual responses, coding assistance, data extraction, and content moderation.",
+      "id": "287728-temperature-q1",
+      "classFile": "287728-temperature",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "At temperature 0.0, what happens to Claude's token selection behavior?",
+      "options": [
+        "Claude randomly selects from all possible tokens equally",
+        "Claude almost always picks the highest probability token",
+        "Claude selects tokens based on user preferences",
+        "Claude refuses to generate any response"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that at low temperatures near 0, Claude becomes very deterministic and almost always picks the highest probability token.",
+      "id": "287728-temperature-q2",
+      "classFile": "287728-temperature",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two critical concepts you need to understand when building reliable AI applications with Claude?",
+      "options": [
+        "Prompt engineering and prompt evaluation",
+        "Multishot prompting and XML tag structuring",
+        "Testing and deployment strategies",
+        "User feedback and performance metrics"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that prompt engineering and prompt evaluation are the two critical concepts needed to build reliable AI applications with Claude.",
+      "id": "287731-prompt-evaluation-q0",
+      "classFile": "287731-prompt-evaluation",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following best describes the difference between prompt engineering and prompt evaluation?",
+      "options": [
+        "Prompt engineering focuses on measuring effectiveness while prompt evaluation focuses on writing better prompts",
+        "Prompt engineering is a toolkit for crafting effective prompts, while prompt evaluation measures their effectiveness through automated testing",
+        "Prompt engineering is only for beginners while prompt evaluation is for advanced users",
+        "Prompt engineering uses XML tags while prompt evaluation uses multishot prompting"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content defines prompt engineering as a toolkit for crafting effective prompts and prompt evaluation as measuring effectiveness through automated testing, which is the opposite of the first option.",
+      "id": "287731-prompt-evaluation-q1",
+      "classFile": "287731-prompt-evaluation",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what is the main advantage of Option 3 (running prompts through an evaluation pipeline) compared to Options 1 and 2?",
+      "options": [
+        "It requires less time and cost than other options",
+        "It guarantees that users will never encounter unexpected inputs",
+        "It provides objective metrics about performance across a broader range of test cases, allowing you to catch problems during development",
+        "It eliminates the need for any prompt engineering techniques"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content explains that Option 3 provides objective metrics across a broader range of test cases and allows you to catch problems during development rather than after users encounter them in production.",
+      "id": "287731-prompt-evaluation-q2",
+      "classFile": "287731-prompt-evaluation",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the main problem that occurs when Claude generates JSON by default?",
+      "options": [
+        "Claude wraps the JSON in markdown code blocks with explanatory text, making it difficult for users to copy raw data",
+        "Claude refuses to generate JSON and returns an error message instead",
+        "Claude generates invalid JSON syntax that cannot be parsed",
+        "Claude takes too long to process JSON generation requests"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that Claude wraps JSON in markdown formatting and includes explanatory text, which creates friction when users need to copy raw JSON.",
+      "id": "287732-structured-data-q0",
+      "classFile": "287732-structured-data",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How does the combination of assistant message prefilling and stop sequences solve the JSON generation problem?",
+      "options": [
+        "It removes Claude's ability to generate explanatory text entirely",
+        "The prefilled assistant message makes Claude think it already started a markdown code block, and the stop sequence ends generation when Claude tries to close it",
+        "It forces Claude to use a different language model that generates cleaner output",
+        "It automatically converts all JSON responses to Python dictionaries"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that the prefilled assistant message makes Claude continue with just the JSON content, and the stop sequence immediately ends generation when Claude tries to close the code block.",
+      "id": "287732-structured-data-q1",
+      "classFile": "287732-structured-data",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, which of the following is NOT mentioned as a use case for the assistant message prefilling and stop sequence technique?",
+      "options": [
+        "Generating Python code snippets",
+        "Generating bulleted lists",
+        "Generating database schema migrations",
+        "Generating CSV data"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content lists Python code snippets, bulleted lists, and CSV data as examples, but does not mention database schema migrations as a use case for this technique.",
+      "id": "287732-structured-data-q2",
+      "classFile": "287732-structured-data",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary purpose of using system prompts with Claude?",
+      "options": [
+        "To customize how Claude responds and shape its tone, style, and approach for specific use cases",
+        "To increase the maximum number of tokens Claude can process",
+        "To reduce the latency of API responses",
+        "To allow Claude to access external knowledge bases"
+      ],
+      "correctIndex": 0,
+      "explanation": "System prompts are designed to customize Claude's responses by shaping tone, style, and approach to match specific use cases, as stated in the class content.",
+      "id": "287733-system-prompts-q0",
+      "classFile": "287733-system-prompts",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the math tutor example, what should Claude do instead of immediately providing direct answers?",
+      "options": [
+        "Tell students to use a calculator for faster solutions",
+        "Provide complete step-by-step solutions immediately",
+        "Guide students to solutions step by step through guiding questions and hints",
+        "Skip explaining the problem and move to the next question"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states that a good math tutor should guide students through problems step by step and initially give hints rather than complete solutions.",
+      "id": "287733-system-prompts-q1",
+      "classFile": "287733-system-prompts",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is it necessary to conditionally include the system parameter in the chat function?",
+      "options": [
+        "To save memory and reduce storage usage",
+        "Because Claude's API doesn't accept system=None, so the parameter should only be included when it's provided",
+        "To allow the function to process messages faster",
+        "To prevent users from modifying the system prompt"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that Claude's API doesn't accept system=None, so you need to conditionally include the system parameter only when it's provided.",
+      "id": "287733-system-prompts-q2",
+      "classFile": "287733-system-prompts",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary user experience problem that response streaming solves when building chat applications with Claude?",
+      "options": [
+        "Users have to wait 10-30 seconds for responses while staring at a loading spinner with no feedback",
+        "Claude's responses are too long and overwhelming for users to read",
+        "The server cannot handle multiple concurrent user requests",
+        "Users cannot edit their messages after sending them"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that responses can take 10-30 seconds to generate, leaving users staring at a loading spinner, and streaming solves this by showing text appear chunk by chunk.",
+      "id": "287734-response-streaming-q0",
+      "classFile": "287734-response-streaming",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which event type in Claude's streaming contains the actual generated text chunks that should be displayed to users?",
+      "options": [
+        "MessageStart",
+        "ContentBlockDelta",
+        "ContentBlockStop",
+        "MessageDelta"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that 'The ContentBlockDelta events contain the actual generated text that you'll want to display to users.'",
+      "id": "287734-response-streaming-q1",
+      "classFile": "287734-response-streaming",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How can you retrieve the complete assembled message after streaming has finished using the SDK's simplified streaming interface?",
+      "options": [
+        "Call client.messages.get() with the message ID",
+        "The final message is automatically returned by the stream object",
+        "Use stream.get_final_message() to access the complete message object",
+        "You must manually concatenate all the text chunks yourself"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content shows that after streaming completes, you can call stream.get_final_message() to get the assembled final message for storage or further processing.",
+      "id": "287734-response-streaming-q2",
+      "classFile": "287734-response-streaming",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why does Claude fail to understand follow-up questions like 'Write another sentence' without additional context?",
+      "options": [
+        "Because Claude doesn't store conversation history and has no memory of previous exchanges",
+        "Because the API connection is too slow to process follow-up requests",
+        "Because Claude requires a special flag to be enabled for multi-turn conversations",
+        "Because the user needs to ask permission before Claude can access previous messages"
+      ],
+      "correctIndex": 0,
+      "explanation": "Claude is stateless and doesn't store any conversation history, so it has no memory of previous messages unless you explicitly send the complete message history with each request.",
+      "id": "287735-multi-turn-conversations-q0",
+      "classFile": "287735-multi-turn-conversations",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the correct flow for maintaining a multi-turn conversation with Claude?",
+      "options": [
+        "Send the initial message and Claude will automatically remember all follow-ups",
+        "Send the initial user message, add Claude's response to your message list, then send the entire conversation history with each new request",
+        "Create a new conversation session for each follow-up question",
+        "Use the API's built-in conversation memory feature to track all exchanges"
+      ],
+      "correctIndex": 1,
+      "explanation": "To maintain conversation context, you must manually maintain a list of all messages in your code and send the complete message history with every request to Claude.",
+      "id": "287735-multi-turn-conversations-q1",
+      "classFile": "287735-multi-turn-conversations",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what are the three helper functions recommended for managing conversations?",
+      "options": [
+        "send_message(), receive_message(), and clear_history()",
+        "add_user_message(), add_assistant_message(), and chat()",
+        "start_conversation(), continue_conversation(), and end_conversation()",
+        "create_message(), store_message(), and retrieve_message()"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly describes three helper functions: add_user_message() to add user messages, add_assistant_message() to add Claude's responses, and chat() to send the complete message history to Claude.",
+      "id": "287735-multi-turn-conversations-q2",
+      "classFile": "287735-multi-turn-conversations",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the prompt evaluation workflow, what is the primary purpose of Step 2: Create an Eval Dataset?",
+      "options": [
+        "To send sample inputs to Claude and collect responses",
+        "To contain sample inputs that represent the types of questions or requests your prompt will handle in production",
+        "To evaluate the quality of Claude's responses on a scale from 1 to 10",
+        "To modify your prompt based on the baseline score and test it again"
+      ],
+      "correctIndex": 1,
+      "explanation": "Step 2 involves creating a dataset with sample inputs that represent the types of questions your prompt will handle in production, which can be assembled by hand or generated using Claude.",
+      "id": "287736-a-typical-eval-workflow-q0",
+      "classFile": "287736-a-typical-eval-workflow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what score did the grader assign to Claude's response about making oatmeal in the example?",
+      "options": [
+        "10",
+        "9",
+        "4",
+        "7.66"
+      ],
+      "correctIndex": 2,
+      "explanation": "The grader assigned a score of 4 to the oatmeal question, indicating that it needs improvement.",
+      "id": "287736-a-typical-eval-workflow-q1",
+      "classFile": "287736-a-typical-eval-workflow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the example provided, what improvement was made to the prompt in Step 5 to potentially increase the average score from 7.66 to 8.7?",
+      "options": [
+        "Adding more questions to the evaluation dataset",
+        "Adding more guidance to the prompt by including 'Answer the question with ample detail'",
+        "Changing the grading scale from 1 to 10 to a different range",
+        "Removing the baseline prompt and starting with a completely new one"
+      ],
+      "correctIndex": 1,
+      "explanation": "The prompt was improved by adding the instruction 'Answer the question with ample detail' to provide more guidance to Claude, which resulted in a higher average score of 8.7.",
+      "id": "287736-a-typical-eval-workflow-q2",
+      "classFile": "287736-a-typical-eval-workflow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two key aspects of AI-generated responses that code grading validates?",
+      "options": [
+        "Format and Valid Syntax",
+        "Task Following and Performance Speed",
+        "Accuracy and Code Efficiency",
+        "Documentation and Error Handling"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, code grading validates Format (returning only the requested code type without explanations) and Valid Syntax (the generated code should parse correctly as the intended language).",
+      "id": "287737-code-based-grading-q0",
+      "classFile": "287737-code-based-grading",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What score is returned by the syntax validation functions when parsing succeeds?",
+      "options": [
+        "5",
+        "15",
+        "10",
+        "100"
+      ],
+      "correctIndex": 2,
+      "explanation": "Each syntax validation function (validate_json, validate_python, validate_regex) returns a perfect score of 10 when parsing succeeds.",
+      "id": "287737-code-based-grading-q1",
+      "classFile": "287737-code-based-grading",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What should be included in test cases for the code grader to determine which validator to use?",
+      "options": [
+        "A 'language' field specifying the programming language",
+        "A 'format' field specifying the expected output format",
+        "A 'validator' field naming the specific validation function",
+        "A 'type' field indicating the code category"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that test cases need to specify the expected output format using a 'format' field so the code grader knows which validator to use.",
+      "id": "287737-code-based-grading-q2",
+      "classFile": "287737-code-based-grading",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the three specific types of output that the AWS code assistance prompt needs to help users create?",
+      "options": [
+        "Python code, JSON configuration files, and Regular expressions",
+        "Python code, YAML configuration files, and Shell scripts",
+        "JavaScript code, JSON configuration files, and Regular expressions",
+        "Python code, XML configuration files, and Regular expressions"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the prompt needs to assist users in writing three specific types of output: Python code, JSON configuration files, and Regular expressions.",
+      "id": "287739-generating-test-datasets-q0",
+      "classFile": "287739-generating-test-datasets",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is using a faster model like Haiku recommended when generating test data for prompt evaluation?",
+      "options": [
+        "Because it produces more accurate test data than other models",
+        "Because it is appropriate for generating test data and is more cost-effective than using the full Claude model",
+        "Because it is the only model capable of generating JSON datasets",
+        "Because it can generate larger datasets than other models"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that since test data is being generated, using a faster model like Haiku instead of the full Claude model is a perfect opportunity, implying it is more efficient and appropriate for this task.",
+      "id": "287739-generating-test-datasets-q1",
+      "classFile": "287739-generating-test-datasets",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What technique is used in the generate_dataset() function to ensure proper JSON parsing of the Claude response?",
+      "options": [
+        "Using regex patterns to extract JSON from plain text",
+        "Using prefilling and stop sequences to control the response format",
+        "Using multiple API calls to validate the JSON output",
+        "Using a separate JSON validation library before parsing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that prefilling and stop sequences are used to properly parse the JSON response from the dataset generation function.",
+      "id": "287739-generating-test-datasets-q2",
+      "classFile": "287739-generating-test-datasets",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what are the two main approaches to being specific in prompts when working with Claude?",
+      "options": [
+        "Output Quality Guidelines and Process Steps",
+        "Length Requirements and Format Specifications",
+        "Brainstorming and Outlining",
+        "Tone Control and Style Requirements"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that there are two main approaches to being specific in prompts: Output Quality Guidelines and Process Steps.",
+      "id": "287740-being-specific-q0",
+      "classFile": "287740-being-specific",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the meal planning example provided, what was the improvement in evaluation score after adding guidelines?",
+      "options": [
+        "From 3.92 to 5.50",
+        "From 3.92 to 7.86",
+        "From 5.00 to 10.00",
+        "From 4.50 to 8.00"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that adding guidelines to a meal planning prompt improved the evaluation score from 3.92 to 7.86, more than doubling the quality of the output.",
+      "id": "287740-being-specific-q1",
+      "classFile": "287740-being-specific",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, when should you use Process Steps in your prompts?",
+      "options": [
+        "Only when writing creative content like stories",
+        "For simple, straightforward requests",
+        "For troubleshooting complex problems, decision-making scenarios, critical thinking tasks, and situations where you want Claude to consider multiple angles",
+        "When you need to control the length of the response"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content specifies that Process Steps should be used for complex problems, decision-making scenarios, critical thinking tasks, and any situation where you want Claude to consider multiple angles.",
+      "id": "287740-being-specific-q2",
+      "classFile": "287740-being-specific",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what is the primary benefit of using XML tags when building prompts with large amounts of content?",
+      "options": [
+        "XML tags help Claude understand the structure and boundaries of different sections in your prompt",
+        "XML tags reduce the token count of your prompts significantly",
+        "XML tags allow Claude to process information faster than plain text",
+        "XML tags enable Claude to access external databases and APIs"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that XML tags provide clear delimiters and structure that help Claude understand the boundaries between instructions and data.",
+      "id": "287741-structure-with-xml-tags-q0",
+      "classFile": "287741-structure-with-xml-tags",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following is identified as a best practice for naming XML tags in your prompts?",
+      "options": [
+        "Always use standard XML tag names like <data> and <content>",
+        "Use generic single-letter tags to keep prompts concise",
+        "Create descriptive tag names that clearly identify the purpose of the content, such as <sales_records> instead of <data>",
+        "Use abbreviated tag names with numbers to organize multiple sections"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states that custom tag names should be descriptive and specific, with examples showing that <sales_records> is better than <data> and <athlete_information> clearly identifies user details.",
+      "id": "287741-structure-with-xml-tags-q1",
+      "classFile": "287741-structure-with-xml-tags",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, XML tags are particularly useful when which of the following conditions apply?",
+      "options": [
+        "Only when your prompt is longer than 1000 words",
+        "When including large amounts of context or data, mixing different types of content, or working with complex prompts that interpolate multiple variables",
+        "Only for code-related prompts and technical documentation",
+        "When you want to hide sensitive information from Claude"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly lists when XML tags are most useful: including large amounts of context or data, mixing different types of content, and working with complex prompts that interpolate multiple variables.",
+      "id": "287741-structure-with-xml-tags-q2",
+      "classFile": "287741-structure-with-xml-tags",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the three main approaches to grading model outputs?",
+      "options": [
+        "Code graders, model graders, and human graders",
+        "Automated graders, manual graders, and hybrid graders",
+        "Syntax graders, quality graders, and safety graders",
+        "Objective graders, subjective graders, and statistical graders"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly lists code graders, model graders, and human graders as the three main approaches to grading model outputs.",
+      "id": "287742-model-based-grading-q0",
+      "classFile": "287742-model-based-grading",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is asking for strengths, weaknesses, and reasoning important when implementing a model grader?",
+      "options": [
+        "It makes the grading process faster and more efficient",
+        "Without this context, models tend to default to middling scores around 6",
+        "It ensures the grader only evaluates code quality",
+        "It eliminates the need for human review of the outputs"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that without strengths, weaknesses, and reasoning context, models tend to default to middling scores around 6.",
+      "id": "287742-model-based-grading-q1",
+      "classFile": "287742-model-based-grading",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "For a code generation prompt with evaluation criteria of format, valid syntax, and task following, which grader type would be most appropriate for evaluating task following?",
+      "options": [
+        "Code graders, because they can validate any programmatic check",
+        "Human graders, because they are always the most flexible option",
+        "Model graders, due to their flexibility in assessing this criterion",
+        "A combination of code and human graders only"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states that task following is better suited for model graders due to their flexibility, while format and syntax work well with code graders.",
+      "id": "287742-model-based-grading-q2",
+      "classFile": "287742-model-based-grading",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the three main functions that make up the evaluation pipeline?",
+      "options": [
+        "run_prompt, run_test_case, and run_eval",
+        "load_dataset, process_output, and grade_result",
+        "merge_prompt, send_to_claude, and calculate_score",
+        "initialize_pipeline, execute_test, and finalize_results"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the evaluation pipeline consists of three main functions: run_prompt (which merges the prompt and test case), run_test_case (which orchestrates running a test case and grading), and run_eval (which coordinates the entire evaluation process).",
+      "id": "287743-running-the-eval-q0",
+      "classFile": "287743-running-the-eval",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What does the run_prompt function do?",
+      "options": [
+        "It loads the dataset and iterates through all test cases",
+        "It takes a test case and merges it with the prompt template, then returns the result from Claude",
+        "It grades the output from Claude using a hardcoded score",
+        "It collects all evaluation results into a single structured list"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, the run_prompt function 'takes a test case and merges it with our prompt template' and returns the result after sending it to Claude.",
+      "id": "287743-running-the-eval-q1",
+      "classFile": "287743-running-the-eval",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is the current score in run_test_case hardcoded to 10?",
+      "options": [
+        "Because 10 is the maximum possible score for any evaluation",
+        "Because Claude always returns results that deserve a score of 10",
+        "Because the grading logic will be developed in upcoming sections, and this placeholder allows testing the overall pipeline",
+        "Because the evaluation pipeline only supports scores between 1 and 10"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states 'The grading logic is where we'll spend significant time in upcoming sections, but this placeholder lets us test the overall pipeline,' explaining why the score is currently hardcoded.",
+      "id": "287743-running-the-eval-q2",
+      "classFile": "287743-running-the-eval",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what are the two key principles to focus on when crafting the first line of a prompt?",
+      "options": [
+        "Clarity and directness",
+        "Brevity and creativity",
+        "Formality and politeness",
+        "Complexity and detail"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the two key principles for the first line are clarity and directness, which are foundational to improving prompt effectiveness.",
+      "id": "287744-being-clear-and-direct-q0",
+      "classFile": "287744-being-clear-and-direct",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What does the class content recommend using instead of questions when giving instructions to Claude?",
+      "options": [
+        "Polite requests",
+        "Multiple choice options",
+        "Instructions with direct action verbs",
+        "Vague suggestions"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content explicitly states to use instructions with direct action verbs like 'Write,' 'Create,' or 'Generate' rather than questions when structuring requests.",
+      "id": "287744-being-clear-and-direct-q1",
+      "classFile": "287744-being-clear-and-direct",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the class example about improving a weak prompt, what was the evaluation score improvement when restructuring the opening line from 'What should this person eat?' to a clearer version?",
+      "options": [
+        "From 1.5 to 2.8",
+        "From 2.32 to 3.92",
+        "From 3.0 to 4.5",
+        "From 2.5 to 3.5"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifically states that the evaluation score jumped from 2.32 to 3.92 when restructuring the weak prompt with clear and direct language.",
+      "id": "287744-being-clear-and-direct-q2",
+      "classFile": "287744-being-clear-and-direct",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the first step in the iterative improvement process for prompt engineering?",
+      "options": [
+        "Set a goal",
+        "Write an initial prompt",
+        "Evaluate the prompt",
+        "Apply prompt engineering techniques"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, setting a goal to define what you want your prompt to accomplish is the first step in the iterative improvement cycle.",
+      "id": "287745-prompt-engineering-q0",
+      "classFile": "287745-prompt-engineering",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the recommended starting concurrency value when creating a PromptEvaluator instance to avoid rate limit errors?",
+      "options": [
+        "10",
+        "5",
+        "3",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content explicitly states to start with a low concurrency value like 3 to avoid rate limit errors and increase it if your API quota allows.",
+      "id": "287745-prompt-engineering-q1",
+      "classFile": "287745-prompt-engineering",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How many test cases should you keep during the development phase of prompt evaluation?",
+      "options": [
+        "5-10 cases for faster iteration",
+        "10-15 cases for comprehensive testing",
+        "2-3 cases to speed up your iteration cycle",
+        "20+ cases for thorough validation"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content recommends keeping the number of test cases low at 2-3 during development to speed up the iteration cycle, with the option to increase for final validation.",
+      "id": "287745-prompt-engineering-q2",
+      "classFile": "287745-prompt-engineering",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary advantage of using examples in prompts according to the class content?",
+      "options": [
+        "Examples show rather than tell, demonstrating directly what you want instead of describing it in words",
+        "Examples reduce the amount of tokens used in API calls",
+        "Examples eliminate the need for any other prompt engineering techniques",
+        "Examples guarantee that Claude will never make mistakes"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that examples are powerful because they show rather than tell, demonstrating desired outputs directly instead of relying solely on written descriptions.",
+      "id": "287746-providing-examples-q0",
+      "classFile": "287746-providing-examples",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When should you use multi-shot prompting instead of one-shot prompting?",
+      "options": [
+        "When you want to reduce the length of your prompt",
+        "When you need to handle various edge cases or show different types of valid responses",
+        "When you only have a single example available",
+        "When Claude is already performing perfectly on your task"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, multi-shot prompting should be used when you need to handle various edge cases or want to show different types of valid responses, whereas one-shot involves providing just a single example.",
+      "id": "287746-providing-examples-q1",
+      "classFile": "287746-providing-examples",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What does the class content recommend doing when adding context to examples in your prompt?",
+      "options": [
+        "Keep explanations brief and avoid over-explaining the reasoning",
+        "Only provide the input/output pair without any additional context",
+        "Explain why the output is good and how it aligns with your requirements, helping Claude understand the reasoning",
+        "Use only natural language descriptions without XML tags"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content advises to add context explaining why outputs are considered ideal, as this helps Claude understand the reasoning behind good responses, not just the format.",
+      "id": "287746-providing-examples-q2",
+      "classFile": "287746-providing-examples",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary limitation of Claude without tool use?",
+      "options": [
+        "Claude can only process text and not other data formats",
+        "Claude only knows information from its training data and cannot access current events, real-time data, or external systems",
+        "Claude cannot understand complex questions from users",
+        "Claude requires additional hardware to function properly"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, by default Claude only knows information from its training data and can't access current events, real-time data, or external systems, which is the fundamental problem that tool use solves.",
+      "id": "287747-introducing-tool-use-q0",
+      "classFile": "287747-introducing-tool-use",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the four steps in the tool use flow between an application and Claude?",
+      "options": [
+        "Request analysis, tool selection, data validation, and response generation",
+        "Initial request, tool request, data retrieval, and final response",
+        "User input, system check, external call, and output formatting",
+        "Question parsing, API connection, data processing, and answer delivery"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly outlines the complete flow as: Initial Request, Tool Request, Data Retrieval, and Final Response.",
+      "id": "287747-introducing-tool-use-q1",
+      "classFile": "287747-introducing-tool-use",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the weather example, what does Claude do after recognizing it needs current information?",
+      "options": [
+        "Claude automatically searches the internet for weather data",
+        "Claude asks your server for specific details about what weather data it needs",
+        "Claude provides a generic response based on historical weather patterns",
+        "Claude waits for the user to provide the weather information"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the weather example in the class content, Claude recognizes it needs current information and requests weather data for the specific location from your server.",
+      "id": "287747-introducing-tool-use-q2",
+      "classFile": "287747-introducing-tool-use",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the three main capabilities needed for the reminder system described in the tutorial?",
+      "options": [
+        "Get current date time, Add duration to date time, Set a reminder",
+        "Get current date time, Parse date strings, Send notifications",
+        "Calculate time zones, Add duration to date time, Store reminders",
+        "Get current date time, Validate dates, Create calendar events"
+      ],
+      "correctIndex": 0,
+      "explanation": "The tutorial explicitly states that the three main capabilities needed are: Get current date time, Add duration to date time, and Set a reminder.",
+      "id": "287749-using-multiple-tools-q0",
+      "classFile": "287749-using-multiple-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How do you tell Claude about available tools in the run_conversation function?",
+      "options": [
+        "By passing tool schemas in the tools parameter of the chat function",
+        "By importing all tool functions at the beginning of the script",
+        "By defining tools as global variables in the module",
+        "By adding tool names to a configuration file"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the tutorial, you update the run_conversation function to include new tool schemas in the tools list parameter passed to the chat function.",
+      "id": "287749-using-multiple-tools-q1",
+      "classFile": "287749-using-multiple-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the run_tool function, what is the correct pattern for handling tool calls?",
+      "options": [
+        "Check the tool name, call the corresponding function with the provided input, and return the result",
+        "Execute all tools in parallel and return the fastest result",
+        "Validate the tool input before routing to the appropriate function",
+        "Create a new thread for each tool call to improve performance"
+      ],
+      "correctIndex": 0,
+      "explanation": "The tutorial states that the pattern is simple: check the tool name, call the corresponding function with the provided input, and return the result.",
+      "id": "287749-using-multiple-tools-q2",
+      "classFile": "287749-using-multiple-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the multi-turn tool pattern, what is the first step Claude takes when a user asks 'What day is 103 days from today?'",
+      "options": [
+        "Request the get_current_datetime tool",
+        "Request the add_duration_to_datetime tool",
+        "Provide the final answer directly",
+        "Ask the user for the current date"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, Claude first needs to get the current date by calling get_current_datetime before it can add 103 days to it.",
+      "id": "287750-multi-turn-conversations-with-tools-q0",
+      "classFile": "287750-multi-turn-conversations-with-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the purpose of the conversation loop in handling multiple tool calls?",
+      "options": [
+        "To continue until Claude stops requesting tools and has enough information to provide a final answer",
+        "To ensure the user can make multiple questions in sequence",
+        "To limit Claude to only one tool call per conversation",
+        "To prevent Claude from using any tools"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content states that the conversation loop continues until Claude stops requesting tools, at which point it returns the final answer.",
+      "id": "287750-multi-turn-conversations-with-tools-q1",
+      "classFile": "287750-multi-turn-conversations-with-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What does the text_from_message helper function do?",
+      "options": [
+        "It converts a full message object into a string by extracting and joining all text blocks",
+        "It converts plain text into a message object format",
+        "It removes all text blocks from a message",
+        "It separates tool use blocks from text blocks in a message"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, text_from_message finds all text blocks in a message and joins them together to provide readable text from complex messages.",
+      "id": "287750-multi-turn-conversations-with-tools-q2",
+      "classFile": "287750-multi-turn-conversations-with-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what are the three specific problems that need to be solved to enable Claude to set reminders for future dates?",
+      "options": [
+        "Limited time awareness, date calculation issues, and no reminder capability",
+        "Insufficient memory, inability to understand natural language, and lack of internet access",
+        "Poor context retention, inability to parse dates, and missing API integration",
+        "Unclear user intent, timezone confusion, and no calendar access"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class explicitly identifies these three limitations: Claude's limited time awareness, its imperfect date-time addition calculations, and its lack of built-in reminder mechanism.",
+      "id": "287751-project-overview-q0",
+      "classFile": "287751-project-overview",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How many custom tools does the class propose creating to bridge Claude's limitations for the reminder system?",
+      "options": [
+        "Two tools: one for time awareness and one for setting reminders",
+        "Three tools: get current date time, add duration to date time, and set a reminder",
+        "Four tools: one for each limitation plus an error handling tool",
+        "One universal tool that handles all time and reminder operations"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class specifies that three separate tools will be created to handle each of the three identified challenges: getting current date time, adding duration to date time, and setting reminders.",
+      "id": "287751-project-overview-q1",
+      "classFile": "287751-project-overview",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the main principle about working with AI that the reminder project is meant to demonstrate?",
+      "options": [
+        "AI models should be trained on more data to improve their capabilities",
+        "When the model has limitations, extend its capabilities through tools rather than trying to work around those limitations in prompts",
+        "Reminders are the most important feature to implement in any AI system",
+        "Natural language processing is the primary solution to all AI limitations"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class concludes by stating that when AI models have limitations, the solution is to extend their capabilities through tools rather than attempting workarounds in prompts.",
+      "id": "287751-project-overview-q2",
+      "classFile": "287751-project-overview",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How do you access the input parameters from Claude's tool use request?",
+      "options": [
+        "response.content[1].input",
+        "response.tool_use.parameters",
+        "response.input_params[1]",
+        "response.content.get_input()"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, you access tool parameters using response.content[1].input, which returns a dictionary of the arguments Claude wants to pass to your function.",
+      "id": "287752-sending-tool-results-q0",
+      "classFile": "287752-sending-tool-results",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What property must match between a ToolUse block and its corresponding ToolResult block?",
+      "options": [
+        "tool_use_id",
+        "content_id",
+        "function_name",
+        "response_id"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content states that the tool_use_id in the ToolResult block must match the id of the ToolUse block it corresponds to, ensuring Claude knows which result belongs to which request.",
+      "id": "287752-sending-tool-results-q1",
+      "classFile": "287752-sending-tool-results",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When sending a follow-up request to Claude after tool execution, what must you still include even though you don't expect another tool call?",
+      "options": [
+        "The tool schema",
+        "The original user input only",
+        "An error log",
+        "The execution timestamps"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content specifies that you must still include the tool schema in follow-up requests because Claude needs it to understand the tool references in your conversation history.",
+      "id": "287752-sending-tool-results-q2",
+      "classFile": "287752-sending-tool-results",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the three main parts of a complete tool specification?",
+      "options": [
+        "name, description, and input_schema",
+        "name, function, and parameters",
+        "description, documentation, and validation",
+        "type, properties, and required"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the complete tool specification has three main parts: name, description, and input_schema.",
+      "id": "287753-tool-schemas-q0",
+      "classFile": "287753-tool-schemas",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what is the recommended length for a tool description?",
+      "options": [
+        "1-2 sentences maximum",
+        "3-4 sentences explaining what the tool does",
+        "As long as needed to cover all details",
+        "A single sentence is sufficient"
+      ],
+      "correctIndex": 1,
+      "explanation": "The best practices section explicitly states to 'Aim for 3-4 sentences explaining what the tool does' when writing effective descriptions.",
+      "id": "287753-tool-schemas-q1",
+      "classFile": "287753-tool-schemas",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the recommended naming pattern for organizing tool schemas in code?",
+      "options": [
+        "schema_function_name followed by function_name",
+        "function_name followed by function_name_schema",
+        "tool_name and tool_schema as separate variables",
+        "function_name with schema as a suffix only"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifies the pattern of 'function_name followed by function_name_schema' to keep schemas organized and easy to match with their corresponding functions.",
+      "id": "287753-tool-schemas-q2",
+      "classFile": "287753-tool-schemas",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What must your organization do before using Claude's web search tool?",
+      "options": [
+        "Enable the Web Search tool in the settings console at https://console.anthropic.com/settings/privacy",
+        "Purchase a separate web search API subscription from a third-party provider",
+        "Manually implement the web search functionality in your application code",
+        "Contact Anthropic support to request access to the web search feature"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that organizations must enable the Web Search tool in the settings console before using it, with the specific URL provided.",
+      "id": "287755-the-web-search-tool-q0",
+      "classFile": "287755-the-web-search-tool",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the purpose of the max_uses field in the web_search_schema object?",
+      "options": [
+        "To specify the maximum number of characters allowed in search queries",
+        "To limit how many searches Claude can perform and prevent excessive API calls",
+        "To set the timeout duration for each individual search request",
+        "To define the maximum number of domains Claude can search across"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that max_uses limits how many searches Claude can perform, and this prevents excessive API calls since Claude might do follow-up searches based on initial results.",
+      "id": "287755-the-web-search-tool-q1",
+      "classFile": "287755-the-web-search-tool",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which response block type contains the actual search results returned by the web search tool?",
+      "options": [
+        "Citation blocks",
+        "Text blocks",
+        "WebSearchToolResultBlock",
+        "ServerToolUseBlock"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content explains that WebSearchToolResultBlock contains the search results, while ServerToolUseBlock shows the search query used and Citation blocks support statements with sources.",
+      "id": "287755-the-web-search-tool-q2",
+      "classFile": "287755-the-web-search-tool",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary purpose of tool functions in Claude API applications?",
+      "options": [
+        "To give Claude access to real-time information or the ability to perform actions",
+        "To replace Claude's built-in knowledge with external data sources",
+        "To validate user input before sending it to Claude",
+        "To store conversation history in a database"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tool functions are Python functions that Claude can call when it needs additional data to help users, providing access to real-time information or enabling actions.",
+      "id": "287756-tool-functions-q0",
+      "classFile": "287756-tool-functions",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following is NOT listed as a best practice for writing tool functions?",
+      "options": [
+        "Use descriptive names for functions and parameters",
+        "Validate inputs and raise errors when they are invalid",
+        "Provide meaningful error messages that Claude can learn from",
+        "Make all parameters optional to maximize flexibility"
+      ],
+      "correctIndex": 3,
+      "explanation": "The class content lists using descriptive names, validating inputs, and providing meaningful error messages as best practices, but does not recommend making all parameters optional.",
+      "id": "287756-tool-functions-q1",
+      "classFile": "287756-tool-functions",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the example `get_current_datetime()` function, what does the validation check `if not date_format:` prevent?",
+      "options": [
+        "It prevents the function from accepting dates in the past",
+        "It prevents Claude from passing an empty string for the date format parameter",
+        "It prevents the function from returning milliseconds in the output",
+        "It prevents users from requesting the time in multiple formats"
+      ],
+      "correctIndex": 1,
+      "explanation": "The validation check ensures that Claude cannot pass an empty string for the date_format parameter, and raises a ValueError with a helpful message if it does.",
+      "id": "287756-tool-functions-q2",
+      "classFile": "287756-tool-functions",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What parameter must be included in your API call to enable Claude to use tools?",
+      "options": [
+        "functions",
+        "tools",
+        "capabilities",
+        "schemas"
+      ],
+      "correctIndex": 1,
+      "explanation": "The tools parameter takes a list of JSON schemas that describe the available functions Claude can call.",
+      "id": "287757-handling-message-blocks-q0",
+      "classFile": "287757-handling-message-blocks",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two main types of blocks contained in a multi-block message when Claude decides to use a tool?",
+      "options": [
+        "Text block and parameter block",
+        "Text block and tool use block",
+        "Function block and result block",
+        "Input block and output block"
+      ],
+      "correctIndex": 1,
+      "explanation": "A multi-block message typically contains a Text Block with human-readable explanation and a ToolUse Block with instructions about which tool to call and what parameters to use.",
+      "id": "287757-handling-message-blocks-q1",
+      "classFile": "287757-handling-message-blocks",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is it important to preserve the entire content structure when appending a multi-block assistant message to conversation history?",
+      "options": [
+        "To reduce the API response time",
+        "To maintain the conversation context for subsequent API calls, as Claude doesn't store conversation history",
+        "To improve the security of the API connection",
+        "To ensure the response is formatted as JSON"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since Claude doesn't store conversation history, you must preserve both the text block and tool use block to maintain proper context when making subsequent API calls.",
+      "id": "287757-handling-message-blocks-q2",
+      "classFile": "287757-handling-message-blocks",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How do you determine whether Claude is requesting tool usage in a conversation loop?",
+      "options": [
+        "By checking if response.stop_reason equals 'tool_use'",
+        "By checking if response.stop_reason does not equal 'tool_use'",
+        "By counting the number of blocks in the response content",
+        "By checking if the response contains any text output"
+      ],
+      "correctIndex": 0,
+      "explanation": "The stop_reason field is set to 'tool_use' when Claude decides it needs to call a tool, so you check if it equals 'tool_use' to determine if tools are being requested.",
+      "id": "287758-implementing-multiple-turns-q0",
+      "classFile": "287758-implementing-multiple-turns",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What information is used to connect a tool use block with its corresponding tool result block?",
+      "options": [
+        "The tool name and input parameters",
+        "The matching IDs between the tool_use_id fields",
+        "The order in which blocks appear in the response",
+        "The timestamp of when each block was created"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tool result blocks include a tool_use_id field that matches the id of the corresponding tool use block, maintaining the connection between them.",
+      "id": "287758-implementing-multiple-turns-q1",
+      "classFile": "287758-implementing-multiple-turns",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When a tool fails during execution, what should you do according to the error handling section?",
+      "options": [
+        "Break the conversation loop and return an error to the user",
+        "Skip the failed tool and continue with the next tool request",
+        "Still provide a result block to Claude with is_error set to True",
+        "Automatically retry the tool request three times before giving up"
+      ],
+      "correctIndex": 2,
+      "explanation": "Even when a tool fails, you must still create and send a tool result block with is_error set to True so Claude can handle the error appropriately.",
+      "id": "287758-implementing-multiple-turns-q2",
+      "classFile": "287758-implementing-multiple-turns",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary difference between keyword-based search and semantic search?",
+      "options": [
+        "Keyword-based search looks for exact word matches, while semantic search uses text embeddings to understand meaning and context",
+        "Semantic search is faster than keyword-based search",
+        "Keyword-based search uses embeddings, while semantic search looks for exact word matches",
+        "Semantic search can only work with numbers between 0 and 1"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, semantic search uses text embeddings to understand meaning and context, whereas keyword-based search looks for exact word matches.",
+      "id": "287759-text-embeddings-q0",
+      "classFile": "287759-text-embeddings",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is a text embedding?",
+      "options": [
+        "A database that stores all text chunks in a RAG pipeline",
+        "A numerical representation of the meaning contained in some text, consisting of numbers ranging from -1 to +1",
+        "A type of encryption used to protect API keys",
+        "A process of breaking documents into smaller pieces"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content defines a text embedding as a numerical representation of the meaning in text, where each number ranges from -1 to +1.",
+      "id": "287759-text-embeddings-q1",
+      "classFile": "287759-text-embeddings",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is VoyageAI recommended as the embedding provider for RAG pipelines?",
+      "options": [
+        "It is owned by Anthropic",
+        "Because Anthropic does not currently provide embedding generation",
+        "Because it is the cheapest option available",
+        "Because it is the only provider that supports semantic search"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that since Anthropic doesn't currently provide embedding generation, VoyageAI is the recommended provider.",
+      "id": "287759-text-embeddings-q2",
+      "classFile": "287759-text-embeddings",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the relationship between Claude's built-in text editor tool schema and the implementation of file operations?",
+      "options": [
+        "Claude provides the schema knowledge, but you must write the functions to actually perform the file operations",
+        "Claude automatically provides both the schema and the complete implementation for all file operations",
+        "You must write both the schema and the implementation from scratch, just like with other tools",
+        "The schema is optional and you can choose whether to implement file operations or not"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that while the tool schema is built into Claude, you still need to provide the actual implementation of the file operations.",
+      "id": "287760-the-text-edit-tool-q0",
+      "classFile": "287760-the-text-edit-tool",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following is NOT listed as a capability of the text editor tool?",
+      "options": [
+        "Execute Python code directly on the file system",
+        "Replace text in a file",
+        "View specific ranges of lines in a file",
+        "Create new files"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content lists the text editor tool's capabilities as viewing content, replacing text, creating files, inserting text, and undoing edits—but executing Python code is not mentioned as a capability.",
+      "id": "287760-the-text-edit-tool-q1",
+      "classFile": "287760-the-text-edit-tool",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what does the schema stub include when making requests with the text editor tool?",
+      "options": [
+        "The type and name of the text editor schema, with Claude automatically expanding it into the full specification",
+        "The complete implementation of all file manipulation functions",
+        "A list of all files and directories that Claude has permission to access",
+        "Instructions for the user on how to manually edit files before Claude processes them"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explains that the small schema stub contains the type and name, and Claude automatically expands it into the full text editor tool specification behind the scenes.",
+      "id": "287760-the-text-edit-tool-q2",
+      "classFile": "287760-the-text-edit-tool",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the five-step RAG implementation, what is the purpose of Step 3 (Store in Vector Database)?",
+      "options": [
+        "To create embeddings for all chunks at once for batch processing",
+        "To create a vector store and populate it with embeddings and their associated text content",
+        "To generate an embedding for the user's question",
+        "To search the store and find the most relevant chunks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Step 3 involves creating a vector store and adding embeddings along with their original text content to it, which is crucial because the actual text is needed when returning search results.",
+      "id": "287761-implementing-the-rag-flow-q0",
+      "classFile": "287761-implementing-the-rag-flow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is it important to store the original text content alongside embeddings in the vector database?",
+      "options": [
+        "Because embedding numbers are more efficient for storage than text",
+        "Because users need to see the embedding values when querying the database",
+        "Because when querying the vector database, we need to return the actual text, not just the numerical embedding values",
+        "Because the embedding function cannot process text without storing it first"
+      ],
+      "correctIndex": 2,
+      "explanation": "The original text must be stored alongside embeddings because search results need to return the actual content that generated those embeddings, not just the numerical values.",
+      "id": "287761-implementing-the-rag-flow-q1",
+      "classFile": "287761-implementing-the-rag-flow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the example query about the software engineering department, which section was identified as the most relevant and what was its distance score?",
+      "options": [
+        "Methodology section with a distance of 0.71",
+        "Section 2: Software Engineering with a distance of 0.71",
+        "Section 2: Software Engineering with a distance of 0.72",
+        "Methodology section with a distance of 0.72"
+      ],
+      "correctIndex": 1,
+      "explanation": "Section 2: Software Engineering was the closest match with a distance of 0.71, and lower distance values indicate higher similarity.",
+      "id": "287761-implementing-the-rag-flow-q2",
+      "classFile": "287761-implementing-the-rag-flow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary problem that Retrieval Augmented Generation (RAG) solves?",
+      "options": [
+        "RAG helps work with large documents that are too big to fit into a single prompt by breaking them into chunks and including only the most relevant pieces",
+        "RAG eliminates the need to preprocess documents before using them with Claude",
+        "RAG allows Claude to process documents without any token limits",
+        "RAG enables Claude to understand documents in any language without translation"
+      ],
+      "correctIndex": 0,
+      "explanation": "RAG specifically addresses the limitation of document size by chunking documents and retrieving only relevant portions for each query, rather than including entire documents in prompts.",
+      "id": "287763-introducing-retrieval-augmented-generation-q0",
+      "classFile": "287763-introducing-retrieval-augmented-generation",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following is NOT listed as a limitation of including an entire large document in a prompt?",
+      "options": [
+        "There is a hard limit on prompt length",
+        "Claude becomes less effective with very long prompts",
+        "The document must be formatted in a specific file type",
+        "Larger prompts cost more to process"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content mentions prompt length limits, reduced effectiveness with long prompts, and increased costs, but does not mention file type formatting as a limitation.",
+      "id": "287763-introducing-retrieval-augmented-generation-q1",
+      "classFile": "287763-introducing-retrieval-augmented-generation",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is a key challenge mentioned when implementing RAG?",
+      "options": [
+        "RAG only works with financial documents and cannot be used for other document types",
+        "Determining the best approach for chunking text, as different methods like equal-sized portions or structure-based chunks have different trade-offs",
+        "RAG requires manual labeling of all chunks before they can be used",
+        "Claude cannot search through chunks to find relevant information"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that there are many ways to chunk text and each approach has trade-offs that need to be evaluated for specific use cases.",
+      "id": "287763-introducing-retrieval-augmented-generation-q2",
+      "classFile": "287763-introducing-retrieval-augmented-generation",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the RAG pipeline example, what embedding values were assigned to the medical research section after the embedding model processed it?",
+      "options": [
+        "[0.30, 0.97]",
+        "[0.97, 0.34]",
+        "[0.944, 0.331]",
+        "[0.112, 0.993]"
+      ],
+      "correctIndex": 1,
+      "explanation": "The medical research section about XDR-47 received the embedding [0.97, 0.34] because it was very medical-focused (0.97) but had some software elements due to the word 'bug' (0.34).",
+      "id": "287764-the-full-rag-flow-q0",
+      "classFile": "287764-the-full-rag-flow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the relationship between cosine similarity and cosine distance in vector databases?",
+      "options": [
+        "Cosine distance equals cosine similarity multiplied by 2",
+        "Cosine distance is calculated as (1 - cosine similarity)",
+        "They are the same measurement with different names",
+        "Cosine distance measures angles while cosine similarity measures magnitudes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cosine distance is simply calculated as (1 - cosine similarity) to make the numbers easier to interpret in vector database contexts.",
+      "id": "287764-the-full-rag-flow-q1",
+      "classFile": "287764-the-full-rag-flow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "At what point in the RAG pipeline does the system pause and wait for user input?",
+      "options": [
+        "After chunking the source text",
+        "After generating embeddings and storing them in a vector database",
+        "After processing the user query through the embedding model",
+        "After calculating cosine similarity scores"
+      ],
+      "correctIndex": 1,
+      "explanation": "The system pauses after storing embeddings in the vector database because all the work up to that point is preprocessing that happens ahead of time, before any user query arrives.",
+      "id": "287764-the-full-rag-flow-q2",
+      "classFile": "287764-the-full-rag-flow",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary purpose of the Retriever class in the hybrid search architecture?",
+      "options": [
+        "To act as a coordinator that forwards queries to multiple indexes and merges their results using reciprocal rank fusion",
+        "To replace the BM25Index with a more efficient vector-based search method",
+        "To store all documents in a single centralized location for faster access",
+        "To eliminate the need for semantic search by using only lexical search results"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Retriever class wraps multiple search indexes and forwards user queries to both VectorIndex and BM25Index, then merges their results using reciprocal rank fusion.",
+      "id": "287766-a-multi-index-rag-pipeline-q0",
+      "classFile": "287766-a-multi-index-rag-pipeline",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the reciprocal rank fusion formula RRF_score(d) = Σ(1 / (k + rank_i(d))), what does k represent?",
+      "options": [
+        "The total number of documents in the index",
+        "A constant value, often set to 60 but can be adjusted (such as 1 for clearer results)",
+        "The rank position of the highest-scoring document",
+        "The number of different search indexes being combined"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, k is a constant in the RRF formula that is often set to 60, but the course uses 1 for clearer results in examples.",
+      "id": "287766-a-multi-index-rag-pipeline-q1",
+      "classFile": "287766-a-multi-index-rag-pipeline",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Based on the class example, which section received the highest RRF score when searching for 'INC-2023-Q4-011'?",
+      "options": [
+        "Section 6 with a score of 0.75",
+        "Section 7 with a score of 0.583",
+        "Section 2 with a score of 0.833",
+        "Section 10 with a score of 1.0"
+      ],
+      "correctIndex": 2,
+      "explanation": "The calculation in the class content shows Section 2 received the highest RRF score of 0.833 because it performed well in both the VectorIndex and BM25Index rankings.",
+      "id": "287766-a-multi-index-rag-pipeline-q2",
+      "classFile": "287766-a-multi-index-rag-pipeline",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the main limitation of using semantic search alone when searching for specific incident IDs like 'INC-2023-Q4-011'?",
+      "options": [
+        "Semantic search is too slow to process large documents",
+        "Semantic search focuses on conceptual similarity rather than exact term matching and may return semantically related content that doesn't contain the actual search term",
+        "Semantic search cannot process alphanumeric characters",
+        "Semantic search requires more computational resources than lexical search"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that semantic search excels at understanding context and meaning but might return sections that are semantically related without actually containing the exact term being searched for.",
+      "id": "287767-bm25-lexical-search-q0",
+      "classFile": "287767-bm25-lexical-search",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the BM25 algorithm, how are terms weighted based on their frequency across documents?",
+      "options": [
+        "Terms that appear frequently get the highest importance scores",
+        "All terms receive equal weight regardless of frequency",
+        "Terms that appear less frequently get higher importance scores because they are more specific",
+        "Terms are weighted randomly to avoid bias"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states that in Step 3 of BM25, 'Terms that appear less frequently get higher importance scores' because specific terms like incident IDs are rare and therefore more valuable for search.",
+      "id": "287767-bm25-lexical-search-q1",
+      "classFile": "287767-bm25-lexical-search",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the hybrid search strategy that combines semantic and lexical search approaches?",
+      "options": [
+        "Run semantic search first, then discard results and run lexical search",
+        "Run both semantic and lexical searches in parallel, then merge the results to combine both approaches for better accuracy",
+        "Choose either semantic or lexical search depending on the query type",
+        "Run semantic search multiple times with different parameters"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content describes the hybrid search strategy as running both semantic and lexical searches in parallel and merging the results to get the best of both worlds: semantic search for conceptual similarity and lexical search for exact term matches.",
+      "id": "287767-bm25-lexical-search-q2",
+      "classFile": "287767-bm25-lexical-search",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When processing a PDF file with Claude, what should you set the 'type' field to in your message content?",
+      "options": [
+        "image",
+        "document",
+        "file",
+        "pdf"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifies that you must set the type to 'document' instead of 'image' when adapting image processing code for PDFs.",
+      "id": "287768-pdf-support-q0",
+      "classFile": "287768-pdf-support",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the correct media_type value to use when processing PDF files with Claude?",
+      "options": [
+        "image/pdf",
+        "application/pdf",
+        "document/pdf",
+        "text/pdf"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, you should change the media type to 'application/pdf' instead of 'image/png' when processing PDFs.",
+      "id": "287768-pdf-support-q1",
+      "classFile": "287768-pdf-support",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following can Claude extract from PDF documents?",
+      "options": [
+        "Only text content",
+        "Text content, images, charts, tables, and document structure",
+        "Only tables and data relationships",
+        "Only embedded images and charts"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that Claude can analyze text content, images and charts, tables and their data relationships, and document structure and formatting from PDFs.",
+      "id": "287768-pdf-support-q2",
+      "classFile": "287768-pdf-support",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the minimum token length required for content to be eligible for caching in Claude's prompt caching feature?",
+      "options": [
+        "512 tokens",
+        "1024 tokens",
+        "2048 tokens",
+        "4096 tokens"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, content must be at least 1024 tokens long to be cached, calculated as the sum of all messages and blocks being cached.",
+      "id": "287770-rules-of-prompt-caching-q0",
+      "classFile": "287770-rules-of-prompt-caching",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How long does the cache persist before it expires?",
+      "options": [
+        "30 minutes",
+        "1 hour",
+        "24 hours",
+        "7 days"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that the cache lives for one hour, making it only useful for repeatedly sending the same content within that timeframe.",
+      "id": "287770-rules-of-prompt-caching-q1",
+      "classFile": "287770-rules-of-prompt-caching",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following can have cache breakpoints added to them?",
+      "options": [
+        "Only text message blocks",
+        "System prompts, tool definitions, image blocks, and tool use blocks",
+        "Only system prompts and messages",
+        "Only tool definitions and messages"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifies that cache breakpoints can be added to system prompts, tool definitions, image blocks, and tool use and tool result blocks, not just text blocks.",
+      "id": "287770-rules-of-prompt-caching-q2",
+      "classFile": "287770-rules-of-prompt-caching",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two new fields required to enable citations in a document message structure?",
+      "options": [
+        "title and citations",
+        "source and document_index",
+        "media_type and data",
+        "start_page_number and end_page_number"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content specifies that you need to add 'title' (which gives the document a readable name) and 'citations' (set to enabled: True) to enable citations in your document block.",
+      "id": "287771-citations-q0",
+      "classFile": "287771-citations",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When using plain text sources with citations, what information replaces page numbers?",
+      "options": [
+        "Document indexes",
+        "Character positions",
+        "Media types",
+        "Document titles"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that with plain text sources, instead of page numbers, you'll get character positions that pinpoint exactly where in the text Claude found each piece of information.",
+      "id": "287771-citations-q1",
+      "classFile": "287771-citations",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following is NOT listed as a key piece of information contained in each citation?",
+      "options": [
+        "cited_text",
+        "document_title",
+        "user_query",
+        "start_page_number"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content identifies cited_text, document_index, document_title, start_page_number, and end_page_number as key pieces of citation information, but user_query is not mentioned.",
+      "id": "287771-citations-q2",
+      "classFile": "287771-citations",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What computational work does Claude perform on input before generating a response?",
+      "options": [
+        "Tokenizes the prompt, creates embeddings for each token, and adds context based on surrounding text",
+        "Only tokenizes the prompt into smaller pieces",
+        "Directly generates output text without any preprocessing",
+        "Creates embeddings and immediately discards them before processing"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, Claude performs tokenization, creates embeddings for each token, and adds context based on surrounding text during the preprocessing phase before generating output.",
+      "id": "287772-prompt-caching-q0",
+      "classFile": "287772-prompt-caching",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What happens to Claude's preprocessing work after sending a response without prompt caching enabled?",
+      "options": [
+        "It is stored in a cache for future use",
+        "It is thrown away and discarded",
+        "It is automatically reused in the next request",
+        "It is converted into embeddings for permanent storage"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that after sending a response without caching, Claude throws away all the computational work including tokenization, embeddings, and context analysis.",
+      "id": "287772-prompt-caching-q1",
+      "classFile": "287772-prompt-caching",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the maximum duration that cached content remains available for reuse in prompt caching?",
+      "options": [
+        "24 hours",
+        "30 minutes",
+        "One hour",
+        "Until the end of the conversation"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states that cached content only lives for one hour as an important limitation of prompt caching.",
+      "id": "287772-prompt-caching-q2",
+      "classFile": "287772-prompt-caching",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two main trade-offs associated with using Extended Thinking?",
+      "options": [
+        "Higher costs and increased latency",
+        "Reduced accuracy and compatibility issues",
+        "Limited token budget and smaller response size",
+        "Incompatibility with all tools and message pre-filling"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the trade-offs include higher costs (paying for thinking tokens) and increased latency (thinking takes time).",
+      "id": "287773-extended-thinking-q0",
+      "classFile": "287773-extended-thinking",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When should you consider enabling Extended Thinking for your prompts?",
+      "options": [
+        "Always enable it for all API calls to maximize accuracy",
+        "Only after standard prompting isn't meeting your accuracy requirements and you've already optimized your prompt",
+        "When you want to reduce API costs",
+        "Before testing any prompts in production"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states to run prompts without thinking first, and only if accuracy isn't meeting requirements after optimization should you consider enabling extended thinking.",
+      "id": "287773-extended-thinking-q1",
+      "classFile": "287773-extended-thinking",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the minimum thinking budget value required when implementing Extended Thinking?",
+      "options": [
+        "512 tokens",
+        "1024 tokens",
+        "2048 tokens",
+        "4096 tokens"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that the minimum value for thinking budget is 1024 tokens.",
+      "id": "287773-extended-thinking-q2",
+      "classFile": "287773-extended-thinking",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When setting up tool schema caching, why is it recommended to use the copying approach instead of directly modifying tools[-1][\"cache_control\"]?",
+      "options": [
+        "The copying approach prevents issues if you later reorder your tools",
+        "Direct modification causes the cache to expire immediately",
+        "The copying approach is faster and reduces API latency",
+        "Direct modification requires additional authentication tokens"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that using the copying approach prevents issues if you later reorder your tools, whereas direct modification could cause problems in such scenarios.",
+      "id": "287774-prompt-caching-in-action-q0",
+      "classFile": "287774-prompt-caching-in-action",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How long does prompt caching content remain available in the cache?",
+      "options": [
+        "24 hours",
+        "One hour",
+        "Until the next request is made",
+        "Indefinitely until manually cleared"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that when you enable prompt caching, the first request writes content to a cache that lives for one hour.",
+      "id": "287774-prompt-caching-in-action-q1",
+      "classFile": "287774-prompt-caching-in-action",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What happens when you change a single character in your cached system prompt?",
+      "options": [
+        "The cache automatically updates the changed character",
+        "The entire cache for that component is invalidated and new cache creation tokens appear",
+        "Only the changed character is reprocessed while the rest remains cached",
+        "Claude ignores the change and continues using the cached version"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that the cache is extremely sensitive and changing even a single character in your tools or system prompt invalidates the entire cache for that component.",
+      "id": "287774-prompt-caching-in-action-q2",
+      "classFile": "287774-prompt-caching-in-action",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary role of the MCP client in the communication flow?",
+      "options": [
+        "It serves as the communication bridge between your server and MCP servers, handling message passing and protocol details",
+        "It directly processes user queries and formats responses for display",
+        "It stores all tool definitions and manages the database of available tools",
+        "It authenticates users and manages security permissions for tool access"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the MCP client serves as the communication bridge between your server and MCP servers, handling message passing and protocol details.",
+      "id": "287775-mcp-clients-q0",
+      "classFile": "287775-mcp-clients",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what does it mean that MCP is 'transport agnostic'?",
+      "options": [
+        "The MCP protocol only works with HTTP connections",
+        "The client and server can communicate using different communication methods, not just standard input/output",
+        "The protocol requires all clients to use the same transport layer",
+        "It means the MCP client cannot connect to remote servers"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that being transport agnostic means the client and server can communicate using different methods such as standard input/output, HTTP, WebSockets, or various other network protocols.",
+      "id": "287775-mcp-clients-q1",
+      "classFile": "287775-mcp-clients",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the communication flow example, what happens after Claude decides it needs to call a tool?",
+      "options": [
+        "Claude directly connects to GitHub and retrieves the repository data",
+        "The user's server asks the MCP client to execute the tool Claude requested",
+        "The MCP server immediately terminates the connection",
+        "Claude sends the request directly to the MCP server without going through the client"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the complete flow example in the class content, after Claude decides to call a tool, your server asks the MCP client to execute the tool Claude requested.",
+      "id": "287775-mcp-clients-q2",
+      "classFile": "287775-mcp-clients",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary risk of using poor text chunking in a RAG pipeline?",
+      "options": [
+        "It makes the system harder to implement",
+        "Irrelevant context gets inserted into prompts, causing incorrect AI responses",
+        "It requires more computational resources",
+        "It limits the types of documents that can be processed"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that poor chunking can lead to irrelevant context being inserted into prompts, causing the AI to give completely wrong answers, as demonstrated by the example of medical research information appearing when asking about software engineering bugs.",
+      "id": "287776-text-chunking-strategies-q0",
+      "classFile": "287776-text-chunking-strategies",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is a key disadvantage of size-based chunking without overlap?",
+      "options": [
+        "It is too computationally expensive",
+        "It only works with structured documents like Markdown",
+        "Words get cut off mid-sentence and chunks lose important context",
+        "It cannot handle PDF documents"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content specifically lists the downsides of size-based chunking as including words getting cut off mid-sentence, chunks losing important context from surrounding text, and section headers being separated from their content.",
+      "id": "287776-text-chunking-strategies-q1",
+      "classFile": "287776-text-chunking-strategies",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which chunking strategy is described as the most reliable fallback that works with any content type in production environments?",
+      "options": [
+        "Semantic-based chunking",
+        "Structure-based chunking",
+        "Size-based chunking with overlap",
+        "Sentence-based chunking"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states that size-based chunking with overlap is often the go-to choice in production because it is simple, reliable, and works with any document type, including code.",
+      "id": "287776-text-chunking-strategies-q2",
+      "classFile": "287776-text-chunking-strategies",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary advantage of using the Files API instead of encoding files as base64 data in messages?",
+      "options": [
+        "It allows you to reference the same file multiple times without re-encoding it, and is more efficient for larger files",
+        "It provides faster encryption for sensitive data",
+        "It automatically converts all file formats to a standardized format",
+        "It eliminates the need for authentication when uploading files"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the Files API is useful when you want to reference the same file multiple times or when working with larger files that would be cumbersome to include in every request.",
+      "id": "287777-code-execution-and-the-files-api-q0",
+      "classFile": "287777-code-execution-and-the-files-api",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is a key limitation of the code execution environment provided by Claude?",
+      "options": [
+        "It cannot execute Python code",
+        "It has no network access and cannot make external API calls",
+        "It can only execute code once per conversation",
+        "It requires users to provide their own Docker container implementation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that the code execution environment runs in an isolated Docker container with no network access and cannot make external API calls.",
+      "id": "287777-code-execution-and-the-files-api-q1",
+      "classFile": "287777-code-execution-and-the-files-api",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the streaming service data example, how does the user provide the CSV file to Claude for analysis?",
+      "options": [
+        "By pasting the raw CSV content directly into the message text",
+        "By encoding the file as base64 and including it in the message",
+        "By uploading the file using the Files API and referencing its file ID with a container_upload block",
+        "By storing the file in an external database and providing the connection details"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content describes the practical example workflow where the file is uploaded using the Files API with `upload('streaming.csv')` and then included in the message using a container_upload block with the file_id.",
+      "id": "287777-code-execution-and-the-files-api-q2",
+      "classFile": "287777-code-execution-and-the-files-api",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the maximum number of images that can be included across all messages in a single request to Claude?",
+      "options": [
+        "50 images",
+        "100 images",
+        "150 images",
+        "200 images"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the class content, the limitation is up to 100 images across all messages in a single request.",
+      "id": "287778-image-support-q0",
+      "classFile": "287778-image-support",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When sending multiple images to Claude, what is the maximum height/width dimension for each image?",
+      "options": [
+        "4000px",
+        "5000px",
+        "2000px",
+        "8000px"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content specifies that when sending multiple images, the max height/width is 2000px, while single images can be up to 8000px.",
+      "id": "287778-image-support-q1",
+      "classFile": "287778-image-support",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the fire risk assessment example, what is the formula for calculating token usage for images?",
+      "options": [
+        "tokens = (width px + height px) / 750",
+        "tokens = (width px × height px) / 750",
+        "tokens = (width px × height px) / 1000",
+        "tokens = (width px + height px) / 1000"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that token usage is calculated as tokens = (width px × height px) / 750.",
+      "id": "287778-image-support-q2",
+      "classFile": "287778-image-support",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary purpose of the Model Context Protocol (MCP)?",
+      "options": [
+        "To provide Claude with context and tools without requiring tedious integration code",
+        "To replace Claude's ability to process natural language",
+        "To eliminate the need for any external APIs or services",
+        "To create a direct connection between users and GitHub repositories"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that MCP is a communication layer that provides Claude with context and tools without requiring you to write a bunch of tedious integration code.",
+      "id": "287780-introducing-mcp-q0",
+      "classFile": "287780-introducing-mcp",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the GitHub example, how does MCP solve the problem of having to write many tool definitions?",
+      "options": [
+        "It prevents developers from needing to access GitHub at all",
+        "It shifts the burden of tool definitions and execution from your server to specialized MCP servers",
+        "It requires developers to write even more code than before",
+        "It eliminates the need to connect to external services"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that MCP solves the tool function problem by shifting the burden of tool definitions and execution from your server to MCP servers, where tools are already authored and packaged.",
+      "id": "287780-introducing-mcp-q1",
+      "classFile": "287780-introducing-mcp",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How is MCP different from direct API calls?",
+      "options": [
+        "MCP servers require you to author all tool definitions yourself",
+        "MCP servers provide tool schemas and functions already defined for you, saving implementation work",
+        "Direct API calls are more efficient than using MCP",
+        "MCP servers only work with GitHub and not other services"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that MCP servers provide tool schemas and functions already defined, whereas with direct API calls you are responsible for authoring those tool definitions yourself.",
+      "id": "287780-introducing-mcp-q2",
+      "classFile": "287780-introducing-mcp",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What command is used to start the MCP Inspector for testing a server?",
+      "options": [
+        "mcp dev mcp_server.py",
+        "mcp start mcp_server.py",
+        "mcp inspector mcp_server.py",
+        "mcp test mcp_server.py"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the inspector is started with the command 'mcp dev mcp_server.py'.",
+      "id": "287781-the-server-inspector-q0",
+      "classFile": "287781-the-server-inspector",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "On which port does the MCP Inspector development server run?",
+      "options": [
+        "Port 8000",
+        "Port 6277",
+        "Port 5000",
+        "Port 3000"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifies that the inspector starts a development server on port 6277.",
+      "id": "287781-the-server-inspector-q1",
+      "classFile": "287781-the-server-inspector",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is one key advantage of using the MCP Inspector during development?",
+      "options": [
+        "It automatically deploys your server to production",
+        "It eliminates the need to wire up your server to Claude or another application just to test basic functionality",
+        "It converts Python code to other programming languages",
+        "It provides real-time analytics about user behavior"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that the MCP Inspector eliminates the need to wire up the server to Claude or another application just to test basic functionality, making development much faster and more focused.",
+      "id": "287781-the-server-inspector-q2",
+      "classFile": "287781-the-server-inspector",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In an MCP server, what is the primary difference between direct resources and templated resources?",
+      "options": [
+        "Direct resources are static URIs that don't change, while templated resources contain parameters that are parsed from the URI",
+        "Direct resources can only return text, while templated resources can return JSON data",
+        "Direct resources require manual serialization, while templated resources use automatic serialization",
+        "Direct resources are used for actions, while templated resources are used for fetching data"
+      ],
+      "correctIndex": 0,
+      "explanation": "Direct resources have static URIs like docs://documents, while templated resources have parameters in the URI like docs://documents/{doc_id} that the Python SDK automatically parses and passes as keyword arguments.",
+      "id": "287782-defining-resources-q0",
+      "classFile": "287782-defining-resources",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When implementing a templated resource in the MCP Python SDK, how are URI parameters passed to the handler function?",
+      "options": [
+        "They are parsed from the URI and passed as positional arguments",
+        "They are parsed from the URI and passed as keyword arguments with names matching the parameter placeholders",
+        "They must be manually extracted from the request object by the developer",
+        "They are converted to a single dictionary parameter"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Python SDK automatically parses parameters from the URI like {doc_id} and passes them as keyword arguments to your function with matching names.",
+      "id": "287782-defining-resources-q1",
+      "classFile": "287782-defining-resources",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the purpose of the mime_type parameter when defining a resource with the @mcp.resource() decorator?",
+      "options": [
+        "To enforce that only certain data types can be returned from the resource",
+        "To tell the MCP server how to serialize the return value",
+        "To give clients a hint about what kind of data the resource is returning",
+        "To automatically validate that the returned data matches the specified type"
+      ],
+      "correctIndex": 2,
+      "explanation": "The mime_type parameter provides clients with information about the format of the data being returned, such as application/json for structured data or text/plain for plain text content.",
+      "id": "287782-defining-resources-q2",
+      "classFile": "287782-defining-resources",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary advantage of using Resources in MCP compared to tool calls?",
+      "options": [
+        "Resources allow data to be directly included in prompts without requiring tool calls to access information",
+        "Resources are faster because they use a different communication protocol",
+        "Resources can only work with JSON data types",
+        "Resources eliminate the need for an MCP client entirely"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that resources allow data to be directly included in prompts rather than requiring tool calls, creating a more efficient way to provide context to AI models.",
+      "id": "287783-accessing-resources-q0",
+      "classFile": "287783-accessing-resources",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What does the read_resource function require as a parameter, and what does it return?",
+      "options": [
+        "It requires a MIME type and returns a list of available resources",
+        "It requires a URI parameter identifying which resource to fetch and returns resource data from the contents list",
+        "It requires a file path and returns only text content",
+        "It requires a JSON object and returns parsed Python dictionaries"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content shows that read_resource takes a URI parameter and accesses result.contents[0] to retrieve the actual resource data along with metadata.",
+      "id": "287783-accessing-resources-q1",
+      "classFile": "287783-accessing-resources",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How should your client handle different content types returned by resources?",
+      "options": [
+        "Always convert all resources to JSON format",
+        "Use the MIME type to determine the correct parsing strategy for the resource",
+        "Request the MIME type separately after fetching the resource",
+        "Assume all resources are plain text unless specified otherwise"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that the MIME type tells you how to handle the data, and demonstrates checking the MIME type to parse JSON resources as objects while returning plain text as strings.",
+      "id": "287783-accessing-resources-q2",
+      "classFile": "287783-accessing-resources",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary purpose of defining prompts in MCP servers?",
+      "options": [
+        "To provide pre-built, high-quality instructions that give users better results than writing their own prompts from scratch",
+        "To replace the need for users to interact with Claude directly",
+        "To store user conversation history for future reference",
+        "To automatically execute tools without user input"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the content, prompts are carefully crafted templates designed to give better results than what users might come up with on their own, providing consistent and higher-quality results.",
+      "id": "287784-defining-prompts-q0",
+      "classFile": "287784-defining-prompts",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How do you define a prompt in an MCP server using FastMCP?",
+      "options": [
+        "Using the @mcp.tool() decorator with a name and description parameter",
+        "Using the @mcp.prompt() decorator with a name and description, then returning a list of messages",
+        "Creating a separate configuration file with prompt definitions",
+        "Writing prompts directly in the client application code"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that prompts are defined using the @mcp.prompt() decorator with a name and description, and the function should return a list of messages that form the complete prompt.",
+      "id": "287784-defining-prompts-q1",
+      "classFile": "287784-defining-prompts",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What tool should you use to test and verify that prompts in your MCP server work correctly?",
+      "options": [
+        "The Claude web interface",
+        "A command-line testing framework",
+        "The MCP Inspector",
+        "The Python unittest module"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content states that you can test prompts using the MCP Inspector by navigating to the Prompts section, selecting your prompt, and providing required parameters to verify message generation.",
+      "id": "287784-defining-prompts-q2",
+      "classFile": "287784-defining-prompts",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two main components of the CLI-based chatbot being built in this project?",
+      "options": [
+        "An MCP client that handles user interactions and a custom MCP server that manages document operations",
+        "A database server and a web-based frontend interface",
+        "An API gateway and a document storage service",
+        "A user authentication module and a payment processing system"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the system consists of two main components: an MCP client for handling user interactions and a custom MCP server for managing document operations.",
+      "id": "287785-project-setup-q0",
+      "classFile": "287785-project-setup",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What two essential tools will the MCP server provide?",
+      "options": [
+        "User authentication and password management",
+        "Document encryption and backup services",
+        "One tool for reading document contents and another for updating them",
+        "API rate limiting and request validation"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content specifies that the server will provide two essential tools: one for reading document contents and another for updating them.",
+      "id": "287785-project-setup-q1",
+      "classFile": "287785-project-setup",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In real-world MCP projects, what is the typical implementation approach?",
+      "options": [
+        "Always implement both MCP clients and servers together",
+        "Typically implement either an MCP client or an MCP server, not both",
+        "Only implement MCP clients for security reasons",
+        "Implement multiple servers but never any clients"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that in real-world projects, you typically implement either an MCP client or an MCP server, not both, though this project builds both for educational purposes.",
+      "id": "287785-project-setup-q2",
+      "classFile": "287785-project-setup",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What does the list_prompts method return in an MCP client?",
+      "options": [
+        "A list of all available prompts from the server",
+        "A single prompt with interpolated arguments",
+        "The messages from a specific prompt result",
+        "A dictionary of prompt names and their parameters"
+      ],
+      "correctIndex": 0,
+      "explanation": "The list_prompts method calls the session's list_prompts method and returns the prompts array from the result, which represents all available prompts from the server.",
+      "id": "287786-prompts-in-the-client-q0",
+      "classFile": "287786-prompts-in-the-client",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When calling the get_prompt method, what should the args parameter contain?",
+      "options": [
+        "A list of all available prompts on the server",
+        "A dictionary with keys matching the expected parameters of the prompt function",
+        "Only the prompt name as a string value",
+        "The complete conversation history with Claude"
+      ],
+      "correctIndex": 1,
+      "explanation": "The arguments dictionary should contain the expected keys that will be passed as keyword arguments to the prompt function, allowing dynamic content to be inserted into the prompt template.",
+      "id": "287786-prompts-in-the-client-q1",
+      "classFile": "287786-prompts-in-the-client",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How can you test prompts in an MCP server through the CLI?",
+      "options": [
+        "By directly editing the prompt code and restarting the server",
+        "By typing a forward slash to reveal available prompts as commands, selecting one, and providing required arguments",
+        "By exporting prompts to a separate configuration file",
+        "By sending HTTP requests to the MCP server endpoint"
+      ],
+      "correctIndex": 1,
+      "explanation": "When you type a forward slash in the CLI, available prompts appear as commands; selecting a prompt prompts you to choose from available options, and then the complete prompt gets sent to Claude.",
+      "id": "287786-prompts-in-the-client-q2",
+      "classFile": "287786-prompts-in-the-client",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is Claude Code primarily designed to do?",
+      "options": [
+        "A terminal-based coding assistant that can edit files, fix bugs, and answer coding questions",
+        "A desktop application that allows Claude to browse the internet and interact with websites",
+        "A collection of tools that enables Claude to perform visual interface navigation tasks",
+        "A web-based platform for managing multiple AI agents simultaneously"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, Claude Code is described as a terminal-based coding assistant that can edit files, fix bugs, answer coding questions, and help with development workflows.",
+      "id": "287787-anthropic-apps-q0",
+      "classFile": "287787-anthropic-apps",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following capabilities is attributed to Computer Use but NOT to Claude Code?",
+      "options": [
+        "Fixing bugs in source code",
+        "Accessing websites and browsing the internet",
+        "Answering programming questions",
+        "Helping with development workflows"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that Computer Use can access websites and browse the internet, which is explicitly listed as a capability that Computer Use has but Claude Code does not.",
+      "id": "287787-anthropic-apps-q1",
+      "classFile": "287787-anthropic-apps",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the module, what are key principles demonstrated by Claude Code and Computer Use that make agents effective?",
+      "options": [
+        "User interface design, cloud storage, and data encryption",
+        "Tool integration and usage, multi-step task execution, environmental interaction, and autonomous problem-solving",
+        "Natural language processing, machine learning models, and neural networks",
+        "Web hosting, database management, and API deployment"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly lists tool integration and usage, multi-step task execution, environmental interaction, and autonomous problem-solving as key principles that make Claude Code and Computer Use successful as agents.",
+      "id": "287787-anthropic-apps-q2",
+      "classFile": "287787-anthropic-apps",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the file operation capabilities provided by Claude Code?",
+      "options": [
+        "Search, read, and edit files in your project",
+        "Only read files without the ability to search or edit",
+        "Delete, backup, and compress files in your project",
+        "Upload files to cloud storage services"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, Claude Code's file operations tools allow you to search, read, and edit files in your project.",
+      "id": "287788-claude-code-setup-q0",
+      "classFile": "287788-claude-code-setup",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which operating systems are supported by Claude Code?",
+      "options": [
+        "MacOS and Linux only",
+        "MacOS, Windows WSL, and Linux",
+        "Windows and Linux only",
+        "MacOS and Windows only"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that Claude Code works across MacOS, Windows WSL, and Linux.",
+      "id": "287788-claude-code-setup-q1",
+      "classFile": "287788-claude-code-setup",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the first step required to install Claude Code?",
+      "options": [
+        "Create an Anthropic account online",
+        "Install Node.js from nodejs.org/en/download",
+        "Download the Claude Code executable file",
+        "Configure your terminal environment variables"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content lists the first installation step as installing Node.js from nodejs.org/en/download.",
+      "id": "287788-claude-code-setup-q2",
+      "classFile": "287788-claude-code-setup",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the three main components that each MCP server can expose to Claude?",
+      "options": [
+        "Tools, Prompts, and Resources",
+        "APIs, Databases, and Services",
+        "Functions, Templates, and Data",
+        "Commands, Scripts, and Files"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that each MCP server can expose three main components: Tools (for taking actions), Prompts (for templates), and Resources (for accessing data).",
+      "id": "287792-enhancements-with-mcp-servers-q0",
+      "classFile": "287792-enhancements-with-mcp-servers",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What command syntax is used to register an MCP server in Claude Code?",
+      "options": [
+        "claude mcp register [server-name] [command-to-start-server]",
+        "claude mcp add [server-name] [command-to-start-server]",
+        "claude connect [server-name] [command-to-start-server]",
+        "claude setup mcp [server-name] [command-to-start-server]"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifies the exact command syntax as 'claude mcp add [server-name] [command-to-start-server]'.",
+      "id": "287792-enhancements-with-mcp-servers-q1",
+      "classFile": "287792-enhancements-with-mcp-servers",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Which of the following is NOT listed as a popular MCP integration in the class content?",
+      "options": [
+        "sentry-mcp for discovering and fixing bugs",
+        "github-mcp for repository management",
+        "slack-mcp for posting messages and replying to threads",
+        "figma-context-mcp for exposing Figma designs"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content lists sentry-mcp, playwright-mcp, figma-context-mcp, mcp-atlassian, firecrawl-mcp-server, and slack-mcp as examples, but does not mention github-mcp.",
+      "id": "287792-enhancements-with-mcp-servers-q2",
+      "classFile": "287792-enhancements-with-mcp-servers",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two main components that make up the MCP client?",
+      "options": [
+        "MCP Client custom class and Client Session",
+        "MCP Server and MCP Protocol handler",
+        "CLI code and session manager",
+        "Tool executor and resource cleaner"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the MCP client consists of two main components: a custom MCP Client class and the Client Session (the actual connection to the server from the MCP Python SDK).",
+      "id": "287793-implementing-a-client-q0",
+      "classFile": "287793-implementing-a-client",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two key methods that need to be implemented in the MCP client?",
+      "options": [
+        "connect() and disconnect()",
+        "list_tools() and call_tool()",
+        "get_resources() and execute_command()",
+        "initialize() and cleanup()"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly identifies list_tools() and call_tool() as the two key methods that need to be implemented in the client to get available tools from the server and execute specific tools.",
+      "id": "287793-implementing-a-client-q1",
+      "classFile": "287793-implementing-a-client",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is the custom MCP Client class used to wrap the client session?",
+      "options": [
+        "To add encryption to the connection",
+        "To handle all resource cleanup automatically",
+        "To increase the speed of tool execution",
+        "To translate between different programming languages"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that the client session requires proper resource cleanup when done with it, and the custom MCP Client class wraps it to handle all that cleanup automatically.",
+      "id": "287793-implementing-a-client-q2",
+      "classFile": "287793-implementing-a-client",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary characteristic that distinguishes workflows from agents?",
+      "options": [
+        "Workflows are a predefined series of calls to Claude with a known sequence, while agents must adaptively figure out how to use tools to complete tasks",
+        "Workflows are more flexible and can handle novel situations, while agents require exact task definitions upfront",
+        "Workflows allow Claude to combine tools in unexpected ways, while agents follow a rigid predetermined path",
+        "Workflows are used only for simple tasks, while agents are designed for complex problems"
+      ],
+      "correctIndex": 0,
+      "explanation": "Workflows are designed for known problems with predetermined sequences, whereas agents are adaptive and must formulate their own plans using available tools.",
+      "id": "287794-workflows-vs-agents-q0",
+      "classFile": "287794-workflows-vs-agents",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, what is the main downside of using agents compared to workflows?",
+      "options": [
+        "Agents require more upfront planning and design work",
+        "Agents have a lower successful task completion rate and less predictable behavior",
+        "Agents cannot ask users for additional input when needed",
+        "Agents are not suitable for solving specific, well-defined problems"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that agents have lower successful task completion rates, are more challenging to test, and exhibit less predictable behavior compared to workflows.",
+      "id": "287794-workflows-vs-agents-q1",
+      "classFile": "287794-workflows-vs-agents",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When should engineers choose to implement an agent over a workflow?",
+      "options": [
+        "Whenever they want to build the most advanced AI system possible",
+        "When they have well-defined processes that need high reliability",
+        "Only when workflows are truly insufficient and they need to handle unpredictable, varied user requests that require creative problem-solving",
+        "For all production applications to ensure maximum user satisfaction"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content recommends implementing workflows where possible and only resorting to agents when they are truly required for handling unpredictable situations that couldn't be predetermined.",
+      "id": "287794-workflows-vs-agents-q2",
+      "classFile": "287794-workflows-vs-agents",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "When should you use a workflow instead of an agent?",
+      "options": [
+        "When you can picture the exact flow or steps Claude should take, or when your app's UX constrains users to a set of tasks",
+        "When you want Claude to have maximum flexibility in solving any type of problem",
+        "When you are certain the task will require multiple API calls but don't know the exact parameters",
+        "When you need Claude to decide between different tools without any predetermined sequence"
+      ],
+      "correctIndex": 0,
+      "explanation": "Workflows are used when you understand the exact steps needed or when the application's user experience limits users to specific tasks, whereas agents are used when the exact task or parameters are uncertain.",
+      "id": "287796-agents-and-workflows-q0",
+      "classFile": "287796-agents-and-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the four main components of the Evaluator-Optimizer pattern described in the class?",
+      "options": [
+        "Producer, Grader, Feedback loop, and Iteration",
+        "Input, Processing, Output, and Storage",
+        "Agent, Tool, Goal, and Result",
+        "Image, Description, Model, and File"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Evaluator-Optimizer pattern consists of a Producer that creates output, a Grader that evaluates it, a Feedback loop that returns issues to the producer, and Iteration that repeats the cycle until acceptance.",
+      "id": "287796-agents-and-workflows-q1",
+      "classFile": "287796-agents-and-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the Image to CAD workflow example, what is the purpose of the Grader step?",
+      "options": [
+        "To evaluate the rendering against the original image and determine if there are issues that need fixing",
+        "To convert the image file format into a STEP file",
+        "To describe the metal part based on the input image",
+        "To create the 3D model using the CadQuery library"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Grader step in the Image to CAD workflow evaluates the rendering against the original image to check for issues; if problems exist, feedback is sent back to the producer for improvement.",
+      "id": "287796-agents-and-workflows-q2",
+      "classFile": "287796-agents-and-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How is an MCP server initialized using the Python MCP SDK?",
+      "options": [
+        "from mcp.server.fastmcp import FastMCP; mcp = FastMCP(\"DocumentMCP\", log_level=\"ERROR\")",
+        "from mcp.server import MCP; mcp = MCP(\"DocumentMCP\")",
+        "import mcp; mcp.initialize(\"DocumentMCP\", log_level=\"ERROR\")",
+        "from mcp import FastMCP; mcp = FastMCP.create(\"DocumentMCP\")"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly shows that an MCP server is initialized with the line 'from mcp.server.fastmcp import FastMCP' followed by 'mcp = FastMCP(\"DocumentMCP\", log_level=\"ERROR\")'.",
+      "id": "287797-defining-tools-with-mcp-q0",
+      "classFile": "287797-defining-tools-with-mcp",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What does the @mcp.tool decorator do in the Python MCP SDK?",
+      "options": [
+        "It automatically generates the JSON schema that Claude needs from Python type hints and decorators",
+        "It validates that all tool parameters are strings",
+        "It encrypts the tool definitions for security purposes",
+        "It converts Python functions into REST API endpoints"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, 'The @mcp.tool decorator automatically generates the JSON schema that Claude needs,' eliminating the need to manually write complex JSON schemas.",
+      "id": "287797-defining-tools-with-mcp-q1",
+      "classFile": "287797-defining-tools-with-mcp",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What happens when the edit_document tool receives an invalid document ID?",
+      "options": [
+        "The tool silently fails and returns an empty string",
+        "A ValueError is raised with a descriptive message that Claude can understand",
+        "The tool creates a new document with that ID",
+        "The operation is queued for later processing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that 'When an invalid document ID is provided, the tools raise a ValueError with a descriptive message that Claude can understand and potentially act upon.'",
+      "id": "287797-defining-tools-with-mcp-q2",
+      "classFile": "287797-defining-tools-with-mcp",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "Why is environment inspection essential when Claude performs actions like clicking a button?",
+      "options": [
+        "Because Claude needs to see the results to understand whether the action succeeded and what the new state of the environment looks like",
+        "Because it helps Claude learn faster through machine learning",
+        "Because it allows Claude to predict future user actions",
+        "Because it enables Claude to communicate with other AI systems"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content states that Claude operates blindly and needs to observe results of its actions, as clicking a button could have various outcomes that Claude cannot understand without seeing the results.",
+      "id": "287798-environment-inspection-q0",
+      "classFile": "287798-environment-inspection",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What principle should Claude always follow before modifying a file?",
+      "options": [
+        "Create a backup copy of the file first",
+        "Read the existing file contents to understand the current structure",
+        "Request user permission before making any changes",
+        "Check the file's modification date and time"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that before Claude can modify any file, it needs to understand the current contents, and provides an example where Claude reads existing code before adding a new route.",
+      "id": "287798-environment-inspection-q1",
+      "classFile": "287798-environment-inspection",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "For a video creation agent, which of the following is suggested as a method to verify that audio dialogue is placed correctly?",
+      "options": [
+        "Manually listen to the entire video file multiple times",
+        "Use the bash tool to run whisper.cpp and generate caption files with timestamps",
+        "Ask the user to review the video before completion",
+        "Count the total number of audio tracks in the file"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content specifically mentions using the bash tool to run whisper.cpp and generate caption files with timestamps to verify dialogue placement in a video creation agent example.",
+      "id": "287798-environment-inspection-q2",
+      "classFile": "287798-environment-inspection",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary benefit of using workflow chaining instead of combining all tasks into a single prompt?",
+      "options": [
+        "It allows Claude to focus on one specific task at a time rather than juggling multiple requirements simultaneously",
+        "It reduces the number of API calls needed to complete a task",
+        "It enables Claude to process information faster and more efficiently",
+        "It eliminates the need for any non-LLM processing between steps"
+      ],
+      "correctIndex": 0,
+      "explanation": "The class content explicitly states that the key benefit of chaining is focus - when you give Claude one specific task at a time, it can concentrate on doing that task well rather than juggling multiple requirements simultaneously.",
+      "id": "287800-chaining-workflows-q0",
+      "classFile": "287800-chaining-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the technical article writing example, why does the chaining approach work better than a single large prompt with all constraints listed?",
+      "options": [
+        "Because it allows Claude to ignore less important constraints",
+        "Because Claude can focus entirely on the revision task rather than trying to balance content creation with constraint adherence",
+        "Because it automatically removes all emojis and AI mentions without human intervention",
+        "Because the constraints are easier for Claude to understand when listed in a longer prompt"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that in the two-step chaining approach, Claude can focus entirely on the revision task rather than trying to balance content creation with constraint adherence, which is why it works better than one massive prompt.",
+      "id": "287800-chaining-workflows-q1",
+      "classFile": "287800-chaining-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, which of the following is NOT listed as an advantage of the chaining approach?",
+      "options": [
+        "Split large tasks into smaller, non-parallelizable subtasks",
+        "Optionally do non-LLM processing between each task",
+        "Reduce the total cost of API calls by 50 percent",
+        "Keep Claude focused on one aspect of the overall task"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content lists three specific advantages of chaining (splitting tasks, optional non-LLM processing, and keeping Claude focused), but reducing API costs by 50 percent is not mentioned as a listed advantage.",
+      "id": "287800-chaining-workflows-q2",
+      "classFile": "287800-chaining-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary problem that routing workflows solve in AI applications?",
+      "options": [
+        "They reduce the cost of API calls by combining multiple requests into one",
+        "Different types of user requests need different handling approaches that a single generic prompt cannot handle effectively",
+        "They allow users to submit multiple requests simultaneously without waiting for responses",
+        "They enable Claude to process requests in parallel across multiple servers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Routing workflows address the limitation that a single generic prompt cannot effectively handle diverse request types that require different processing approaches.",
+      "id": "287801-routing-workflows-q0",
+      "classFile": "287801-routing-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How many steps are involved in the routing process in practice?",
+      "options": [
+        "One step: directly send user input to the appropriate pipeline",
+        "Two steps: categorization and specialized processing",
+        "Three steps: validation, categorization, and processing",
+        "Four steps: validation, categorization, optimization, and processing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The routing process consists of two steps: first categorizing the user's input into a predefined genre, then using that category to select the appropriate prompt template for specialized processing.",
+      "id": "287801-routing-workflows-q1",
+      "classFile": "287801-routing-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, routing workflows work well when all of the following conditions are met EXCEPT:",
+      "options": [
+        "Your application handles diverse types of requests that need different approaches",
+        "You can clearly define categories that cover your use cases",
+        "The routing step requires multiple Claude API calls to validate categorization accuracy",
+        "The performance benefit of specialized processing outweighs the overhead of the routing step"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class states routing works well when the categorization can be handled reliably by Claude, not when multiple calls are required for validation; requiring multiple validation calls would add unnecessary overhead.",
+      "id": "287801-routing-workflows-q2",
+      "classFile": "287801-routing-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary advantage of using agents compared to workflows?",
+      "options": [
+        "Agents are cheaper to run than workflows",
+        "Agents can figure out the steps needed when you don't know them in advance, rather than requiring a predefined sequence",
+        "Agents can only be used for simple tasks like datetime operations",
+        "Agents eliminate the need for tools entirely"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content states that agents shine when you're not sure what steps should be taken, allowing Claude to figure out how to combine tools to achieve objectives, unlike workflows which require exact steps to be defined in advance.",
+      "id": "287803-agents-and-tools-q0",
+      "classFile": "287803-agents-and-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class, what is the key principle for designing effective agent tools?",
+      "options": [
+        "Tools should be highly specialized for specific tasks like 'refactor code' or 'install dependencies'",
+        "Tools should be reasonably abstract and combinable rather than hyper-specialized",
+        "Tools should only be used one at a time and never chained together",
+        "Tools should include pre-built solutions for every possible scenario"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class emphasizes that tools should be abstract and flexible, allowing Claude to combine them creatively, as demonstrated by Claude Code's generic tools like bash, read, and write rather than specialized tools.",
+      "id": "287803-agents-and-tools-q1",
+      "classFile": "287803-agents-and-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the datetime tools example, how would Claude handle the request 'What day of the week is it in 11 days?'",
+      "options": [
+        "It would only call get_current_datetime",
+        "It would only call add_duration_to_datetime",
+        "It would chain get_current_datetime followed by add_duration_to_datetime",
+        "It would ask the user to provide both the current date and the target date"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content explicitly states that for 'What day of the week is it in 11 days?', Claude chains get_current_datetime followed by add_duration_to_datetime to accomplish the task.",
+      "id": "287803-agents-and-tools-q2",
+      "classFile": "287803-agents-and-tools",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "In the material designer application example, what is the main problem with asking Claude to choose a material in a single complex prompt?",
+      "options": [
+        "Claude cannot process images of parts",
+        "Claude has to juggle all different material considerations simultaneously, which can lead to confusion and suboptimal results",
+        "The application cannot handle multiple material types",
+        "Users are unable to upload images to the application"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly states that adding all detailed criteria into one massive prompt creates a problem where Claude has to juggle all these different considerations simultaneously, leading to confusion and suboptimal results.",
+      "id": "287804-parallelization-workflows-q0",
+      "classFile": "287804-parallelization-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the correct sequence of steps in a parallelization workflow?",
+      "options": [
+        "Aggregate results, split task, run sub-tasks in parallel",
+        "Split a single task into multiple sub-tasks, run the sub-tasks in parallel, aggregate the results together",
+        "Run sub-tasks in parallel, split task, aggregate results",
+        "Aggregate results, run sub-tasks in parallel, split task"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content describes the parallelization pattern as following a specific structure: first split the task into multiple sub-tasks, then run them in parallel, and finally aggregate the results together.",
+      "id": "287804-parallelization-workflows-q1",
+      "classFile": "287804-parallelization-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the class content, which of the following is a key advantage of parallelization workflows?",
+      "options": [
+        "It eliminates the need for user feedback on material selections",
+        "It allows Claude to process images faster than traditional methods",
+        "You can improve and test the prompts for each material evaluation independently without affecting the others",
+        "It reduces the cost of cloud computing infrastructure"
+      ],
+      "correctIndex": 2,
+      "explanation": "The class content lists 'easier optimization' as a benefit, specifically stating that you can improve and test the prompts for each material evaluation independently, and if one analysis isn't working well, you can refine just that prompt without affecting the others.",
+      "id": "287804-parallelization-workflows-q2",
+      "classFile": "287804-parallelization-workflows",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary purpose of running the /init command when starting a project with Claude Code?",
+      "options": [
+        "To scan your entire codebase and create a CLAUDE.md file that summarizes project structure, dependencies, coding style, and architecture",
+        "To automatically deploy your project to production",
+        "To clear all previous conversation history and reset context",
+        "To initialize a new git repository for your project"
+      ],
+      "correctIndex": 0,
+      "explanation": "The /init command scans your codebase and creates a CLAUDE.md file that captures project details, which is then included as context in all future conversations.",
+      "id": "287805-claude-code-in-action-q0",
+      "classFile": "287805-claude-code-in-action",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "According to the recommended workflow, what should you ask Claude to do before implementation?",
+      "options": [
+        "Start writing code immediately based on your feature request",
+        "Create test cases without reading any context files",
+        "Think through the problem and create a plan without writing any code yet",
+        "Deploy the solution to a staging environment"
+      ],
+      "correctIndex": 2,
+      "explanation": "Step 2 of the effective workflow recommends asking Claude to plan a solution and think through the approach before implementing, rather than jumping straight to code.",
+      "id": "287805-claude-code-in-action-q1",
+      "classFile": "287805-claude-code-in-action",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the three scope levels for CLAUDE.md files mentioned in the class content?",
+      "options": [
+        "Development, Production, and Staging",
+        "Project, Local, and User",
+        "Frontend, Backend, and Database",
+        "Public, Private, and Internal"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explicitly lists three scope levels for CLAUDE.md files: Project (shared between engineers), Local (personal notes not in git), and User (across all projects).",
+      "id": "287805-claude-code-in-action-q2",
+      "classFile": "287805-claude-code-in-action",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What are the two key properties contained in each InputJsonEvent when using tool streaming?",
+      "options": [
+        "partial_json and snapshot",
+        "partial_json and complete_json",
+        "chunk_id and partial_json",
+        "snapshot and validation_status"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the class content, each InputJsonEvent contains partial_json (a chunk of JSON representing part of the tool arguments) and snapshot (the cumulative JSON built up from all chunks received so far).",
+      "id": "313160-fine-grained-tool-calling-q0",
+      "classFile": "313160-fine-grained-tool-calling",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "How does the Anthropic API handle JSON validation in basic tool streaming?",
+      "options": [
+        "It validates every chunk individually as it is generated",
+        "It buffers chunks and waits for complete top-level key-value pairs before validating and sending them",
+        "It skips validation entirely to improve streaming speed",
+        "It validates the entire JSON object only after all chunks have been received"
+      ],
+      "correctIndex": 1,
+      "explanation": "The class content explains that the API buffers chunks and validates them first, waiting for complete top-level key-value pairs before sending anything, which causes delays followed by bursts of text.",
+      "id": "313160-fine-grained-tool-calling-q1",
+      "classFile": "313160-fine-grained-tool-calling",
+      "lesson": "claude-with-the-anthropic-api"
+    },
+    {
+      "question": "What is the primary effect of enabling fine-grained tool calling?",
+      "options": [
+        "It improves JSON schema validation accuracy",
+        "It disables JSON validation on the API side and sends chunks as soon as Claude generates them without buffering delays",
+        "It requires manual validation of all tool arguments",
+        "It automatically converts invalid JSON to valid formats"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fine-grained tool calling disables JSON validation on the API side, eliminates buffering delays between top-level keys, and allows chunks to be sent as soon as Claude generates them, though this means your code must handle invalid JSON.",
+      "id": "313160-fine-grained-tool-calling-q2",
+      "classFile": "313160-fine-grained-tool-calling",
+      "lesson": "claude-with-the-anthropic-api"
+    }
+  ]
+}
