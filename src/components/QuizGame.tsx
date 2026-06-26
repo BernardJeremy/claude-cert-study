@@ -97,11 +97,11 @@ export default function QuizGame({ questions }: Props) {
       <div className="flex-1 px-4 py-8">
         <div className="w-full max-w-2xl mx-auto space-y-5">
           {/* Lesson badge + question ID */}
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1 rounded-full">
+          <div className="flex items-start justify-between gap-3">
+            <span className="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1 rounded-lg">
               {lessonLabel(current.lesson)}
             </span>
-            <span className="text-xs font-mono text-gray-600">{current.id}</span>
+            <span className="text-xs font-mono text-gray-600 shrink-0 text-right">{current.id}</span>
           </div>
 
           {/* Question card */}
