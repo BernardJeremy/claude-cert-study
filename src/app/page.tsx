@@ -1,16 +1,7 @@
 import { promises as fs } from 'fs'
 import path from 'path'
-import dynamic from 'next/dynamic'
+import QuizGameLoader from '@/components/QuizGameLoader'
 import type { LessonBank, Question } from '@/types/quiz'
-
-const QuizGame = dynamic(() => import('@/components/QuizGame'), {
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center min-h-screen">
-      <p className="text-gray-600 text-sm">Loading questions…</p>
-    </div>
-  ),
-})
 
 const LESSONS = [
   'claude-code-in-action',
@@ -44,7 +35,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
-      <QuizGame questions={questions} />
+      <QuizGameLoader questions={questions} />
     </main>
   )
 }

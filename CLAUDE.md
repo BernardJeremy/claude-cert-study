@@ -16,7 +16,7 @@ A Next.js 14 flashcard/quiz app for studying the Claude API certification. Two p
 | `yarn dev` | Start Next.js dev server |
 | `yarn build` | Production build |
 | `yarn start` | Start production server |
-| `yarn lint` | ESLint via `next lint` |
+| `yarn lint` | ESLint (flat config, `eslint .`) |
 | `yarn generate` | Generate question JSON from HTML source files |
 
 ## Key Gotchas
