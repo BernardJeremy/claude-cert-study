@@ -3,13 +3,16 @@
 import { useState, useCallback, useEffect } from 'react'
 import type { Question } from '@/types/quiz'
 
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr]
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[a[i], a[j]] = [a[j], a[i]]
-  }
-  return a
+// Efraimidis-Spirakis weighted shuffle: each question appears exactly once,
+// but questions from underrepresented lessons (weight=2) surface earlier.
+function weightedShuffle(questions: Question[]): Question[] {
+  return [...questions]
+    .map((q) => ({
+      q,
+      key: Math.random() ** (1 / (q.lesson === 'claude-with-the-anthropic-api' ? 1 : 2)),
+    }))
+    .sort((a, b) => b.key - a.key)
+    .map(({ q }) => q)
 }
 
 function lessonLabel(lesson: string): string {
@@ -30,7 +33,7 @@ export default function QuizGame({ questions }: Props) {
   const [score, setScore] = useState({ correct: 0, total: 0 })
 
   useEffect(() => {
-    setDeck(shuffle(questions))
+    setDeck(weightedShuffle(questions))
   }, [questions])
 
   const current = deck[index]
@@ -50,7 +53,7 @@ export default function QuizGame({ questions }: Props) {
 
   const handleNext = useCallback(() => {
     if (index + 1 >= deck.length) {
-      setDeck(shuffle(questions))
+      setDeck(weightedShuffle(questions))
       setIndex(0)
     } else {
       setIndex((i) => i + 1)
@@ -93,11 +96,12 @@ export default function QuizGame({ questions }: Props) {
 
       <div className="flex-1 px-4 py-8">
         <div className="w-full max-w-2xl mx-auto space-y-5">
-          {/* Lesson badge + deck progress */}
+          {/* Lesson badge + question ID */}
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium bg-gray-800 text-gray-400 px-3 py-1 rounded-full">
               {lessonLabel(current.lesson)}
             </span>
+            <span className="text-xs font-mono text-gray-600">{current.id}</span>
           </div>
 
           {/* Question card */}
