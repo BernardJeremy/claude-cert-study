@@ -352,34 +352,6 @@
       "lesson": "claude-with-the-anthropic-api"
     },
     {
-      "question": "According to the class content, what score did the grader assign to Claude's response about making oatmeal in the example?",
-      "options": [
-        "10",
-        "9",
-        "4",
-        "7.66"
-      ],
-      "correctIndex": 2,
-      "explanation": "The grader assigned a score of 4 to the oatmeal question, indicating that it needs improvement.",
-      "id": "287736-a-typical-eval-workflow-q1",
-      "classFile": "287736-a-typical-eval-workflow",
-      "lesson": "claude-with-the-anthropic-api"
-    },
-    {
-      "question": "In the example provided, what improvement was made to the prompt in Step 5 to potentially increase the average score from 7.66 to 8.7?",
-      "options": [
-        "Adding more questions to the evaluation dataset",
-        "Adding more guidance to the prompt by including 'Answer the question with ample detail'",
-        "Changing the grading scale from 1 to 10 to a different range",
-        "Removing the baseline prompt and starting with a completely new one"
-      ],
-      "correctIndex": 1,
-      "explanation": "The prompt was improved by adding the instruction 'Answer the question with ample detail' to provide more guidance to Claude, which resulted in a higher average score of 8.7.",
-      "id": "287736-a-typical-eval-workflow-q2",
-      "classFile": "287736-a-typical-eval-workflow",
-      "lesson": "claude-with-the-anthropic-api"
-    },
-    {
       "question": "What are the two key aspects of AI-generated responses that code grading validates?",
       "options": [
         "Format and Valid Syntax",
@@ -474,20 +446,6 @@
       "correctIndex": 0,
       "explanation": "The class content explicitly states that there are two main approaches to being specific in prompts: Output Quality Guidelines and Process Steps.",
       "id": "287740-being-specific-q0",
-      "classFile": "287740-being-specific",
-      "lesson": "claude-with-the-anthropic-api"
-    },
-    {
-      "question": "In the meal planning example provided, what was the improvement in evaluation score after adding guidelines?",
-      "options": [
-        "From 3.92 to 5.50",
-        "From 3.92 to 7.86",
-        "From 5.00 to 10.00",
-        "From 4.50 to 8.00"
-      ],
-      "correctIndex": 1,
-      "explanation": "The class content states that adding guidelines to a meal planning prompt improved the evaluation score from 3.92 to 7.86, more than doubling the quality of the output.",
-      "id": "287740-being-specific-q1",
       "classFile": "287740-being-specific",
       "lesson": "claude-with-the-anthropic-api"
     },
@@ -656,20 +614,6 @@
       "correctIndex": 2,
       "explanation": "The class content explicitly states to use instructions with direct action verbs like 'Write,' 'Create,' or 'Generate' rather than questions when structuring requests.",
       "id": "287744-being-clear-and-direct-q1",
-      "classFile": "287744-being-clear-and-direct",
-      "lesson": "claude-with-the-anthropic-api"
-    },
-    {
-      "question": "In the class example about improving a weak prompt, what was the evaluation score improvement when restructuring the opening line from 'What should this person eat?' to a clearer version?",
-      "options": [
-        "From 1.5 to 2.8",
-        "From 2.32 to 3.92",
-        "From 3.0 to 4.5",
-        "From 2.5 to 3.5"
-      ],
-      "correctIndex": 1,
-      "explanation": "The class content specifically states that the evaluation score jumped from 2.32 to 3.92 when restructuring the weak prompt with clear and direct language.",
-      "id": "287744-being-clear-and-direct-q2",
       "classFile": "287744-being-clear-and-direct",
       "lesson": "claude-with-the-anthropic-api"
     },
@@ -1290,20 +1234,6 @@
       "lesson": "claude-with-the-anthropic-api"
     },
     {
-      "question": "In the example query about the software engineering department, which section was identified as the most relevant and what was its distance score?",
-      "options": [
-        "Methodology section with a distance of 0.71",
-        "Section 2: Software Engineering with a distance of 0.71",
-        "Section 2: Software Engineering with a distance of 0.72",
-        "Methodology section with a distance of 0.72"
-      ],
-      "correctIndex": 1,
-      "explanation": "Section 2: Software Engineering was the closest match with a distance of 0.71, and lower distance values indicate higher similarity.",
-      "id": "287761-implementing-the-rag-flow-q2",
-      "classFile": "287761-implementing-the-rag-flow",
-      "lesson": "claude-with-the-anthropic-api"
-    },
-    {
       "question": "What is the primary problem that Retrieval Augmented Generation (RAG) solves?",
       "options": [
         "RAG helps work with large documents that are too big to fit into a single prompt by breaking them into chunks and including only the most relevant pieces",
@@ -1343,20 +1273,6 @@
       "explanation": "The class content explicitly states that there are many ways to chunk text and each approach has trade-offs that need to be evaluated for specific use cases.",
       "id": "287763-introducing-retrieval-augmented-generation-q2",
       "classFile": "287763-introducing-retrieval-augmented-generation",
-      "lesson": "claude-with-the-anthropic-api"
-    },
-    {
-      "question": "In the RAG pipeline example, what embedding values were assigned to the medical research section after the embedding model processed it?",
-      "options": [
-        "[0.30, 0.97]",
-        "[0.97, 0.34]",
-        "[0.944, 0.331]",
-        "[0.112, 0.993]"
-      ],
-      "correctIndex": 1,
-      "explanation": "The medical research section about XDR-47 received the embedding [0.97, 0.34] because it was very medical-focused (0.97) but had some software elements due to the word 'bug' (0.34).",
-      "id": "287764-the-full-rag-flow-q0",
-      "classFile": "287764-the-full-rag-flow",
       "lesson": "claude-with-the-anthropic-api"
     },
     {
@@ -1412,20 +1328,6 @@
       "correctIndex": 1,
       "explanation": "According to the class content, k is a constant in the RRF formula that is often set to 60, but the course uses 1 for clearer results in examples.",
       "id": "287766-a-multi-index-rag-pipeline-q1",
-      "classFile": "287766-a-multi-index-rag-pipeline",
-      "lesson": "claude-with-the-anthropic-api"
-    },
-    {
-      "question": "Based on the class example, which section received the highest RRF score when searching for 'INC-2023-Q4-011'?",
-      "options": [
-        "Section 6 with a score of 0.75",
-        "Section 7 with a score of 0.583",
-        "Section 2 with a score of 0.833",
-        "Section 10 with a score of 1.0"
-      ],
-      "correctIndex": 2,
-      "explanation": "The calculation in the class content shows Section 2 received the highest RRF score of 0.833 because it performed well in both the VectorIndex and BM25Index rankings.",
-      "id": "287766-a-multi-index-rag-pipeline-q2",
       "classFile": "287766-a-multi-index-rag-pipeline",
       "lesson": "claude-with-the-anthropic-api"
     },
