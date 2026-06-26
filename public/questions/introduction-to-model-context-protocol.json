@@ -18,10 +18,10 @@
     {
       "question": "In the context of MCP, what role does an MCP Server play?",
       "options": [
-        "It stores user authentication credentials",
+        "It stores user authentication credentials and manages secure session tokens for all connected client applications",
         "It acts as a specialized interface that exposes tools, prompts, and resources in a standardized way to connect external services",
-        "It directly replaces Claude's language processing capabilities",
-        "It manages Claude's model fine-tuning and training"
+        "It directly replaces Claude's language processing capabilities by handling text generation and inference within the server itself",
+        "It manages Claude's model fine-tuning and training by continuously sending domain-specific examples back to the model provider"
       ],
       "correctIndex": 1,
       "explanation": "MCP Servers act as specialized interfaces that expose tools, prompts, and resources in a standardized way, handling the implementation details of external services like GitHub.",
@@ -32,10 +32,10 @@
     {
       "question": "How is MCP different from tool use?",
       "options": [
-        "MCP is only used for authentication while tool use handles API calls",
-        "Tool use is a concept that MCP completely replaces",
+        "MCP is only used for authentication and authorization, while tool use handles all actual API calls to external services",
+        "Tool use is an older concept that MCP completely replaces, providing a more standardized and comprehensive alternative for integrations",
         "MCP servers provide pre-defined tool schemas and functions, while tool use is about how Claude actually calls those tools",
-        "MCP and tool use are identical concepts with different names"
+        "MCP and tool use are identical concepts that simply use different terminology in different parts of the Anthropic documentation"
       ],
       "correctIndex": 2,
       "explanation": "MCP servers provide already-implemented tool schemas and functions, whereas tool use refers to the mechanism by which Claude executes those tools—they are complementary but different concepts.",
@@ -74,10 +74,10 @@
     {
       "question": "In the example flow described in the class, what is the purpose of the ListToolsRequest/ListToolsResult message exchange?",
       "options": [
-        "To allow Claude to directly execute tools on the MCP server",
+        "To allow Claude to directly execute tools on the MCP server without any intermediary message passing or approval steps",
         "To enable the server to discover what tools are available from the MCP server so they can be sent to Claude",
-        "To transfer repository data from GitHub back to the user",
-        "To authenticate the MCP client with the MCP server"
+        "To transfer repository data from GitHub directly back to the user as part of the initial connection handshake",
+        "To authenticate the MCP client with the MCP server by exchanging credentials before any tools can be registered"
       ],
       "correctIndex": 1,
       "explanation": "According to the class content, the ListToolsRequest/ListToolsResult exchange allows the client to ask the server 'what tools do you provide?' so your server can learn what tools are available to send to Claude.",
@@ -242,10 +242,10 @@
     {
       "question": "When a user types '@' followed by a resource name in the CLI application, what happens?",
       "options": [
-        "The system immediately sends a request to the AI model without showing any options",
+        "The system immediately sends a request to the AI model without showing any options, forwarding the typed text directly as a resource identifier in the prompt",
         "The system shows available resources in an autocomplete list, allows selection with arrow keys and space, and includes the resource content directly in the prompt",
-        "The system requires the user to manually type the complete resource URI",
-        "The system creates a tool call that the AI model must execute to access the resource"
+        "The system requires the user to manually type the complete resource URI, which is then validated against available resources before being included",
+        "The system creates a tool call that the AI model must execute first to retrieve the resource content before it can be added to the conversation"
       ],
       "correctIndex": 1,
       "explanation": "The '@' syntax triggers a user-friendly workflow where available resources appear in autocomplete, can be selected with arrow keys and space, and the content is included directly in the prompt sent to the AI model.",
@@ -326,10 +326,10 @@
     {
       "question": "According to the class content, what happens when you use decorators to define tools in the MCP Python SDK?",
       "options": [
-        "You must still write JSON schemas manually for each tool",
+        "You must still write JSON schemas manually for each tool, since the decorator only registers the function name without capturing its parameter types",
         "The SDK automatically generates the proper schema that Claude can understand based on Python type hints",
-        "Claude receives tool definitions in plain text format",
-        "Tool registration requires separate configuration files"
+        "Claude receives tool definitions as plain text descriptions that it must parse and interpret before knowing how to invoke each function",
+        "Tool registration requires separate JSON configuration files that must be manually updated whenever a new tool function is added or modified"
       ],
       "correctIndex": 1,
       "explanation": "The class content states that 'the SDK automatically generates the proper schema that Claude can understand' and that you no longer need to write JSON schemas manually when using type hints with decorators.",
@@ -340,10 +340,10 @@
     {
       "question": "What is the primary advantage of using prompts in MCP servers instead of having users write their own instructions?",
       "options": [
-        "Prompts allow users to bypass Claude's capabilities entirely",
+        "Prompts allow users to bypass Claude's built-in content policies entirely, giving developers full control over what topics the model will engage with",
         "Pre-built prompts are thoroughly tested, handle edge cases, and follow best practices, giving users better results than they could achieve on their own",
-        "Prompts are the only way to make Claude perform any tasks",
-        "Prompts eliminate the need for users to have any knowledge of their documents"
+        "Prompts are the only mechanism through which Claude can be triggered to perform any action in an MCP-connected application",
+        "Prompts completely eliminate the need for users to have any knowledge of their documents, since the server automatically reads and summarizes all content"
       ],
       "correctIndex": 1,
       "explanation": "The class content states that users get much better results with thoroughly tested, specialized prompts that handle edge cases and follow best practices compared to writing their own instructions.",
@@ -368,10 +368,10 @@
     {
       "question": "What is the purpose of using the MCP Inspector when developing prompts?",
       "options": [
-        "To deploy prompts directly to production without testing",
+        "To deploy prompts directly to production without any testing phase, streamlining the development-to-production workflow",
         "To test prompts before deploying them and verify how variables are interpolated into the prompt template",
-        "To delete unused prompts from the server",
-        "To convert prompts into different programming languages"
+        "To delete unused prompts from the server and reclaim memory by removing obsolete prompt definitions from the registry",
+        "To automatically convert prompts written in Python into equivalent versions in other programming languages like JavaScript or Go"
       ],
       "correctIndex": 1,
       "explanation": "The class content explains that the MCP Inspector lets you test prompts, see exactly what messages will be sent to Claude, and verify the prompt looks correct before users rely on it.",
@@ -397,9 +397,9 @@
       "question": "What is the key difference between direct resources and templated resources in MCP servers?",
       "options": [
         "Direct resources have static URIs that never change, while templated resources include parameters in their URIs",
-        "Direct resources require authentication, while templated resources do not",
-        "Direct resources return JSON data, while templated resources return plain text",
-        "Direct resources are faster than templated resources"
+        "Direct resources require authentication tokens in each request, while templated resources handle access control through URI parameter validation",
+        "Direct resources always return their content as JSON data, while templated resources produce plain text by substituting URI parameters into a response template",
+        "Direct resources are significantly faster to access than templated resources because they skip the URI parsing and parameter extraction step entirely"
       ],
       "correctIndex": 0,
       "explanation": "The class content defines direct resources as having static URIs that never change and templated resources as including parameters in their URIs that are automatically parsed by the Python SDK.",

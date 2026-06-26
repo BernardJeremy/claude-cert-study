@@ -18,10 +18,10 @@
     {
       "question": "What is the purpose of the max_tokens parameter?",
       "options": [
-        "It sets a target for how many tokens Claude should generate",
+        "It sets a desired target length that Claude will aim to reach for every response it generates",
         "It acts as a safety mechanism to limit response length, stopping generation if the maximum is reached",
-        "It determines the minimum length of Claude's response",
-        "It controls the cost of the API request"
+        "It determines the minimum number of tokens Claude must produce before it is allowed to end its response",
+        "It directly controls the billing cost by capping the exact number of tokens that will be charged for each request"
       ],
       "correctIndex": 1,
       "explanation": "The class content explains that max_tokens acts as a safety mechanism and that Claude doesn't try to reach this limit but simply stops if it hits the maximum.",
@@ -46,10 +46,10 @@
     {
       "question": "Why should you never make requests to the Anthropic API directly from client-side code?",
       "options": [
-        "It is slower than making requests through a server",
+        "It is significantly slower than routing requests through a server, introducing unacceptable latency for real-time user interactions",
         "API requests require a secret API key for authentication, and exposing it in client code creates a serious security vulnerability",
-        "The Anthropic API only accepts requests from registered servers",
-        "Client-side requests cannot include the required model parameter"
+        "The Anthropic API only accepts requests from pre-registered server IP addresses and will reject all requests originating from browser environments",
+        "Client-side JavaScript environments cannot properly set the required HTTP headers needed to include the model parameter in API requests"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly states that API requests require a secret API key and exposing it in client code creates a security vulnerability that would allow unauthorized access.",
@@ -60,10 +60,10 @@
     {
       "question": "During Claude's processing, what is the purpose of the contextualization stage?",
       "options": [
-        "Converting tokens into long lists of numbers that represent word meanings",
-        "Breaking input text into smaller chunks called tokens",
+        "Converting each token into a numerical vector by looking up its fixed representation in a static vocabulary embedding table",
+        "Breaking input text into smaller chunks called tokens by identifying word boundaries and splitting on punctuation characters",
         "Refining each embedding based on surrounding words to determine the most likely meaning in context",
-        "Calculating probabilities for each possible next word"
+        "Calculating a probability distribution over the entire vocabulary to determine which token is most likely to appear next in the output"
       ],
       "correctIndex": 2,
       "explanation": "The contextualization stage adjusts numerical representations of tokens based on surrounding words to highlight the appropriate definition for each word in its specific context.",
@@ -173,9 +173,9 @@
       "question": "What is the main problem that occurs when Claude generates JSON by default?",
       "options": [
         "Claude wraps the JSON in markdown code blocks with explanatory text, making it difficult for users to copy raw data",
-        "Claude refuses to generate JSON and returns an error message instead",
-        "Claude generates invalid JSON syntax that cannot be parsed",
-        "Claude takes too long to process JSON generation requests"
+        "Claude refuses to generate JSON output by default and returns an error indicating that structured data formats are not supported",
+        "Claude generates syntactically incorrect JSON that fails validation when passed to standard parsers like json.loads()",
+        "Claude takes significantly too long to generate JSON output, often timing out in applications with strict response latency requirements"
       ],
       "correctIndex": 0,
       "explanation": "The class content explicitly states that Claude wraps JSON in markdown formatting and includes explanatory text, which creates friction when users need to copy raw JSON.",
@@ -215,9 +215,9 @@
       "question": "What is the primary purpose of using system prompts with Claude?",
       "options": [
         "To customize how Claude responds and shape its tone, style, and approach for specific use cases",
-        "To increase the maximum number of tokens Claude can process",
-        "To reduce the latency of API responses",
-        "To allow Claude to access external knowledge bases"
+        "To increase the maximum number of tokens Claude can process by allocating additional context window space for the conversation",
+        "To reduce the latency of API responses by pre-loading frequently used response patterns into Claude's working memory",
+        "To allow Claude to dynamically access external knowledge bases and databases that were not included in its training data"
       ],
       "correctIndex": 0,
       "explanation": "System prompts are designed to customize Claude's responses by shaping tone, style, and approach to match specific use cases, as stated in the class content.",
@@ -522,10 +522,10 @@
     {
       "question": "Why is asking for strengths, weaknesses, and reasoning important when implementing a model grader?",
       "options": [
-        "It makes the grading process faster and more efficient",
+        "It makes the grading process significantly faster and more efficient by reducing the number of API calls needed for each evaluation",
         "Without this context, models tend to default to middling scores around 6",
-        "It ensures the grader only evaluates code quality",
-        "It eliminates the need for human review of the outputs"
+        "It ensures the grader only evaluates code quality and ignores all other aspects of the response like clarity or completeness",
+        "It eliminates the need for any human review of the outputs by providing enough context for fully automated grading"
       ],
       "correctIndex": 1,
       "explanation": "The class content states that without strengths, weaknesses, and reasoning context, models tend to default to middling scores around 6.",
@@ -704,10 +704,10 @@
     {
       "question": "What is the primary limitation of Claude without tool use?",
       "options": [
-        "Claude can only process text and not other data formats",
+        "Claude can only process plain text and cannot handle structured data formats like JSON, CSV, or XML",
         "Claude only knows information from its training data and cannot access current events, real-time data, or external systems",
-        "Claude cannot understand complex questions from users",
-        "Claude requires additional hardware to function properly"
+        "Claude cannot understand complex multi-part questions from users without being explicitly prompted to break them down first",
+        "Claude requires additional dedicated hardware to function properly outside of Anthropic's own managed infrastructure"
       ],
       "correctIndex": 1,
       "explanation": "According to the class content, by default Claude only knows information from its training data and can't access current events, real-time data, or external systems, which is the fundamental problem that tool use solves.",
@@ -1152,10 +1152,10 @@
     {
       "question": "Why is VoyageAI recommended as the embedding provider for RAG pipelines?",
       "options": [
-        "It is owned by Anthropic",
+        "It is a sister company of Anthropic that shares the same infrastructure and API authentication system",
         "Because Anthropic does not currently provide embedding generation",
-        "Because it is the cheapest option available",
-        "Because it is the only provider that supports semantic search"
+        "Because it is the most cost-effective option available, with pricing significantly lower than competing embedding providers",
+        "Because it is the only embedding provider that supports the semantic search operations required for RAG pipelines"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly states that since Anthropic doesn't currently provide embedding generation, VoyageAI is the recommended provider.",
@@ -1866,10 +1866,10 @@
     {
       "question": "When should engineers choose to implement an agent over a workflow?",
       "options": [
-        "Whenever they want to build the most advanced AI system possible",
-        "When they have well-defined processes that need high reliability",
+        "Whenever they want to build the most advanced AI system possible, since agents represent the cutting edge of AI application design",
+        "When they have well-defined processes that need high reliability and consistent, repeatable results across all user interactions",
         "Only when workflows are truly insufficient and they need to handle unpredictable, varied user requests that require creative problem-solving",
-        "For all production applications to ensure maximum user satisfaction"
+        "For all production applications to ensure maximum user satisfaction by giving Claude the freedom to determine its own approach"
       ],
       "correctIndex": 2,
       "explanation": "The class content recommends implementing workflows where possible and only resorting to agents when they are truly required for handling unpredictable situations that couldn't be predetermined.",
@@ -1909,9 +1909,9 @@
       "question": "In the Image to CAD workflow example, what is the purpose of the Grader step?",
       "options": [
         "To evaluate the rendering against the original image and determine if there are issues that need fixing",
-        "To convert the image file format into a STEP file",
-        "To describe the metal part based on the input image",
-        "To create the 3D model using the CadQuery library"
+        "To convert the input image file format into a STEP file that CAD software can import and work with",
+        "To describe the metal part's geometry and dimensions based on visual analysis of the input image",
+        "To create the 3D model using the CadQuery library by translating the part description into code"
       ],
       "correctIndex": 0,
       "explanation": "The Grader step in the Image to CAD workflow evaluates the rendering against the original image to check for issues; if problems exist, feedback is sent back to the producer for improvement.",
@@ -1965,9 +1965,9 @@
       "question": "What is the primary benefit of using workflow chaining instead of combining all tasks into a single prompt?",
       "options": [
         "It allows Claude to focus on one specific task at a time rather than juggling multiple requirements simultaneously",
-        "It reduces the number of API calls needed to complete a task",
-        "It enables Claude to process information faster and more efficiently",
-        "It eliminates the need for any non-LLM processing between steps"
+        "It reduces the total number of API calls needed to complete a task, lowering both cost and overall response latency",
+        "It enables Claude to process information faster and more efficiently by caching intermediate results between pipeline steps",
+        "It eliminates the need for any non-LLM processing between steps by handling all data transformation within Claude itself"
       ],
       "correctIndex": 0,
       "explanation": "The class content explicitly states that the key benefit of chaining is focus - when you give Claude one specific task at a time, it can concentrate on doing that task well rather than juggling multiple requirements simultaneously.",
@@ -2048,10 +2048,10 @@
     {
       "question": "What is the primary advantage of using agents compared to workflows?",
       "options": [
-        "Agents are cheaper to run than workflows",
+        "Agents are cheaper to run than workflows because they make fewer API calls by combining multiple steps into a single request",
         "Agents can figure out the steps needed when you don't know them in advance, rather than requiring a predefined sequence",
-        "Agents can only be used for simple tasks like datetime operations",
-        "Agents eliminate the need for tools entirely"
+        "Agents can only be used for simple tasks like datetime operations and should never be applied to complex multi-step problems",
+        "Agents eliminate the need for tools entirely by relying solely on Claude's built-in knowledge to complete tasks"
       ],
       "correctIndex": 1,
       "explanation": "The class content states that agents shine when you're not sure what steps should be taken, allowing Claude to figure out how to combine tools to achieve objectives, unlike workflows which require exact steps to be defined in advance.",

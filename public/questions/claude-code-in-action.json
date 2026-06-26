@@ -47,9 +47,9 @@
       "question": "What is the primary reason that language models require tool use to function as coding assistants?",
       "options": [
         "Language models can only process and return text, and cannot directly read files or run commands",
-        "Tool use makes language models faster at processing code",
-        "Language models need tool use to understand programming syntax",
-        "Tool use allows language models to access the internet for documentation"
+        "Tool use makes language models significantly faster at processing and analyzing code by offloading computation to external services",
+        "Language models need tool use to correctly interpret and understand complex programming syntax beyond what their training covered",
+        "Tool use allows language models to access the internet for real-time documentation lookups and package version information"
       ],
       "correctIndex": 0,
       "explanation": "The class content explicitly states that language models by themselves can only process text and return text, and cannot actually read files or run commands without tool use.",
@@ -74,10 +74,10 @@
     {
       "question": "According to the class content, what is one key security benefit of Claude's strong tool use capability?",
       "options": [
-        "Claude Code encrypts all user data before processing",
+        "Claude Code encrypts all user data before processing and stores it in a secure cloud environment that only the user can access",
         "Claude Code can navigate codebases without requiring indexing, which often means not sending your entire codebase to external servers",
-        "Claude Code automatically removes malicious code from projects",
-        "Claude Code requires multi-factor authentication for all file access"
+        "Claude Code automatically detects and removes malicious code patterns from projects during each file read and write operation",
+        "Claude Code requires multi-factor authentication for all file access operations to prevent unauthorized changes to sensitive project files"
       ],
       "correctIndex": 1,
       "explanation": "The class content lists 'Better security - Claude Code can navigate codebases without requiring indexing, which often means not sending your entire codebase to external servers' as a key benefit of Claude's strong tool use.",
