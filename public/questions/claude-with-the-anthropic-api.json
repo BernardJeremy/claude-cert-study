@@ -74,10 +74,10 @@
     {
       "question": "Which of the following is NOT listed as an essential field that must be included in every request to the Anthropic API?",
       "options": [
-        "API Key",
-        "Model",
-        "Messages",
-        "Temperature Setting"
+        "API Key for authentication",
+        "Model identifier parameter",
+        "Messages array with content",
+        "Temperature setting preference"
       ],
       "correctIndex": 3,
       "explanation": "The class content specifies that API Key, Model, Messages, and Max Tokens are the essential fields required in every request, with no mention of Temperature Setting as a required field.",
@@ -158,10 +158,10 @@
     {
       "question": "According to the class content, what is the main advantage of Option 3 (running prompts through an evaluation pipeline) compared to Options 1 and 2?",
       "options": [
-        "It requires less time and cost than other options",
-        "It guarantees that users will never encounter unexpected inputs",
-        "It provides objective metrics about performance across a broader range of test cases, allowing you to catch problems during development",
-        "It eliminates the need for any prompt engineering techniques"
+        "It requires significantly less time and reduces costs compared to manual testing approaches",
+        "It guarantees that users will never encounter any unexpected or problematic inputs in production",
+        "It provides objective performance metrics across a broader range of test cases during development",
+        "It completely eliminates the need for any prompt engineering or optimization techniques"
       ],
       "correctIndex": 2,
       "explanation": "The class content explains that Option 3 provides objective metrics across a broader range of test cases and allows you to catch problems during development rather than after users encounter them in production.",
@@ -186,10 +186,10 @@
     {
       "question": "How does the combination of assistant message prefilling and stop sequences solve the JSON generation problem?",
       "options": [
-        "It removes Claude's ability to generate explanatory text entirely",
-        "The prefilled assistant message makes Claude think it already started a markdown code block, and the stop sequence ends generation when Claude tries to close it",
-        "It forces Claude to use a different language model that generates cleaner output",
-        "It automatically converts all JSON responses to Python dictionaries"
+        "It disables Claude's ability to generate any explanatory text or commentary alongside the JSON output",
+        "The prefilled assistant message makes Claude continue with just JSON content, and the stop sequence ends generation when Claude tries to close the code block",
+        "It automatically routes the request through a specialized JSON-only model variant that has been fine-tuned for structured data output",
+        "It converts the response format from JSON to XML and then parses it back into a Python dictionary format for compatibility"
       ],
       "correctIndex": 1,
       "explanation": "The class content explains that the prefilled assistant message makes Claude continue with just the JSON content, and the stop sequence immediately ends generation when Claude tries to close the code block.",
@@ -242,10 +242,10 @@
     {
       "question": "Why is it necessary to conditionally include the system parameter in the chat function?",
       "options": [
-        "To save memory and reduce storage usage",
-        "Because Claude's API doesn't accept system=None, so the parameter should only be included when it's provided",
-        "To allow the function to process messages faster",
-        "To prevent users from modifying the system prompt"
+        "To minimize memory consumption and reduce the overall storage requirements of the application",
+        "Because Claude's API doesn't accept system=None, so the parameter must only be included when it has a value",
+        "To enable faster message processing by reducing the number of API parameters sent in each request",
+        "To prevent unauthorized users from accessing or modifying the system prompt during runtime execution"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly states that Claude's API doesn't accept system=None, so you need to conditionally include the system parameter only when it's provided.",
@@ -312,10 +312,10 @@
     {
       "question": "What is the correct flow for maintaining a multi-turn conversation with Claude?",
       "options": [
-        "Send the initial message and Claude will automatically remember all follow-ups",
-        "Send the initial user message, add Claude's response to your message list, then send the entire conversation history with each new request",
-        "Create a new conversation session for each follow-up question",
-        "Use the API's built-in conversation memory feature to track all exchanges"
+        "Send the initial message and Claude will automatically retain all subsequent follow-ups in its internal memory",
+        "Send the initial user message, include Claude's response in your message history, then resend the entire conversation with each new request",
+        "Create a new conversation session for each follow-up question using the session reset endpoint",
+        "Use the API's built-in conversation memory feature to automatically track and store all message exchanges"
       ],
       "correctIndex": 1,
       "explanation": "To maintain conversation context, you must manually maintain a list of all messages in your code and send the complete message history with every request to Claude.",
@@ -340,10 +340,10 @@
     {
       "question": "In the prompt evaluation workflow, what is the primary purpose of Step 2: Create an Eval Dataset?",
       "options": [
-        "To send sample inputs to Claude and collect responses",
-        "To contain sample inputs that represent the types of questions or requests your prompt will handle in production",
-        "To evaluate the quality of Claude's responses on a scale from 1 to 10",
-        "To modify your prompt based on the baseline score and test it again"
+        "To send sample inputs to Claude and collect actual responses for comparison",
+        "To create sample inputs representing the types of questions your prompt will handle",
+        "To evaluate the quality of Claude's responses using a numerical scoring scale",
+        "To refine your prompt based on baseline performance metrics and retest it"
       ],
       "correctIndex": 1,
       "explanation": "Step 2 involves creating a dataset with sample inputs that represent the types of questions your prompt will handle in production, which can be assembled by hand or generated using Claude.",
@@ -368,10 +368,10 @@
     {
       "question": "What score is returned by the syntax validation functions when parsing succeeds?",
       "options": [
-        "5",
-        "15",
-        "10",
-        "100"
+        "5 points for basic validation",
+        "15 points for full parsing",
+        "10 points for successful parsing",
+        "100 points for completion"
       ],
       "correctIndex": 2,
       "explanation": "Each syntax validation function (validate_json, validate_python, validate_regex) returns a perfect score of 10 when parsing succeeds.",
@@ -452,10 +452,10 @@
     {
       "question": "According to the class content, when should you use Process Steps in your prompts?",
       "options": [
-        "Only when writing creative content like stories",
-        "For simple, straightforward requests",
-        "For troubleshooting complex problems, decision-making scenarios, critical thinking tasks, and situations where you want Claude to consider multiple angles",
-        "When you need to control the length of the response"
+        "Only when writing creative content like stories and narrative-based assignments",
+        "For simple, straightforward requests that need quick answers without deep analysis",
+        "For complex problems, decision-making scenarios, critical thinking tasks, and situations where you want Claude to consider multiple angles",
+        "When you need to control response length and format output in specific structured ways"
       ],
       "correctIndex": 2,
       "explanation": "The class content specifies that Process Steps should be used for complex problems, decision-making scenarios, critical thinking tasks, and any situation where you want Claude to consider multiple angles.",
@@ -480,10 +480,10 @@
     {
       "question": "Which of the following is identified as a best practice for naming XML tags in your prompts?",
       "options": [
-        "Always use standard XML tag names like <data> and <content>",
-        "Use generic single-letter tags to keep prompts concise",
+        "Always use standard XML tag names like <data> and <content> for consistency",
+        "Use generic single-letter tags like <a> and <b> to keep prompts brief",
         "Create descriptive tag names that clearly identify the purpose of the content, such as <sales_records> instead of <data>",
-        "Use abbreviated tag names with numbers to organize multiple sections"
+        "Use abbreviated tag names with numbers to organize and separate multiple distinct sections"
       ],
       "correctIndex": 2,
       "explanation": "The class content states that custom tag names should be descriptive and specific, with examples showing that <sales_records> is better than <data> and <athlete_information> clearly identifies user details.",
@@ -494,10 +494,10 @@
     {
       "question": "According to the class content, XML tags are particularly useful when which of the following conditions apply?",
       "options": [
-        "Only when your prompt is longer than 1000 words",
+        "Only when your prompt exceeds 1000 words in total length and contains multiple nested data structures",
         "When including large amounts of context or data, mixing different types of content, or working with complex prompts that interpolate multiple variables",
-        "Only for code-related prompts and technical documentation",
-        "When you want to hide sensitive information from Claude"
+        "Only for code-related prompts and technical documentation that require syntax highlighting and parsing",
+        "When you want to hide sensitive information from Claude and prevent it from being processed or analyzed"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly lists when XML tags are most useful: including large amounts of context or data, mixing different types of content, and working with complex prompts that interpolate multiple variables.",
@@ -578,10 +578,10 @@
     {
       "question": "Why is the current score in run_test_case hardcoded to 10?",
       "options": [
-        "Because 10 is the maximum possible score for any evaluation",
-        "Because Claude always returns results that deserve a score of 10",
-        "Because the grading logic will be developed in upcoming sections, and this placeholder allows testing the overall pipeline",
-        "Because the evaluation pipeline only supports scores between 1 and 10"
+        "Because 10 is the maximum possible score that the evaluation system supports",
+        "Because Claude's outputs consistently achieve the highest quality ratings",
+        "Because grading logic will be built later, and this placeholder tests the pipeline",
+        "Because the scoring rubric requires fixed values for initial test runs"
       ],
       "correctIndex": 2,
       "explanation": "The class content states 'The grading logic is where we'll spend significant time in upcoming sections, but this placeholder lets us test the overall pipeline,' explaining why the score is currently hardcoded.",
@@ -606,10 +606,10 @@
     {
       "question": "What does the class content recommend using instead of questions when giving instructions to Claude?",
       "options": [
-        "Polite requests",
-        "Multiple choice options",
-        "Instructions with direct action verbs",
-        "Vague suggestions"
+        "Polite requests that ask Claude to complete the desired task",
+        "Multiple choice options presented as separate numbered items",
+        "Instructions with direct action verbs like Write, Create, or Generate",
+        "Vague suggestions that allow Claude to interpret the intent freely"
       ],
       "correctIndex": 2,
       "explanation": "The class content explicitly states to use instructions with direct action verbs like 'Write,' 'Create,' or 'Generate' rather than questions when structuring requests.",
@@ -620,10 +620,10 @@
     {
       "question": "What is the first step in the iterative improvement process for prompt engineering?",
       "options": [
-        "Set a goal",
-        "Write an initial prompt",
-        "Evaluate the prompt",
-        "Apply prompt engineering techniques"
+        "Define a clear goal for what you want to accomplish",
+        "Write an initial prompt and test it with sample inputs",
+        "Evaluate the prompt's output against your success criteria",
+        "Apply advanced prompt engineering techniques like few-shot learning"
       ],
       "correctIndex": 0,
       "explanation": "According to the class content, setting a goal to define what you want your prompt to accomplish is the first step in the iterative improvement cycle.",
@@ -690,10 +690,10 @@
     {
       "question": "What does the class content recommend doing when adding context to examples in your prompt?",
       "options": [
-        "Keep explanations brief and avoid over-explaining the reasoning",
-        "Only provide the input/output pair without any additional context",
-        "Explain why the output is good and how it aligns with your requirements, helping Claude understand the reasoning",
-        "Use only natural language descriptions without XML tags"
+        "Keep explanations brief and avoid over-explaining the reasoning behind your examples",
+        "Only provide input/output pairs without any additional context or supporting information",
+        "Explain why the output is good and how it aligns with your requirements so Claude understands the reasoning",
+        "Use only natural language descriptions without XML tags or structured formatting elements"
       ],
       "correctIndex": 2,
       "explanation": "The class content advises to add context explaining why outputs are considered ideal, as this helps Claude understand the reasoning behind good responses, not just the format.",
@@ -802,10 +802,10 @@
     {
       "question": "What is the purpose of the conversation loop in handling multiple tool calls?",
       "options": [
-        "To continue until Claude stops requesting tools and has enough information to provide a final answer",
-        "To ensure the user can make multiple questions in sequence",
-        "To limit Claude to only one tool call per conversation",
-        "To prevent Claude from using any tools"
+        "To continue processing until Claude stops requesting tools and has sufficient information to provide a final answer",
+        "To allow the user to submit multiple independent questions within a single conversation session",
+        "To restrict Claude's tool usage by enforcing a maximum limit of one tool call per conversation turn",
+        "To completely block Claude from accessing or executing any tools during the entire conversation"
       ],
       "correctIndex": 0,
       "explanation": "The class content states that the conversation loop continues until Claude stops requesting tools, at which point it returns the final answer.",
@@ -816,10 +816,10 @@
     {
       "question": "What does the text_from_message helper function do?",
       "options": [
-        "It converts a full message object into a string by extracting and joining all text blocks",
-        "It converts plain text into a message object format",
-        "It removes all text blocks from a message",
-        "It separates tool use blocks from text blocks in a message"
+        "It extracts all text blocks from a message object and joins them into a single readable string",
+        "It converts plain text strings into structured message objects with formatted text blocks",
+        "It removes and filters out all text blocks while preserving non-text content in messages",
+        "It separates text blocks from tool use blocks and returns only the tool use data"
       ],
       "correctIndex": 0,
       "explanation": "According to the class content, text_from_message finds all text blocks in a message and joins them together to provide readable text from complex messages.",
@@ -900,10 +900,10 @@
     {
       "question": "When sending a follow-up request to Claude after tool execution, what must you still include even though you don't expect another tool call?",
       "options": [
-        "The tool schema",
-        "The original user input only",
-        "An error log",
-        "The execution timestamps"
+        "The tool schema definitions",
+        "Only the original user input text",
+        "A detailed error log summary",
+        "All execution timestamp records"
       ],
       "correctIndex": 0,
       "explanation": "The class content specifies that you must still include the tool schema in follow-up requests because Claude needs it to understand the tool references in your conversation history.",
@@ -928,10 +928,10 @@
     {
       "question": "According to the class content, what is the recommended length for a tool description?",
       "options": [
-        "1-2 sentences maximum",
-        "3-4 sentences explaining what the tool does",
-        "As long as needed to cover all details",
-        "A single sentence is sufficient"
+        "Keep descriptions to just 1-2 sentences for brevity",
+        "Write 3-4 sentences that explain what the tool does",
+        "Make descriptions as detailed as possible to cover every feature",
+        "Use a single sentence to summarize the tool's purpose"
       ],
       "correctIndex": 1,
       "explanation": "The best practices section explicitly states to 'Aim for 3-4 sentences explaining what the tool does' when writing effective descriptions.",
@@ -984,10 +984,10 @@
     {
       "question": "Which response block type contains the actual search results returned by the web search tool?",
       "options": [
-        "Citation blocks",
-        "Text blocks",
-        "WebSearchToolResultBlock",
-        "ServerToolUseBlock"
+        "Citation blocks that reference and support statements with source links",
+        "Text blocks that format and display parsed response content",
+        "WebSearchToolResultBlock containing the actual search results",
+        "ServerToolUseBlock showing the search query parameters used"
       ],
       "correctIndex": 2,
       "explanation": "The class content explains that WebSearchToolResultBlock contains the search results, while ServerToolUseBlock shows the search query used and Citation blocks support statements with sources.",
@@ -1040,10 +1040,10 @@
     {
       "question": "What parameter must be included in your API call to enable Claude to use tools?",
       "options": [
-        "functions",
-        "tools",
-        "capabilities",
-        "schemas"
+        "functions parameter with JSON schemas",
+        "tools parameter with JSON schemas",
+        "capabilities list for Claude models",
+        "schemas array in the request body"
       ],
       "correctIndex": 1,
       "explanation": "The tools parameter takes a list of JSON schemas that describe the available functions Claude can call.",
@@ -1068,10 +1068,10 @@
     {
       "question": "Why is it important to preserve the entire content structure when appending a multi-block assistant message to conversation history?",
       "options": [
-        "To reduce the API response time",
-        "To maintain the conversation context for subsequent API calls, as Claude doesn't store conversation history",
-        "To improve the security of the API connection",
-        "To ensure the response is formatted as JSON"
+        "To minimize API response latency and reduce computational overhead on Claude's servers",
+        "To maintain conversation context for subsequent API calls, since Claude does not store conversation history",
+        "To ensure encrypted transmission and improve the security protocols of the API connection",
+        "To automatically format the response as valid JSON and enable parsing by client libraries"
       ],
       "correctIndex": 1,
       "explanation": "Since Claude doesn't store conversation history, you must preserve both the text block and tool use block to maintain proper context when making subsequent API calls.",
@@ -1124,10 +1124,10 @@
     {
       "question": "What is the primary difference between keyword-based search and semantic search?",
       "options": [
-        "Keyword-based search looks for exact word matches, while semantic search uses text embeddings to understand meaning and context",
-        "Semantic search is faster than keyword-based search",
-        "Keyword-based search uses embeddings, while semantic search looks for exact word matches",
-        "Semantic search can only work with numbers between 0 and 1"
+        "Keyword-based search matches exact words, while semantic search uses text embeddings to understand meaning and context",
+        "Semantic search is faster than keyword-based search because it processes queries using neural network acceleration",
+        "Keyword-based search uses embeddings for matching, while semantic search relies on exact word matching algorithms",
+        "Semantic search can only work with numerical values and numeric embeddings between 0 and 1"
       ],
       "correctIndex": 0,
       "explanation": "According to the class content, semantic search uses text embeddings to understand meaning and context, whereas keyword-based search looks for exact word matches.",
@@ -1138,10 +1138,10 @@
     {
       "question": "What is a text embedding?",
       "options": [
-        "A database that stores all text chunks in a RAG pipeline",
-        "A numerical representation of the meaning contained in some text, consisting of numbers ranging from -1 to +1",
-        "A type of encryption used to protect API keys",
-        "A process of breaking documents into smaller pieces"
+        "A database system that stores and retrieves text chunks used in RAG pipeline architectures",
+        "A numerical representation of text meaning, with each number typically ranging from -1 to +1",
+        "An encryption technique that encodes API keys using cryptographic hashing and salting methods",
+        "A preprocessing step that breaks documents into smaller text segments for storage and indexing"
       ],
       "correctIndex": 1,
       "explanation": "The class content defines a text embedding as a numerical representation of the meaning in text, where each number ranges from -1 to +1.",
@@ -1181,9 +1181,9 @@
       "question": "Which of the following is NOT listed as a capability of the text editor tool?",
       "options": [
         "Execute Python code directly on the file system",
-        "Replace text in a file",
-        "View specific ranges of lines in a file",
-        "Create new files"
+        "Replace text within files using search and replace",
+        "View and display specific line ranges in a file",
+        "Create new files with custom file extensions"
       ],
       "correctIndex": 0,
       "explanation": "The class content lists the text editor tool's capabilities as viewing content, replacing text, creating files, inserting text, and undoing edits—but executing Python code is not mentioned as a capability.",
@@ -1236,10 +1236,10 @@
     {
       "question": "What is the primary problem that Retrieval Augmented Generation (RAG) solves?",
       "options": [
-        "RAG helps work with large documents that are too big to fit into a single prompt by breaking them into chunks and including only the most relevant pieces",
-        "RAG eliminates the need to preprocess documents before using them with Claude",
-        "RAG allows Claude to process documents without any token limits",
-        "RAG enables Claude to understand documents in any language without translation"
+        "RAG breaks large documents into chunks and retrieves only the most relevant pieces for each query, solving the problem of documents being too large to fit in a single prompt",
+        "RAG eliminates the need for any document preprocessing or formatting steps before using them with language models like Claude",
+        "RAG removes token limit constraints entirely, allowing Claude to process unlimited document sizes without any practical restrictions",
+        "RAG enables Claude to automatically understand and process documents in multiple languages simultaneously without requiring translation"
       ],
       "correctIndex": 0,
       "explanation": "RAG specifically addresses the limitation of document size by chunking documents and retrieving only relevant portions for each query, rather than including entire documents in prompts.",
@@ -1264,10 +1264,10 @@
     {
       "question": "What is a key challenge mentioned when implementing RAG?",
       "options": [
-        "RAG only works with financial documents and cannot be used for other document types",
-        "Determining the best approach for chunking text, as different methods like equal-sized portions or structure-based chunks have different trade-offs",
-        "RAG requires manual labeling of all chunks before they can be used",
-        "Claude cannot search through chunks to find relevant information"
+        "RAG systems only function with financial documents and cannot process other types of documents or unstructured data sources",
+        "Determining the optimal text chunking strategy, since different approaches like equal-sized chunks or structure-based chunks involve different trade-offs",
+        "RAG requires manual labeling and annotation of every individual chunk before the system can retrieve or process any of them",
+        "Claude cannot search through document chunks or identify relevant information without explicit human guidance for each query"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly states that there are many ways to chunk text and each approach has trade-offs that need to be evaluated for specific use cases.",
@@ -1292,10 +1292,10 @@
     {
       "question": "At what point in the RAG pipeline does the system pause and wait for user input?",
       "options": [
-        "After chunking the source text",
+        "After chunking the source text into segments for processing",
         "After generating embeddings and storing them in a vector database",
-        "After processing the user query through the embedding model",
-        "After calculating cosine similarity scores"
+        "After the user query is converted to embeddings by the model",
+        "After calculating cosine similarity scores between query and stored vectors"
       ],
       "correctIndex": 1,
       "explanation": "The system pauses after storing embeddings in the vector database because all the work up to that point is preprocessing that happens ahead of time, before any user query arrives.",
@@ -1320,10 +1320,10 @@
     {
       "question": "In the reciprocal rank fusion formula RRF_score(d) = Σ(1 / (k + rank_i(d))), what does k represent?",
       "options": [
-        "The total number of documents in the index",
-        "A constant value, often set to 60 but can be adjusted (such as 1 for clearer results)",
-        "The rank position of the highest-scoring document",
-        "The number of different search indexes being combined"
+        "The total number of documents retrieved from the search index",
+        "A constant value, often set to 60 but adjustable (e.g., 1 for clearer results)",
+        "The rank position of the document with the highest score in the result set",
+        "The total count of different search indexes or rankers being combined together"
       ],
       "correctIndex": 1,
       "explanation": "According to the class content, k is a constant in the RRF formula that is often set to 60, but the course uses 1 for clearer results in examples.",
@@ -1334,10 +1334,10 @@
     {
       "question": "What is the main limitation of using semantic search alone when searching for specific incident IDs like 'INC-2023-Q4-011'?",
       "options": [
-        "Semantic search is too slow to process large documents",
-        "Semantic search focuses on conceptual similarity rather than exact term matching and may return semantically related content that doesn't contain the actual search term",
-        "Semantic search cannot process alphanumeric characters",
-        "Semantic search requires more computational resources than lexical search"
+        "Semantic search processes documents too slowly and cannot efficiently index large databases containing incident identifiers",
+        "Semantic search prioritizes conceptual similarity over exact term matching, potentially returning related content without the actual search term",
+        "Semantic search cannot interpret alphanumeric strings and requires preprocessing to convert incident IDs into numerical vectors first",
+        "Semantic search demands significantly more computational resources and memory allocation compared to traditional lexical search methods"
       ],
       "correctIndex": 1,
       "explanation": "The class content explains that semantic search excels at understanding context and meaning but might return sections that are semantically related without actually containing the exact term being searched for.",
@@ -1348,10 +1348,10 @@
     {
       "question": "In the BM25 algorithm, how are terms weighted based on their frequency across documents?",
       "options": [
-        "Terms that appear frequently get the highest importance scores",
-        "All terms receive equal weight regardless of frequency",
-        "Terms that appear less frequently get higher importance scores because they are more specific",
-        "Terms are weighted randomly to avoid bias"
+        "Terms appearing frequently in many documents receive the highest importance scores in the ranking",
+        "All terms receive equal weight regardless of their frequency distribution across the document corpus",
+        "Terms appearing less frequently receive higher importance scores because they are more specific and valuable",
+        "Terms are weighted using random algorithms to prevent systematic bias in the search result ranking"
       ],
       "correctIndex": 2,
       "explanation": "The class content states that in Step 3 of BM25, 'Terms that appear less frequently get higher importance scores' because specific terms like incident IDs are rare and therefore more valuable for search.",
@@ -1362,10 +1362,10 @@
     {
       "question": "What is the hybrid search strategy that combines semantic and lexical search approaches?",
       "options": [
-        "Run semantic search first, then discard results and run lexical search",
+        "Run semantic search first, then discard those results before running lexical search separately",
         "Run both semantic and lexical searches in parallel, then merge the results to combine both approaches for better accuracy",
-        "Choose either semantic or lexical search depending on the query type",
-        "Run semantic search multiple times with different parameters"
+        "Choose either semantic or lexical search based on the query type and content characteristics",
+        "Run semantic search multiple times with different parameters and average the similarity scores"
       ],
       "correctIndex": 1,
       "explanation": "The class content describes the hybrid search strategy as running both semantic and lexical searches in parallel and merging the results to get the best of both worlds: semantic search for conceptual similarity and lexical search for exact term matches.",
@@ -1376,10 +1376,10 @@
     {
       "question": "When processing a PDF file with Claude, what should you set the 'type' field to in your message content?",
       "options": [
-        "image",
+        "image_type",
         "document",
-        "file",
-        "pdf"
+        "file_object",
+        "pdf_format"
       ],
       "correctIndex": 1,
       "explanation": "The class content specifies that you must set the type to 'document' instead of 'image' when adapting image processing code for PDFs.",
@@ -1404,10 +1404,10 @@
     {
       "question": "Which of the following can Claude extract from PDF documents?",
       "options": [
-        "Only text content",
-        "Text content, images, charts, tables, and document structure",
-        "Only tables and data relationships",
-        "Only embedded images and charts"
+        "Text content and basic formatting only",
+        "Text, images, charts, tables, and document structure",
+        "Tables and embedded data relationships exclusively",
+        "Images and charts with their metadata properties"
       ],
       "correctIndex": 1,
       "explanation": "The class content states that Claude can analyze text content, images and charts, tables and their data relationships, and document structure and formatting from PDFs.",
@@ -1446,10 +1446,10 @@
     {
       "question": "Which of the following can have cache breakpoints added to them?",
       "options": [
-        "Only text message blocks",
+        "Only text message blocks and system prompts",
         "System prompts, tool definitions, image blocks, and tool use blocks",
-        "Only system prompts and messages",
-        "Only tool definitions and messages"
+        "Only system prompts, messages, and custom function blocks",
+        "Only tool definitions, image blocks, and text message blocks"
       ],
       "correctIndex": 1,
       "explanation": "The class content specifies that cache breakpoints can be added to system prompts, tool definitions, image blocks, and tool use and tool result blocks, not just text blocks.",
@@ -1503,9 +1503,9 @@
       "question": "What computational work does Claude perform on input before generating a response?",
       "options": [
         "Tokenizes the prompt, creates embeddings for each token, and adds context based on surrounding text",
-        "Only tokenizes the prompt into smaller pieces",
-        "Directly generates output text without any preprocessing",
-        "Creates embeddings and immediately discards them before processing"
+        "Tokenizes the prompt into smaller pieces and applies initial syntax analysis without creating semantic embeddings",
+        "Directly generates output text without any preprocessing or intermediate computational steps",
+        "Creates embeddings for all tokens and immediately discards contextual information before processing"
       ],
       "correctIndex": 0,
       "explanation": "According to the class content, Claude performs tokenization, creates embeddings for each token, and adds context based on surrounding text during the preprocessing phase before generating output.",
@@ -1530,10 +1530,10 @@
     {
       "question": "What is the maximum duration that cached content remains available for reuse in prompt caching?",
       "options": [
-        "24 hours",
-        "30 minutes",
-        "One hour",
-        "Until the end of the conversation"
+        "Twenty-four hours from initial cache creation",
+        "Thirty minutes per conversation session",
+        "One hour from the time of caching",
+        "For the entire duration of the conversation"
       ],
       "correctIndex": 2,
       "explanation": "The class content states that cached content only lives for one hour as an important limitation of prompt caching.",
@@ -1558,10 +1558,10 @@
     {
       "question": "When should you consider enabling Extended Thinking for your prompts?",
       "options": [
-        "Always enable it for all API calls to maximize accuracy",
-        "Only after standard prompting isn't meeting your accuracy requirements and you've already optimized your prompt",
-        "When you want to reduce API costs",
-        "Before testing any prompts in production"
+        "Always enable Extended Thinking for all API calls to boost accuracy results",
+        "Only after standard prompting fails to meet accuracy needs and you've optimized",
+        "When you need to reduce API costs and improve response speed significantly",
+        "Before testing any prompts in production to ensure maximum performance"
       ],
       "correctIndex": 1,
       "explanation": "The class content states to run prompts without thinking first, and only if accuracy isn't meeting requirements after optimization should you consider enabling extended thinking.",
@@ -1600,10 +1600,10 @@
     {
       "question": "How long does prompt caching content remain available in the cache?",
       "options": [
-        "24 hours",
-        "One hour",
-        "Until the next request is made",
-        "Indefinitely until manually cleared"
+        "Twenty-four hours after initial caching",
+        "One hour from when cached",
+        "Until the next new request arrives",
+        "Permanently until you clear it manually"
       ],
       "correctIndex": 1,
       "explanation": "The class content states that when you enable prompt caching, the first request writes content to a cache that lives for one hour.",
@@ -1642,10 +1642,10 @@
     {
       "question": "What is a key disadvantage of size-based chunking without overlap?",
       "options": [
-        "It is too computationally expensive",
-        "It only works with structured documents like Markdown",
-        "Words get cut off mid-sentence and chunks lose important context",
-        "It cannot handle PDF documents"
+        "It requires too much computational power and memory allocation during processing",
+        "It only works effectively with pre-structured document formats like Markdown or XML",
+        "Words get cut off mid-sentence and chunks lose important context from surrounding text",
+        "It cannot process PDF documents or other binary file formats without conversion"
       ],
       "correctIndex": 2,
       "explanation": "The class content specifically lists the downsides of size-based chunking as including words getting cut off mid-sentence, chunks losing important context from surrounding text, and section headers being separated from their content.",
@@ -1670,10 +1670,10 @@
     {
       "question": "What is the primary advantage of using the Files API instead of encoding files as base64 data in messages?",
       "options": [
-        "It allows you to reference the same file multiple times without re-encoding it, and is more efficient for larger files",
-        "It provides faster encryption for sensitive data",
-        "It automatically converts all file formats to a standardized format",
-        "It eliminates the need for authentication when uploading files"
+        "It allows referencing the same file multiple times without re-encoding, making it more efficient for larger files",
+        "It provides automatic encryption and secure key management for all uploaded file data",
+        "It automatically converts files to standardized formats and optimizes them for web delivery",
+        "It eliminates authentication requirements and allows anonymous file uploads to any endpoint"
       ],
       "correctIndex": 0,
       "explanation": "The class content explicitly states that the Files API is useful when you want to reference the same file multiple times or when working with larger files that would be cumbersome to include in every request.",
@@ -1684,10 +1684,10 @@
     {
       "question": "What is a key limitation of the code execution environment provided by Claude?",
       "options": [
-        "It cannot execute Python code",
-        "It has no network access and cannot make external API calls",
-        "It can only execute code once per conversation",
-        "It requires users to provide their own Docker container implementation"
+        "It cannot execute any Python code or compiled languages",
+        "It runs in an isolated container with no network access or external API calls",
+        "It can only execute a single code block one time per conversation thread",
+        "It requires users to manually configure and provide their own Docker container"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly states that the code execution environment runs in an isolated Docker container with no network access and cannot make external API calls.",
@@ -1782,10 +1782,10 @@
     {
       "question": "According to the module, what are key principles demonstrated by Claude Code and Computer Use that make agents effective?",
       "options": [
-        "User interface design, cloud storage, and data encryption",
+        "User interface design, cloud storage systems, data encryption protocols, and network security",
         "Tool integration and usage, multi-step task execution, environmental interaction, and autonomous problem-solving",
-        "Natural language processing, machine learning models, and neural networks",
-        "Web hosting, database management, and API deployment"
+        "Natural language processing techniques, machine learning model training, and deep neural network architecture",
+        "Web hosting infrastructure, database management systems, and RESTful API deployment and maintenance"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly lists tool integration and usage, multi-step task execution, environmental interaction, and autonomous problem-solving as key principles that make Claude Code and Computer Use successful as agents.",
@@ -1922,10 +1922,10 @@
     {
       "question": "Why is environment inspection essential when Claude performs actions like clicking a button?",
       "options": [
-        "Because Claude needs to see the results to understand whether the action succeeded and what the new state of the environment looks like",
-        "Because it helps Claude learn faster through machine learning",
-        "Because it allows Claude to predict future user actions",
-        "Because it enables Claude to communicate with other AI systems"
+        "Because Claude cannot see the results of actions and must inspect the environment to verify success and understand the new state",
+        "Because it enables Claude to learn and improve its model parameters through continuous machine learning feedback loops",
+        "Because environment inspection allows Claude to anticipate and predict the sequence of future user actions and requests",
+        "Because it provides Claude with the ability to establish secure communication channels with other deployed AI systems"
       ],
       "correctIndex": 0,
       "explanation": "The class content states that Claude operates blindly and needs to observe results of its actions, as clicking a button could have various outcomes that Claude cannot understand without seeing the results.",
@@ -1978,10 +1978,10 @@
     {
       "question": "In the technical article writing example, why does the chaining approach work better than a single large prompt with all constraints listed?",
       "options": [
-        "Because it allows Claude to ignore less important constraints",
-        "Because Claude can focus entirely on the revision task rather than trying to balance content creation with constraint adherence",
-        "Because it automatically removes all emojis and AI mentions without human intervention",
-        "Because the constraints are easier for Claude to understand when listed in a longer prompt"
+        "Because it lets Claude skip or deprioritize constraints that seem less critical to the overall goal",
+        "Because Claude can focus entirely on revision rather than balancing content creation with constraint adherence",
+        "Because it automatically removes all problematic content like emojis and AI references in the first pass",
+        "Because constraints are processed sequentially, allowing Claude to apply each one independently without cognitive overload"
       ],
       "correctIndex": 1,
       "explanation": "The class content explains that in the two-step chaining approach, Claude can focus entirely on the revision task rather than trying to balance content creation with constraint adherence, which is why it works better than one massive prompt.",
@@ -2090,10 +2090,10 @@
     {
       "question": "In the material designer application example, what is the main problem with asking Claude to choose a material in a single complex prompt?",
       "options": [
-        "Claude cannot process images of parts",
-        "Claude has to juggle all different material considerations simultaneously, which can lead to confusion and suboptimal results",
-        "The application cannot handle multiple material types",
-        "Users are unable to upload images to the application"
+        "Claude cannot process or analyze images of physical parts and components",
+        "Claude must juggle all different material considerations simultaneously, which leads to confusion and suboptimal results",
+        "The application cannot process requests that involve multiple different types of materials",
+        "Users are unable to upload images to the application due to file format restrictions"
       ],
       "correctIndex": 1,
       "explanation": "The class content explicitly states that adding all detailed criteria into one massive prompt creates a problem where Claude has to juggle all these different considerations simultaneously, leading to confusion and suboptimal results.",
@@ -2118,10 +2118,10 @@
     {
       "question": "According to the class content, which of the following is a key advantage of parallelization workflows?",
       "options": [
-        "It eliminates the need for user feedback on material selections",
-        "It allows Claude to process images faster than traditional methods",
+        "It eliminates the need for any human review or feedback during the material selection process",
+        "It enables Claude to process and analyze images much faster than conventional sequential methods",
         "You can improve and test the prompts for each material evaluation independently without affecting the others",
-        "It reduces the cost of cloud computing infrastructure"
+        "It significantly reduces the operational costs associated with cloud computing infrastructure fees"
       ],
       "correctIndex": 2,
       "explanation": "The class content lists 'easier optimization' as a benefit, specifically stating that you can improve and test the prompts for each material evaluation independently, and if one analysis isn't working well, you can refine just that prompt without affecting the others.",
@@ -2132,10 +2132,10 @@
     {
       "question": "What is the primary purpose of running the /init command when starting a project with Claude Code?",
       "options": [
-        "To scan your entire codebase and create a CLAUDE.md file that summarizes project structure, dependencies, coding style, and architecture",
-        "To automatically deploy your project to production",
-        "To clear all previous conversation history and reset context",
-        "To initialize a new git repository for your project"
+        "To scan your codebase and create a CLAUDE.md file that summarizes project structure, dependencies, coding style, and architecture",
+        "To automatically deploy your project to production environments and configure cloud hosting settings",
+        "To clear all previous conversation history and reset the context window for improved performance",
+        "To initialize a new git repository and configure version control settings for your project"
       ],
       "correctIndex": 0,
       "explanation": "The /init command scans your codebase and creates a CLAUDE.md file that captures project details, which is then included as context in all future conversations.",
@@ -2202,10 +2202,10 @@
     {
       "question": "What is the primary effect of enabling fine-grained tool calling?",
       "options": [
-        "It improves JSON schema validation accuracy",
-        "It disables JSON validation on the API side and sends chunks as soon as Claude generates them without buffering delays",
-        "It requires manual validation of all tool arguments",
-        "It automatically converts invalid JSON to valid formats"
+        "It improves JSON schema validation accuracy by enforcing stricter API-side checks",
+        "It disables JSON validation on the API side and sends chunks as soon as Claude generates them",
+        "It requires manual validation of all tool arguments before they can be processed by your application",
+        "It automatically converts invalid JSON structures into valid formats using built-in transformation rules"
       ],
       "correctIndex": 1,
       "explanation": "Fine-grained tool calling disables JSON validation on the API side, eliminates buffering delays between top-level keys, and allows chunks to be sent as soon as Claude generates them, though this means your code must handle invalid JSON.",

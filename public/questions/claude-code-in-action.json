@@ -102,10 +102,10 @@
     {
       "question": "Which of the following is the best use case for Planning Mode?",
       "options": [
-        "Debugging a single line of code quickly",
+        "Debugging a single line of code or fixing a small, localized bug quickly",
         "Tasks requiring broad understanding of the codebase and multi-step implementations",
-        "Solving simple algorithmic problems",
-        "Controlling how much Claude thinks about a single prompt"
+        "Solving simple algorithmic problems with straightforward logic and minimal dependencies",
+        "Controlling how much Claude thinks about a single prompt to reduce latency"
       ],
       "correctIndex": 1,
       "explanation": "Planning Mode is best for tasks requiring broad understanding of your codebase, multi-step implementations, and changes that affect multiple files or components.",
@@ -116,10 +116,10 @@
     {
       "question": "How can you enable Planning Mode in Claude?",
       "options": [
-        "Type /plan or press Shift+Tab once",
-        "Type /effort or press Ctrl+O",
-        "Type /ultrathink or press Ctrl+V",
-        "Type /plan or press Shift+Tab twice (or once if already auto-accepting edits)"
+        "Type /plan or press Ctrl+P to activate Planning Mode immediately",
+        "Type /effort or press Ctrl+O to enable extended thinking mode",
+        "Type /ultrathink or press Ctrl+V to activate deep analysis mode",
+        "Type /plan or press Shift+Tab twice, or once if auto-accepting edits"
       ],
       "correctIndex": 3,
       "explanation": "The class content explicitly states that Planning Mode can be enabled by typing /plan or by pressing Shift+Tab twice, or once if you're already auto-accepting edits.",
@@ -173,9 +173,9 @@
       "question": "What command is used to add the Playwright MCP server to Claude Code?",
       "options": [
         "claude mcp add playwright npx @playwright/mcp@latest",
-        "npm install playwright mcp",
-        "claude install @playwright/mcp@latest",
-        "mcp playwright setup"
+        "npm install playwright mcp --save-dev for integration",
+        "claude install @playwright/mcp@latest using pip package",
+        "mcp playwright setup with configuration file required"
       ],
       "correctIndex": 0,
       "explanation": "The class content explicitly states that the command to add the Playwright server is 'claude mcp add playwright npx @playwright/mcp@latest'.",
@@ -200,10 +200,10 @@
     {
       "question": "According to the class content, what are some examples of MCP servers available beyond Playwright?",
       "options": [
-        "Only web browser automation servers",
+        "Only web browser automation and Playwright-based testing servers",
         "Database interactions, API testing and monitoring, file system operations, and cloud service integrations",
-        "Marketing automation and email service servers",
-        "Social media management and content scheduling servers"
+        "Marketing automation platforms, email services, and customer relationship management systems",
+        "Social media management, content scheduling, and influencer collaboration tools"
       ],
       "correctIndex": 1,
       "explanation": "The class content lists that the MCP ecosystem includes servers for database interactions, API testing and monitoring, file system operations, cloud service integrations, and development tool automation.",
@@ -215,9 +215,9 @@
       "question": "What command should you run to begin setting up the Claude Code GitHub integration?",
       "options": [
         "/install-github-app",
-        "/setup-claude",
-        "/install-github-integration",
-        "/configure-claude-github"
+        "/setup-claude-github",
+        "/configure-github-integration",
+        "/init-github-connector"
       ],
       "correctIndex": 0,
       "explanation": "According to the class content, running /install-github-app in Claude is the command that walks you through the setup process for the GitHub integration.",
@@ -312,10 +312,10 @@
     {
       "question": "In which configuration files can hooks be defined according to the class content?",
       "options": [
-        "Only in ~/.claude/settings.json for all projects",
+        "Only in ~/.claude/settings.json for all projects globally",
         "In ~/.claude/settings.json (global), .claude/settings.json (project), and .claude/settings.local.json (personal)",
-        "Only in .claude/settings.json which is shared with the team",
-        "In .claude/settings.local.json for personal use only"
+        "Only in .claude/settings.json which is shared with team members",
+        "In .claude/settings.local.json for personal use and local testing only"
       ],
       "correctIndex": 1,
       "explanation": "Hooks can be defined in three locations: global settings at ~/.claude/settings.json, project settings at .claude/settings.json (shared with team), and personal project settings at .claude/settings.local.json.",
@@ -354,10 +354,10 @@
     {
       "question": "Which of the following is NOT mentioned as a supported feature of the Agent SDK?",
       "options": [
-        "Custom system prompts",
-        "MCP servers",
-        "Session resumption",
-        "Custom authentication tokens"
+        "Custom system prompts for agent behavior",
+        "MCP servers and protocol integration",
+        "Session resumption and state persistence",
+        "Custom authentication token management"
       ],
       "correctIndex": 3,
       "explanation": "The class content lists custom system prompts, MCP servers, hooks, subagents, and session resumption as supported features, but custom authentication tokens are not mentioned.",
@@ -438,10 +438,10 @@
     {
       "question": "Which field does the Read tool send in its input that the hook checks to block .env files?",
       "options": [
-        "path",
+        "input_path",
         "file_path",
-        "filename",
-        "directory"
+        "filename_input",
+        "target_directory"
       ],
       "correctIndex": 1,
       "explanation": "The hook reads `tool_input.file_path` to determine which file the Read tool is attempting to access.",
@@ -452,10 +452,10 @@
     {
       "question": "Why does the exercise recommend using a permissions.deny rule in addition to a PreToolUse hook for comprehensive file protection?",
       "options": [
-        "PreToolUse hooks are deprecated and will be removed",
-        "Different tools send different input shapes, so Grep and Bash would not be caught by a Read-only hook",
-        "permissions.deny rules are faster than hooks",
-        "hooks cannot be configured in .claude/settings.local.json"
+        "PreToolUse hooks are deprecated and will be removed in future versions",
+        "Different tools use different input structures, so a Read hook won't catch file access via Grep or Bash",
+        "permissions.deny rules execute with lower latency and better performance than hooks",
+        "Hooks cannot be reliably configured in .claude/settings.local.json configuration files"
       ],
       "correctIndex": 1,
       "explanation": "Each tool sends a different input structure (Read uses file_path, Grep uses path, Bash uses command), so a hook targeting only Read won't catch attempts to access .env through other tools, whereas permissions.deny rules apply uniformly across all tools.",
@@ -466,10 +466,10 @@
     {
       "question": "What is the primary problem that the TypeScript Type Checking Hook addresses in Claude-assisted development?",
       "options": [
-        "When Claude modifies a function signature, it often doesn't update all the places where that function is called throughout the project",
-        "Claude fails to write valid TypeScript syntax when creating new functions",
-        "The TypeScript compiler takes too long to run on large projects",
-        "Claude cannot understand TypeScript interfaces and type definitions"
+        "When Claude modifies a function signature, it often doesn't update all the places where that function is called throughout the codebase",
+        "Claude consistently fails to write syntactically valid TypeScript when creating new functions and class definitions",
+        "The TypeScript compiler runs too slowly on large projects, making it impractical to use during development",
+        "Claude cannot properly understand TypeScript interfaces, generics, and complex type definitions in existing code"
       ],
       "correctIndex": 0,
       "explanation": "The class explicitly states that when Claude modifies a function signature, it often doesn't update all the call sites throughout the project, which the TypeScript Type Checking Hook solves by running tsc and feeding errors back to Claude.",
@@ -480,10 +480,10 @@
     {
       "question": "How does the Query Duplication Prevention Hook identify and prevent duplicate database queries?",
       "options": [
-        "It uses a regex pattern to match similar SQL syntax across all query files",
+        "It uses regex pattern matching to compare SQL syntax across all query files and flags potential duplicates for manual review",
         "It triggers when Claude modifies files in the ./queries directory and launches a separate Claude instance to review changes and check for similar existing queries",
-        "It prevents Claude from accessing the queries directory entirely unless it references existing functions",
-        "It stores a hash of every query function and automatically rejects any new queries with matching hashes"
+        "It prevents Claude from accessing the queries directory entirely unless it first references and validates against existing query functions",
+        "It maintains a hash registry of every query function and automatically rejects any new queries that produce matching hash values during submission"
       ],
       "correctIndex": 1,
       "explanation": "The class describes that the query duplication hook triggers when Claude modifies query files, launches a separate Claude instance programmatically to review changes, and asks it to check for similar existing queries.",

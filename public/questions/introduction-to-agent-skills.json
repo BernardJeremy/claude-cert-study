@@ -200,10 +200,10 @@
     {
       "question": "When would enterprise managed settings be the most appropriate method for distributing skills?",
       "options": [
-        "When skills are only useful for individual developers",
-        "When you want to share skills with the broader open-source community",
-        "When you need mandatory standards, security requirements, and compliance workflows that must be consistent across the organization",
-        "When skills are specific to a single project and rarely change"
+        "When skills are needed only by individual developers working on personal projects",
+        "When you want to share skills broadly with the open-source community and external partners",
+        "When you need mandatory standards, security requirements, and compliance workflows consistent across the organization",
+        "When skills are specific to a single project with limited scope and infrequent updates"
       ],
       "correctIndex": 2,
       "explanation": "Enterprise managed settings take the highest priority and should be used for mandatory standards, security requirements, compliance workflows, and coding practices that must be consistent across the organization.",
@@ -242,10 +242,10 @@
     {
       "question": "When a skill doesn't trigger, what is the cause almost always?",
       "options": [
-        "The skill is missing execute permissions",
-        "The description — Claude uses semantic matching and needs overlap with how you phrase requests",
-        "The plugin cache needs to be cleared",
-        "The skill has a priority conflict with an enterprise skill"
+        "The skill lacks the required execute permissions in the system configuration",
+        "The description lacks semantic overlap with your request phrasing and wording",
+        "The plugin cache requires clearing to refresh the skill index",
+        "A priority conflict exists between the skill and an enterprise-level skill"
       ],
       "correctIndex": 1,
       "explanation": "The class content states that when a skill doesn't trigger, the cause is almost always the description — Claude uses semantic matching, so your request needs to overlap with the description's meaning.",

@@ -60,10 +60,10 @@
     {
       "question": "Which of the following is NOT mentioned as a supported communication protocol for MCP client-server communication?",
       "options": [
-        "Standard input/output",
-        "HTTP",
-        "WebSockets",
-        "FTP"
+        "Standard input and output streams",
+        "HTTP and HTTPS protocols",
+        "WebSocket connections",
+        "File Transfer Protocol (FTP)"
       ],
       "correctIndex": 3,
       "explanation": "The class content lists standard input/output, HTTP, and WebSockets as supported protocols, but FTP is not mentioned as a supported communication method.",
@@ -130,10 +130,10 @@
     {
       "question": "What is the primary purpose of the get_prompt method in the MCP client?",
       "options": [
-        "To list all available prompts from the server",
-        "To retrieve specific prompts with variables filled in through argument interpolation",
-        "To create new prompts on the server",
-        "To delete prompts that are no longer needed"
+        "To enumerate and display all prompts available from the server without modification",
+        "To retrieve specific prompts and fill in their template variables using argument interpolation",
+        "To create and register new custom prompts directly on the server for later use",
+        "To remove or delete prompts from the server that are no longer in active use"
       ],
       "correctIndex": 1,
       "explanation": "The get_prompt method handles variable interpolation by taking a prompt name and arguments dictionary, where the arguments are passed as keyword arguments to fill in the prompt template variables.",
@@ -284,10 +284,10 @@
     {
       "question": "Which of the following correctly describes what the list_tools() function does?",
       "options": [
-        "It executes a specific tool on the server and returns the result",
+        "It executes a specific tool on the server and returns the result to the client",
         "It gets all available tools from the MCP server by accessing the session and calling the built-in list_tools() method",
-        "It sends tool definitions to Claude for processing",
-        "It manages and stores all tool definitions in a local database"
+        "It sends tool definitions to Claude for processing and validation before execution",
+        "It manages and stores all tool definitions in a local database for caching purposes"
       ],
       "correctIndex": 1,
       "explanation": "According to the class content, the list_tools() function is straightforward - it accesses the session (the connection to the server), calls the built-in list_tools() method, and returns the tools from the result.",
