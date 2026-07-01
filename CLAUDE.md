@@ -21,9 +21,9 @@ A Next.js 14 flashcard/quiz app for studying the Claude API certification. Two p
 
 ## Key Gotchas
 
-- **`HTML/` is gitignored** — lesson source files must be provided out-of-band before `yarn generate` works. `public/questions/*.json` are pre-committed so the quiz runs without regenerating.
+- **`scripts/guide_en.md` is the question source** — `yarn generate` reads this file directly. It is not committed; obtain it from [paullarionov/claude-certified-architect](https://github.com/paullarionov/claude-certified-architect/blob/main/guide_en.md).
 - **`yarn generate` uses `tsx`** (not ts-node) with `scripts/tsconfig.json`, which sets `module: Node16` — distinct from the main app's `moduleResolution: bundler`. Do not conflate these two tsconfigs.
-- The generator inserts a 300ms delay between Anthropic API calls and skips files under 100 words.
+- The generator calls the Anthropic API once per question (88 calls total) with a 300ms delay between calls and writes everything to `public/questions/guide.json`.
 - **`.env` is committed** — only `.env*.local` variants are gitignored. The file contains a live `ANTHROPIC_API_KEY`; avoid accidentally exposing or overwriting it.
 
 ## Environment

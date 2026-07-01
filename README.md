@@ -1,13 +1,13 @@
 # Claude Certification Study
 
-A flashcard/quiz app for studying the Claude API certification. Multiple-choice questions are generated from course HTML lesson files using the Anthropic API, then served as a shuffled quiz.
+A flashcard/quiz app for studying the Claude API certification. 88 multiple-choice questions are parsed from the study guide using the Anthropic API, then served as a shuffled quiz.
 
 ## How it works
 
-1. **Generate** — reads HTML lesson files, calls the Anthropic API, writes JSON question banks to `public/questions/`
+1. **Generate** — reads `scripts/guide_en.md` (not committed; see Credits), calls the Anthropic API once per question to extract structured JSON, writes `public/questions/guide.json`
 2. **Quiz** — Next.js app reads the JSON and presents a randomized multiple-choice quiz
 
-Pre-generated question files are committed, so you can run the quiz without the HTML source files or an API key.
+A pre-generated `guide.json` is committed, so you can run the quiz without an API key.
 
 ## Running locally
 
@@ -20,7 +20,7 @@ yarn dev        # http://localhost:3000
 
 ## Regenerating questions
 
-Requires course HTML files placed in `HTML/` (not committed) and an Anthropic API key.
+Requires an Anthropic API key (makes 88 API calls).
 
 ```bash
 cp .env .env.local   # or set ANTHROPIC_API_KEY in your environment
@@ -41,10 +41,14 @@ The image uses Next.js standalone output on `node:24-alpine`, so the final layer
 ## Project structure
 
 ```
-public/questions/   # generated question banks (committed)
+public/questions/   # generated question bank (committed)
+scripts/guide_en.md # study guide — not committed; download from Credits link
 src/app/            # Next.js App Router pages
 src/components/     # React components
 src/types/          # TypeScript interfaces
 scripts/            # question generation script
-HTML/               # course HTML source files (gitignored, provide separately)
 ```
+
+## Credits
+
+Questions sourced from [paullarionov/claude-certified-architect](https://github.com/paullarionov/claude-certified-architect). The study guide (`scripts/guide_en.md`) is not committed — download it from [guide_en.md](https://github.com/paullarionov/claude-certified-architect/blob/main/guide_en.md) before regenerating questions.

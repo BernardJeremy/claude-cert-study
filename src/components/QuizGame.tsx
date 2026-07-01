@@ -3,16 +3,8 @@
 import { useState, useCallback, useEffect } from 'react'
 import type { Question } from '@/types/quiz'
 
-// Efraimidis-Spirakis weighted shuffle: each question appears exactly once,
-// but questions from underrepresented lessons (weight=2) surface earlier.
-function weightedShuffle(questions: Question[]): Question[] {
-  return [...questions]
-    .map((q) => ({
-      q,
-      key: Math.random() ** (1 / (q.lesson === 'claude-with-the-anthropic-api' ? 1 : 2)),
-    }))
-    .sort((a, b) => b.key - a.key)
-    .map(({ q }) => q)
+function shuffled(questions: Question[]): Question[] {
+  return [...questions].sort(() => Math.random() - 0.5)
 }
 
 function lessonLabel(lesson: string): string {
@@ -33,7 +25,7 @@ export default function QuizGame({ questions }: Props) {
   const [score, setScore] = useState({ correct: 0, total: 0 })
 
   useEffect(() => {
-    setDeck(weightedShuffle(questions))
+    setDeck(shuffled(questions))
   }, [questions])
 
   const current = deck[index]
@@ -53,7 +45,7 @@ export default function QuizGame({ questions }: Props) {
 
   const handleNext = useCallback(() => {
     if (index + 1 >= deck.length) {
-      setDeck(weightedShuffle(questions))
+      setDeck(shuffled(questions))
       setIndex(0)
     } else {
       setIndex((i) => i + 1)
@@ -106,7 +98,7 @@ export default function QuizGame({ questions }: Props) {
 
           {/* Question card */}
           <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800">
-            <p className="text-lg font-medium text-white leading-relaxed">
+            <p className="text-base font-medium text-white leading-relaxed">
               {current.question}
             </p>
           </div>
@@ -118,7 +110,7 @@ export default function QuizGame({ questions }: Props) {
               const isThisSelected = i === selected
 
               let className =
-                'w-full text-left px-5 py-4 rounded-xl border text-sm leading-snug transition-colors duration-150 '
+                'w-full text-left px-5 py-3 rounded-xl border text-sm leading-snug transition-colors duration-150 '
 
               if (!answered) {
                 className +=
