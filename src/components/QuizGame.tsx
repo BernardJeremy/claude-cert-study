@@ -163,6 +163,15 @@ export default function QuizGame({ questions }: Props) {
                 </p>
               </div>
 
+              <div className="rounded-xl p-4 border bg-indigo-950/60 border-indigo-800">
+                <p className="text-xs font-semibold uppercase tracking-wider mb-1.5 text-indigo-400">
+                  Rule to remember
+                </p>
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  {current.rule}
+                </p>
+              </div>
+
               <button
                 onClick={handleNext}
                 className="w-full bg-white text-gray-950 font-semibold py-4 rounded-xl hover:bg-gray-100 active:bg-gray-200 transition-colors duration-150 text-sm"

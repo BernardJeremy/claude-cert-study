@@ -11,6 +11,7 @@
       ],
       "correctIndex": 0,
       "explanation": "When critical business logic requires a specific tool sequence, software provides **deterministic guarantees** that prompt-based approaches (B, C) cannot. D addresses availability, not tool ordering.",
+      "rule": "Use a deterministic, code-level precondition rather than prompt instructions to enforce a mandatory tool-call order for critical business logic.",
       "id": "customer-support-agent-q0",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -25,6 +26,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Tool descriptions are the model's primary selection mechanism. This is the lowest-effort, highest-impact fix. A adds tokens without addressing the root cause. C is overengineering. D requires more effort than justified.",
+      "rule": "When an agent picks the wrong tool, first improve the tool descriptions, since they are the model's primary tool-selection signal.",
       "id": "customer-support-agent-q1",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -39,6 +41,7 @@
       ],
       "correctIndex": 0,
       "explanation": "It directly addresses the root cause—unclear decision boundaries. B is unreliable (the model can be confidently wrong). C is overengineering. D solves a different problem (mood != complexity).",
+      "rule": "Fix agent escalation calibration with explicit criteria and few-shot examples rather than self-rated confidence, a separate classifier, or sentiment analysis.",
       "id": "customer-support-agent-q2",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -53,6 +56,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Project commands stored in `.claude/commands/` are version-controlled and automatically available to everyone. B is for personal commands. C is for instructions, not command definitions. D does not exist.",
+      "rule": "Store team-shared slash commands under `.claude/commands/` in the project repo so they are version-controlled and available to everyone who clones it.",
       "id": "code-generation-claude-code-q3",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -67,6 +71,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Planning mode is designed for large changes, multiple possible approaches, and architectural decisions. B risks expensive rework. C assumes you already know the structure. D is reactive.",
+      "rule": "Use planning mode instead of direct execution for large, architecturally significant changes with multiple possible approaches.",
       "id": "code-generation-claude-code-q4",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -81,6 +86,7 @@
       ],
       "correctIndex": 0,
       "explanation": ".claude/rules/ with glob patterns (e.g., `**/*.test.tsx`) enables automatic convention application based on file paths—ideal for tests spread across the codebase. B relies on model inference. C is manual/on-demand. D does not work well when relevant files are in many directories.",
+      "rule": "Use `.claude/rules/` files with glob patterns to apply conventions automatically based on file path, rather than relying on a single CLAUDE.md.",
       "id": "code-generation-claude-code-q5",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -95,6 +101,7 @@
       ],
       "correctIndex": 1,
       "explanation": "The logs show the coordinator decomposed \"creative industries\" only into visual subtopics, completely missing music, literature, and film. Subagents executed correctly—the issue is what they were assigned.",
+      "rule": "When every subagent executes correctly but overall coverage is incomplete, suspect the coordinator's task decomposition, not subagent execution.",
       "id": "multi-agent-research-q6",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -109,6 +116,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Structured error context gives the coordinator what it needs to decide whether to retry with a modified query, try an alternative approach, or continue with partial results. B hides context behind a generic status. C masks failure as success. D aborts the entire workflow unnecessarily.",
+      "rule": "Propagate subagent failures to the coordinator as structured context (failure type, query, partial results, alternatives) rather than a generic status or a raw exception.",
       "id": "multi-agent-research-q7",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -123,6 +131,7 @@
       ],
       "correctIndex": 0,
       "explanation": "This applies the principle of least privilege: the synthesis agent gets exactly what it needs for the 85% common case (simple fact checks) while preserving the coordinator-mediated path for complex investigations. B introduces blocking dependencies (later synthesis steps may depend on earlier verified facts). C breaks separation of responsibilities. D relies on speculative caching that cannot reliably predict needs.",
+      "rule": "Grant a subagent a narrowly-scoped tool for its common case (least privilege), while routing rarer, complex needs through the coordinator.",
       "id": "multi-agent-research-q8",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -137,6 +146,7 @@
       ],
       "correctIndex": 0,
       "explanation": "-p (or `--print`) is the documented way to run Claude Code in non-interactive mode. It processes the prompt, prints to stdout, and exits. The other options are either non-existent features or Unix workarounds.",
+      "rule": "Use the `-p`/`--print` flag to run Claude Code non-interactively so it doesn't hang waiting for input in scripts or CI pipelines.",
       "id": "claude-code-ci-q9",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -151,6 +161,7 @@
       ],
       "correctIndex": 0,
       "explanation": "The Message Batches API saves 50%, but processing time can be up to 24 hours with no guaranteed latency SLA. That makes it unsuitable for blocking pre-merge checks where developers are waiting, but ideal for overnight batch workloads like tech-debt reports.",
+      "rule": "Route only latency-tolerant, non-blocking workloads to the Message Batches API; keep blocking, time-sensitive checks on synchronous calls.",
       "id": "claude-code-ci-q10",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -165,6 +176,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Focused passes directly address the root cause—attention dilution when processing many files at once. Per-file analysis ensures consistent depth, and a separate integration pass catches cross-file issues. B shifts burden to developers without improving the system. C is a misconception: larger context does not fix attention quality. D suppresses real bugs by requiring consensus across inconsistent detections.",
+      "rule": "Review multi-file PRs with separate focused per-file passes plus a distinct cross-file integration pass, instead of one single large-context pass.",
       "id": "multi-file-code-review-q11",
       "classFile": "guide",
       "lesson": "multi-file-code-review"
@@ -179,6 +191,7 @@
       ],
       "correctIndex": 3,
       "explanation": "This approach preserves separation of responsibilities: the analysis agent completes its core work without blocking, preserves both conflicting values with clear attribution, and correctly passes reconciliation to the coordinator, which has broader context.",
+      "rule": "When a subagent finds conflicting source data, it should preserve and attribute both values and let the coordinator (which has broader context) decide how to reconcile them.",
       "id": "multi-agent-research-q12",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -193,6 +206,7 @@
       ],
       "correctIndex": 2,
       "explanation": "In a coordinator–subagent architecture, the coordinator forwards both result sets to the synthesis agent for centralized integration, preserving control and ensuring high-quality merging.",
+      "rule": "The coordinator should route all subagent results through a dedicated synthesis agent for centralized integration, not have subagents merge results themselves or forward them directly.",
       "id": "multi-agent-research-q13",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -207,6 +221,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Handle errors at the lowest level capable of resolving them. Local recovery reduces coordinator workload while still escalating truly unrecoverable issues with full context and partial progress.",
+      "rule": "Handle errors at the lowest level capable of resolving them, escalating to the coordinator only unrecoverable issues with full context and partial progress.",
       "id": "multi-agent-research-q14",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -221,6 +236,7 @@
       ],
       "correctIndex": 2,
       "explanation": "The coordinator decomposed a broad topic only into visual-art subtasks, missing music, literature, and film entirely. Since subagents executed their assignments correctly, the narrow decomposition is the obvious root cause.",
+      "rule": "When every subagent executes correctly but overall coverage is incomplete, suspect the coordinator's task decomposition, not subagent execution.",
       "id": "multi-agent-research-q15",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -235,6 +251,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Coverage annotations implement graceful degradation with transparency, preserving value from completed work while propagating uncertainty to enable informed decisions about confidence.",
+      "rule": "Propagate partial subagent failures with coverage annotations that flag which conclusions are well-supported versus uncertain, instead of hiding gaps or failing outright.",
       "id": "multi-agent-research-q16",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -249,6 +266,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Returning an error with context to the coordinator is the most effective approach because it lets the coordinator make an informed decision—skip the file, try an alternative parsing method, or notify the user—while maintaining visibility into the failure.",
+      "rule": "On an unrecoverable subagent error, return structured error context to the coordinator instead of silently skipping, blindly retrying, or crashing the whole workflow.",
       "id": "multi-agent-research-q17",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -263,6 +281,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Renaming the web-search tool to `extract_web_results` and updating its description to explicitly reference web search and URLs directly removes the root cause by eliminating semantic overlap between the two tool names and descriptions. This makes each tool's purpose unambiguous, enabling the coordinator to reliably distinguish document analysis from web search.",
+      "rule": "Fix tool misrouting by removing semantic overlap in tool names and descriptions, rather than papering over it with examples or an extra classifier.",
       "id": "multi-agent-research-q18",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -277,6 +296,7 @@
       ],
       "correctIndex": 0,
       "explanation": "The coordinator pattern provides centralized visibility into all interactions, uniform error handling across the system, and fine-grained control over what information each subagent receives—these are the primary advantages of a star-shaped communication topology.",
+      "rule": "Keep the coordinator as the central hub between subagents to get centralized visibility, uniform error handling, and controlled information flow.",
       "id": "multi-agent-research-q19",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -291,6 +311,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Returning structured error context—including failure type, executed query, partial results, and alternative approaches—gives the coordinator everything needed to make intelligent recovery decisions (e.g., retry with a modified query or continue with partial results). It preserves maximum context for informed coordination-level decision-making.",
+      "rule": "Propagate subagent failures to the coordinator as structured context (failure type, query, partial results, alternatives) rather than a generic status or a raw exception.",
       "id": "multi-agent-research-q20",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -305,6 +326,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Replacing a general-purpose tool with a document-specific tool that validates URLs against document formats fixes the root cause by constraining capability at the interface level. This follows the principle of least privilege, making undesired search behavior impossible rather than merely discouraged.",
+      "rule": "Constrain a tool's capability at the interface level (e.g., a document-only fetch tool) to make undesired behavior architecturally impossible, rather than relying on instructions.",
       "id": "multi-agent-research-q21",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -319,6 +341,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Having the coordinator explicitly partition the research space before delegating is most effective because it addresses the root cause—unclear task boundaries—before any work begins. It preserves parallelism while preventing duplicated effort and wasted tokens.",
+      "rule": "Prevent duplicated agent work by having the coordinator explicitly partition the research space up front, not by deduplicating results after the fact.",
       "id": "multi-agent-research-q22",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -333,6 +356,7 @@
       ],
       "correctIndex": 3,
       "explanation": "A timeout (access failure) and \"0 results\" (valid empty result) are semantically different outcomes requiring different responses. Distinguishing them allows the coordinator to retry the patent database while accepting the industry reports \"0 results\" as a valid, informative finding.",
+      "rule": "Distinguish access failures (e.g., timeouts, which warrant a retry) from valid empty results (e.g., \"0 results\") when propagating subagent outcomes to the coordinator.",
       "id": "multi-agent-research-q23",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -347,6 +371,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Putting a key-findings summary at the start leverages primacy effects so critical information sits in the most reliably processed position. Adding explicit section headings throughout helps the model navigate and attend to mid-input content, directly mitigating the \"lost in the middle\" phenomenon.",
+      "rule": "Counter the \"lost in the middle\" effect by placing key findings at the start of aggregated input and using clear section headings throughout the rest.",
       "id": "multi-agent-research-q24",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -361,6 +386,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Modifying upstream agents to return structured data fixes the root cause by reducing token volume at the source while preserving essential information. It avoids passing bulky page content and reasoning traces that inflate tokens without improving the synthesis step.",
+      "rule": "Reduce inter-agent token bloat by having upstream agents emit structured data (facts, quotes, scores) instead of verbose raw content and reasoning traces.",
       "id": "multi-agent-research-q25",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -375,6 +401,7 @@
       ],
       "correctIndex": 3,
       "explanation": "A limited-scope fact-verification tool lets the synthesis agent handle 85% of simple checks directly, eliminating most loops, while preserving the coordinator delegation path for the 15% of complex verifications. This applies least privilege while significantly reducing latency.",
+      "rule": "Grant a subagent a narrowly-scoped tool for its common case (least privilege), while routing rarer, complex needs through the coordinator.",
       "id": "multi-agent-research-q26",
       "classFile": "guide",
       "lesson": "multi-agent-research"
@@ -389,6 +416,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Using `--output-format json` with `--json-schema` enforces structured output at the CLI level, guaranteeing well-formed JSON with the required fields (file path, line number, severity, suggested fix) that can be reliably parsed and posted as inline PR comments via the GitHub API. It leverages built-in CLI capabilities designed specifically for structured output.",
+      "rule": "Use `--output-format json` with a JSON schema to get structured, reliably parseable output from the Claude Code CLI instead of relying on prompt-based formatting.",
       "id": "claude-code-ci-q27",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -403,6 +431,7 @@
       ],
       "correctIndex": 0,
       "explanation": "A second independent Claude Code instance without access to the generator's reasoning directly addresses the root cause by avoiding confirmation bias. This \"fresh eyes\" perspective mirrors human peer review, where another reviewer catches issues the author rationalized.",
+      "rule": "Catch mistakes the generator rationalized as correct by running an independent second review instance without access to the original reasoning, mirroring human peer review.",
       "id": "claude-code-ci-q28",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -417,6 +446,7 @@
       ],
       "correctIndex": 1,
       "explanation": "A \"fire-and-forget\" asynchronous Batch API model has no mechanism to intercept a tool call during a request, execute the tool, and return results for Claude to continue analysis. This is fundamentally incompatible with iterative tool-calling workflows that require multiple tool request/response rounds within a single logical interaction.",
+      "rule": "The Message Batches API can't support iterative tool-calling workflows because its fire-and-forget model has no way to pause mid-request, run a tool, and resume.",
       "id": "claude-code-ci-q29",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -431,6 +461,7 @@
       ],
       "correctIndex": 1,
       "explanation": "PR style checks block developers and require immediate responses via synchronous calls, while weekly security audits and nightly test generation are scheduled tasks with flexible deadlines that can tolerate up to a 24-hour batch window—capturing 50% savings for both.",
+      "rule": "Match each CI workload to the right API: synchronous calls for blocking/latency-sensitive checks, the Message Batches API (up to 24h, 50% cheaper) for scheduled, delay-tolerant tasks.",
       "id": "claude-code-ci-q30",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -445,6 +476,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Few-shot examples are the most effective technique for achieving consistent output format when instructions alone produce variable results. Providing 3–4 examples that show the exact desired structure (issue, location, concrete fix) gives the model a concrete pattern to follow, which is more reliable than abstract instructions.",
+      "rule": "When instructions alone produce inconsistent output formatting, add a handful of few-shot examples showing the exact desired structure.",
       "id": "claude-code-ci-q31",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -459,6 +491,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Deep analysis is an ideal candidate for batch processing because it already runs overnight, tolerates delay, and uses a polling model before publishing results—matching the asynchronous, polling-based architecture of the Message Batches API while capturing 50% savings.",
+      "rule": "Match each CI workload to the right API: synchronous calls for blocking/latency-sensitive checks, the Message Batches API (up to 24h, 50% cheaper) for scheduled, delay-tolerant tasks.",
       "id": "claude-code-ci-q32",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -473,6 +506,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Explicit criteria—flagging comments only when claimed behavior contradicts actual code behavior—directly addresses the root cause by replacing a vague instruction with a precise definition of what constitutes a problem. This reduces false positives on acceptable patterns and misses of truly misleading comments.",
+      "rule": "Fix vague or inconsistent review judgments by replacing broad instructions with precise, explicit criteria defining exactly what counts as a problem.",
       "id": "claude-code-ci-q33",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -487,6 +521,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Temporarily disabling high-false-positive categories immediately stops trust erosion by removing noisy findings that cause developers to dismiss everything, while preserving value from high-precision categories like security and correctness. It also creates space to improve prompts for problematic categories before re-enabling them.",
+      "rule": "When a few high-false-positive categories erode trust in an entire review system, temporarily disable just those noisy categories rather than diluting strictness everywhere.",
       "id": "claude-code-ci-q34",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -501,6 +536,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Including the existing test file fixes the root cause of duplication: Claude can only avoid suggesting already-covered scenarios if it knows what tests already exist. This gives Claude the information needed to propose genuinely new, valuable tests.",
+      "rule": "Give the model the existing test suite as context so it can avoid suggesting test cases that already exist.",
       "id": "claude-code-ci-q35",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -515,6 +551,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Including prior review findings in context lets Claude distinguish new problems from those already addressed in recent commits. This preserves review thoroughness while using Claude's reasoning to avoid redundant feedback on fixed code.",
+      "rule": "Include prior review findings in context so re-runs report only new or unresolved issues, instead of repeating comments on code already fixed.",
       "id": "claude-code-ci-q36",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -529,6 +566,7 @@
       ],
       "correctIndex": 1,
       "explanation": "The `-p` (or `--print`) flag is the documented way to run Claude Code non-interactively. It processes the prompt, prints the result to stdout, and exits without waiting for user input—ideal for CI/CD pipelines.",
+      "rule": "Use the `-p`/`--print` flag to run Claude Code non-interactively so it doesn't hang waiting for input in scripts or CI pipelines.",
       "id": "claude-code-ci-q37",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -543,6 +581,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Focused per-file passes address the root cause—attention dilution—by ensuring consistent depth and reliable local issue detection. A separate integration-oriented pass then covers cross-file concerns such as dependency and data-flow interactions.",
+      "rule": "Review multi-file PRs with separate focused per-file passes plus a distinct cross-file integration pass, instead of one single large-context pass.",
       "id": "claude-code-ci-q38",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -557,6 +596,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Including rationale and confidence directly in each finding reduces investigation time by letting developers quickly triage without opening each finding. It satisfies the \"no filtering\" constraint because all findings remain visible while accelerating developer decision-making.",
+      "rule": "When findings can't be filtered out, cut investigation time by having Claude include its rationale and confidence directly in each finding.",
       "id": "claude-code-ci-q39",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -571,6 +611,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Temporarily disabling high-false-positive categories immediately stops trust erosion by removing noisy findings that cause developers to dismiss everything, while preserving value from high-precision categories like security and correctness. It also creates space to improve prompts for problematic categories before re-enabling them.",
+      "rule": "When a few high-false-positive categories erode trust in an entire review system, temporarily disable just those noisy categories rather than diluting strictness everywhere.",
       "id": "claude-code-ci-q40",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -585,6 +626,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Message Batches API processing can take up to 24 hours with no latency SLA, which is acceptable for overnight technical debt reports but unacceptable for blocking pre-merge checks where developers wait. This matches each workflow to the right API based on latency requirements.",
+      "rule": "Match each CI workload to the right API: synchronous calls for blocking/latency-sensitive checks, the Message Batches API (up to 24h, 50% cheaper) for scheduled, delay-tolerant tasks.",
       "id": "claude-code-ci-q41",
       "classFile": "guide",
       "lesson": "claude-code-ci"
@@ -599,6 +641,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Concrete input-output examples remove ambiguity inherent in prose descriptions by showing Claude the exact expected transformation results. This directly addresses the root cause—misinterpretation of textual requirements—by providing unambiguous patterns for field nesting and timestamp formatting.",
+      "rule": "When prose requirements keep being interpreted inconsistently, replace them with concrete input-output examples instead of more detailed prose.",
       "id": "code-generation-claude-code-q42",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -613,6 +656,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Slack integration has multiple valid approaches with significantly different architectural implications, and requirements are ambiguous. Planning mode lets you evaluate trade-offs among webhooks, bot tokens, and Slack Apps and align on an approach before implementation.",
+      "rule": "Use planning mode when a task is ambiguous and involves multiple architecturally significant integration options.",
       "id": "code-generation-claude-code-q43",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -627,6 +671,7 @@
       ],
       "correctIndex": 3,
       "explanation": "CLAUDE.md content loads in every session, ensuring coding standards and testing conventions always apply, while Skills are invoked on demand when Claude detects trigger keywords—ideal for workflow-specific guidance like PR review, deployment, and migrations.",
+      "rule": "Keep always-relevant guidance in CLAUDE.md (loaded every session) and move workflow-specific guidance into on-demand Skills triggered by keywords.",
       "id": "code-generation-claude-code-q44",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -641,6 +686,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Planning mode is the right strategy for complex architectural restructuring like splitting a monolith: it allows safe exploration and informed decisions about boundaries before committing to potentially expensive changes across many files.",
+      "rule": "Use planning mode instead of direct execution for large, architecturally significant changes with multiple possible approaches.",
       "id": "code-generation-claude-code-q45",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -655,6 +701,7 @@
       ],
       "correctIndex": 0,
       "explanation": "`context: fork` runs the analysis in an isolated subagent context so the large output does not pollute the main session's context window and Claude does not lose track of the original task. It preserves full analysis capability while keeping the main session responsive.",
+      "rule": "Use `context: fork` in a skill's frontmatter to run heavy or verbose work in an isolated subagent context so it doesn't pollute or derail the main session.",
       "id": "code-generation-claude-code-q46",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -669,6 +716,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Personal skills take precedence over project skills with the same name. A personal skill at `~/.claude/skills/commit/SKILL.md` will override the team's project skill, allowing the developer to customize their workflow while maintaining the familiar `/commit` command name for their personal use. This approach is better than option A because it preserves the original command name, improving the developer's workflow without affecting teammates.",
+      "rule": "A personal skill at `~/.claude/skills/<name>/SKILL.md` overrides a project skill of the same name for that developer only, without affecting teammates.",
       "id": "code-generation-claude-code-q47",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -683,6 +731,7 @@
       ],
       "correctIndex": 0,
       "explanation": "If the guidance was added only to the original developers' user-level configs and not to the project-level `.claude/CLAUDE.md`, new team members won't receive it. Moving it to the project-level configuration ensures all current and future team members automatically get the guidance.",
+      "rule": "Project-level `.claude/CLAUDE.md` instructions reach every team member; user-level `~/.claude/CLAUDE.md` instructions apply only to that individual — put shared guidance in the project file.",
       "id": "code-generation-claude-code-q48",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -697,6 +746,7 @@
       ],
       "correctIndex": 3,
       "explanation": "A skill invoked on demand loads the example context only when generating new endpoints, not during unrelated tasks like debugging or review. This keeps the main context clean while preserving high-quality generation when needed.",
+      "rule": "Use an on-demand skill, not an always-loaded CLAUDE.md or manual copy-paste, to inject example context only when it's relevant to the specific task.",
       "id": "code-generation-claude-code-q49",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -711,6 +761,7 @@
       ],
       "correctIndex": 1,
       "explanation": "This uses three separate configuration features to address each problem: `argument-hint` improves argument entry and reduces missing arguments, `context: fork` prevents context leakage from prior conversations, and `allowed-tools` constrains the skill to safe file-writing operations, preventing destructive actions.",
+      "rule": "Combine `argument-hint`, `context: fork`, and `allowed-tools` in a skill's frontmatter to enforce required inputs, isolate context, and restrict dangerous tool access.",
       "id": "code-generation-claude-code-q50",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -725,6 +776,7 @@
       ],
       "correctIndex": 3,
       "explanation": "`.claude/rules/` files with YAML frontmatter and glob patterns (e.g., `**/*.test.tsx`, `src/api/**/*.ts`) enable deterministic, path-based convention application regardless of directory structure. This is the most supported approach for cross-cutting patterns like distributed test files.",
+      "rule": "Use `.claude/rules/` files with glob patterns to apply conventions automatically based on file path, rather than relying on a single CLAUDE.md.",
       "id": "code-generation-claude-code-q51",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -739,6 +791,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Putting custom slash commands under `.claude/commands/` inside the project repository ensures they are version-controlled and automatically available to every developer who clones or updates the repo. This is the intended location for project-level custom commands in Claude Code.",
+      "rule": "Store team-shared slash commands under `.claude/commands/` in the project repo so they are version-controlled and available to everyone who clones it.",
       "id": "code-generation-claude-code-q52",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -753,6 +806,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Claude Code supports a `.claude/rules/` directory where you can create separate Markdown files for topical guidance (e.g., `testing.md`, `api-conventions.md`), allowing teams to organize large instruction sets into focused, maintainable modules.",
+      "rule": "Split an overgrown CLAUDE.md into focused topical files under `.claude/rules/` to keep project instructions organized and maintainable.",
       "id": "code-generation-claude-code-q53",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -767,6 +821,7 @@
       ],
       "correctIndex": 1,
       "explanation": "`context: fork` runs the skill in an isolated subagent context so exploration discussions do not pollute the main conversation history. This prevents rejected approaches and brainstorming context from influencing subsequent implementation work.",
+      "rule": "Use `context: fork` in a skill's frontmatter to run heavy or verbose work in an isolated subagent context so it doesn't pollute or derail the main session.",
       "id": "code-generation-claude-code-q54",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -781,6 +836,7 @@
       ],
       "correctIndex": 2,
       "explanation": "A project `.mcp.json` with environment variable substitution is idiomatic: it provides a single version-controlled source of truth for MCP configuration while letting each developer supply credentials via environment variables. Documenting the variable makes onboarding easy without committing secrets.",
+      "rule": "Use a project `.mcp.json` with environment-variable substitution for credentials so the config is shared and version-controlled while each developer's secrets stay local.",
       "id": "code-generation-claude-code-q55",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -795,6 +851,7 @@
       ],
       "correctIndex": 0,
       "explanation": "An Explore subagent isolates the verbose discovery output in a separate context and returns only a concise summary to the main conversation. This preserves the main context window for the collaborative design and consistent implementation phases where retained context is most valuable.",
+      "rule": "Use an Explore subagent to isolate verbose discovery output and return only a summary, preserving the main context window for the phases that need it most.",
       "id": "code-generation-claude-code-q56",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
@@ -809,6 +866,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Tool descriptions are the primary input the model uses to decide which tool to call. When an agent consistently picks the wrong tool, the first diagnostic step is to verify that tool descriptions clearly separate each tool's purpose and usage boundaries.",
+      "rule": "When an agent picks the wrong tool, first check whether the tool descriptions clearly differentiate each tool's purpose.",
       "id": "customer-support-agent-q57",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -823,6 +881,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Few-shot examples that demonstrate correct reasoning and tool sequencing for multi-issue requests are most effective because the agent already performs well on single issues—what it needs is guidance on the pattern for decomposing and routing multiple issues and keeping parameters separated.",
+      "rule": "When single-issue accuracy is high but multi-issue accuracy is low, add few-shot examples that demonstrate decomposing and routing multi-issue requests.",
       "id": "customer-support-agent-q58",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -837,6 +896,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Decomposing into separate issues and investigating in parallel with shared customer context fixes both key problems: it eliminates redundant data retrieval by reusing shared context across issues and reduces total tool-call loops by parallelizing investigation before synthesizing a single resolution.",
+      "rule": "For complex multi-issue requests, decompose into separate issues and investigate them in parallel with shared context, then synthesize one resolution.",
       "id": "customer-support-agent-q59",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -851,6 +911,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Explicit escalation criteria with few-shot examples directly address the root cause—unclear decision boundaries between simple and complex cases. It's the most proportional, effective first intervention that teaches the agent when to escalate and when to resolve autonomously without extra infrastructure.",
+      "rule": "Fix agent escalation calibration with explicit criteria and few-shot examples rather than self-rated confidence, a separate classifier, or sentiment analysis.",
       "id": "customer-support-agent-q60",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -865,6 +926,7 @@
       ],
       "correctIndex": 2,
       "explanation": "This is a genuine policy gap: company rules cover price drops on your own site but do not address competitor price matching. The agent must not invent policy and should escalate for human judgment on how to interpret or extend existing rules.",
+      "rule": "Escalate to a human when there's a genuine policy gap the rules don't address, rather than letting the agent invent an interpretation.",
       "id": "customer-support-agent-q61",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -879,6 +941,7 @@
       ],
       "correctIndex": 2,
       "explanation": "A programmatic precondition provides a deterministic guarantee that required sequencing is followed. It's the most effective approach because it eliminates the possibility of skipping verification, regardless of LLM behavior.",
+      "rule": "Use a deterministic, code-level precondition rather than prompt instructions to enforce a mandatory tool-call order for critical business logic.",
       "id": "customer-support-agent-q62",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -893,6 +956,7 @@
       ],
       "correctIndex": 0,
       "explanation": "A self-critique stage (the evaluator-optimizer pattern) directly addresses inconsistent explanation completeness by forcing the agent to assess its own draft against concrete criteria—such as policy context, timelines, and next steps—before presenting it. This catches case-specific gaps without human oversight.",
+      "rule": "Add a self-critique (evaluator-optimizer) stage where the agent checks its own draft response for completeness before presenting it to the customer.",
       "id": "customer-support-agent-q63",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -907,6 +971,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Prompting Claude to bundle related tool requests into a single turn leverages its native ability to request multiple tools at once. It directly fixes the sequential-call pattern with minimal architectural change.",
+      "rule": "Reduce sequential tool-call loops by instructing the model to bundle all foreseeably-needed tool calls into a single turn.",
       "id": "customer-support-agent-q64",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -921,6 +986,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Summarization inherently loses precise details. Extracting transactional facts into a structured \"case facts\" block outside the summarized history preserves critical information so it's reliably available in every prompt regardless of how many turns have been summarized.",
+      "rule": "Preserve precise transactional facts (amounts, dates, IDs) in a persistent structured block outside the summarized history, since summarization loses precision.",
       "id": "customer-support-agent-q65",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -935,6 +1001,7 @@
       ],
       "correctIndex": 1,
       "explanation": "Asking the user for an additional identifier is the most reliable way to resolve ambiguity because the user has definitive knowledge of their identity. One extra conversational turn is a small price to pay to eliminate a 15% error rate caused by choosing the wrong account.",
+      "rule": "When a lookup tool returns multiple ambiguous matches, have the agent ask the user for an additional identifier rather than guessing which one is correct.",
       "id": "customer-support-agent-q66",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -949,6 +1016,7 @@
       ],
       "correctIndex": 0,
       "explanation": "The systematic keyword-driven pattern (78% vs 93%) strongly indicates explicit routing logic in the system prompt reacting to the word \"account\" and steering the agent toward customer-related tools. Since tool descriptions are already clear, the discrepancy points to prompt-level instructions creating unintended behavioral steering.",
+      "rule": "A systematic keyword-driven behavior split, despite clear tool descriptions, points to explicit keyword-triggered logic in the system prompt, not the tools or model training.",
       "id": "customer-support-agent-q67",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -963,6 +1031,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Expanding tool descriptions with input formats, example queries, edge cases, and clear boundaries directly fixes the root cause—minimal descriptions that don't give the LLM enough information to distinguish similar tools. It's a low-effort, high-impact first step that improves the primary mechanism the LLM uses for tool selection.",
+      "rule": "When an agent picks the wrong tool, first improve the tool descriptions, since they are the model's primary tool-selection signal.",
       "id": "customer-support-agent-q68",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -977,6 +1046,7 @@
       ],
       "correctIndex": 0,
       "explanation": "`stop_reason` is Claude's explicit structured signal for loop control: `tool_use` indicates Claude wants to run a tool and receive results back, while `end_turn` indicates Claude has completed its response and the loop should end.",
+      "rule": "Use Claude's `stop_reason` field (`tool_use` vs. `end_turn`), not text parsing or a fixed iteration count, to control when the agent loop stops.",
       "id": "customer-support-agent-q69",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -991,6 +1061,7 @@
       ],
       "correctIndex": 0,
       "explanation": "A PostToolUse hook provides a centralized, deterministic point to intercept and normalize all tool outputs—including third-party MCP server data—before the agent processes them. It's more maintainable because transformations live in code and apply uniformly, rather than relying on LLM interpretation.",
+      "rule": "Normalize inconsistent tool or MCP output formats centrally with a PostToolUse hook rather than relying on prompt instructions or extra agent calls.",
       "id": "customer-support-agent-q70",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -1005,6 +1076,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Targeting few-shot examples at the specific ambiguous scenarios where errors occur, with explicit rationale for why one tool is preferable to alternatives, teaches the model the comparative decision process needed for edge cases. This is more effective than generic examples or declarative rules.",
+      "rule": "Target few-shot examples at the specific ambiguous cases causing errors, including the rationale for choosing one option over plausible alternatives.",
       "id": "customer-support-agent-q71",
       "classFile": "guide",
       "lesson": "customer-support-agent"
@@ -1019,6 +1091,7 @@
       ],
       "correctIndex": 3,
       "explanation": "The two-tool token-binding approach makes it architecturally impossible to execute without a prior preview—the execute tool literally requires a token that only the preview tool can generate. This is the only approach that enforces the constraint at the code level rather than relying on LLM compliance with instructions (C), timing heuristics (A), or orchestration infrastructure (B).",
+      "rule": "Enforce a strict tool-call sequence, such as preview-then-confirm, with a code-level binding token rather than prompt instructions or timing heuristics.",
       "id": "conversational-ai-q72",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1033,6 +1106,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Handling retries at the tool level for transient errors is the correct abstraction boundary—the tool has definitive knowledge of the error type and can implement deterministic retry logic without relying on the agent to interpret a flag (D) or follow prompt-level instructions (A). Uniform backoff (B) wastes time on syntax errors that will never succeed.",
+      "rule": "Handle retryable errors (e.g., network timeouts) with retry logic inside the tool itself, and return non-retryable errors (e.g., syntax errors) immediately, without relying on the agent to tell them apart.",
       "id": "conversational-ai-q73",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1047,6 +1121,7 @@
       ],
       "correctIndex": 0,
       "explanation": "When user preferences directly contradict each other, surfacing the conflict and asking for clarification is the only way to guarantee the recommendation aligns with the user's true intent. Any other approach involves making an assumption that may be wrong—maximizing returns and low risk tolerance are fundamentally incompatible goals that require a human decision.",
+      "rule": "When a user's stated preferences directly contradict each other, surface the conflict and ask for clarification instead of silently picking one.",
       "id": "conversational-ai-q74",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1061,6 +1136,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Claude has no server-side memory—every API call is stateless. Without including the full conversation history in the `messages` array of each request, Claude has no knowledge of prior turns. Vector databases (A) and `session_id` (C) are not part of Claude's architecture; context window overflow (B) is impossible for two-message exchanges.",
+      "rule": "Claude's API is stateless: every prior turn must be resent in the `messages` array, or the model has no memory of earlier context.",
       "id": "conversational-ai-q75",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1075,6 +1151,7 @@
       ],
       "correctIndex": 2,
       "explanation": "The hybrid approach preserves the highest-value information at the lowest cost. Critical facts like allergies and recipe quantities are extracted into a compact structured block (preventing the precision loss that occurs during summarization), general discussion is summarized, and recent exchanges are kept verbatim for conversational coherence. Options A and B risk losing critical dietary information; D is architectural overkill for a single cooking session.",
+      "rule": "When trimming long conversation history, extract critical structured facts, summarize general discussion, and keep the most recent turns verbatim.",
       "id": "conversational-ai-q76",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1089,6 +1166,7 @@
       ],
       "correctIndex": 0,
       "explanation": "The hybrid approach addresses both dimensions of the problem: retaining exact recent context (critical for conversational coherence) while maintaining a compressed representation of earlier preferences (preventing total loss when pairs are dropped). Increasing the window (C) simply delays the same problem. Vector search (B) may miss important context that isn't semantically similar to the current query. Full per-turn summarization (D) adds overhead and accumulates summarization errors.",
+      "rule": "Combat context loss in long conversations with a hybrid approach — summarize older messages while keeping recent ones verbatim — rather than just enlarging or replacing the window.",
       "id": "conversational-ai-q77",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1103,6 +1181,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Claude's API is fully stateless—every request must include the complete conversation history in the `messages` array. As conversations grow, each request carries more tokens, which directly increases both processing latency and cost. The model does not maintain any internal state between calls (D is false), and response length is not inherently tied to conversation length (B).",
+      "rule": "Rising latency and cost over long conversations come from resending the full, ever-growing message history on every stateless API call.",
       "id": "conversational-ai-q78",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1117,6 +1196,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Semantic search over conversation history is the only approach that scales to three months of discussion while being able to surface specific relevant exchanges on demand. Rolling window (A) would discard most of the history. Progressive summarization (B) compresses discussions into abstractions that lose the specific conclusions users are asking about. XML tags (D) require restructuring all past content and don't solve the retrieval problem at this scale.",
+      "rule": "For conversations spanning many sessions, use semantic search and retrieval over history to answer specific past questions, since truncation or lossy summarization would discard them.",
       "id": "conversational-ai-q79",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1131,6 +1211,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Periodic injection of behavioral reminders directly combats instruction drift by re-establishing constraints at regular intervals as conversation history accumulates. Moving guidelines to the first user message (A) reduces their authority. Starting a new conversation (B) destroys context. Post-response validation (D) is corrective rather than preventive and adds significant latency.",
+      "rule": "Combat mid-conversation instruction drift by periodically reinjecting behavioral reminders as user-role messages at conversation breakpoints.",
       "id": "conversational-ai-q80",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1145,6 +1226,7 @@
       ],
       "correctIndex": 1,
       "explanation": "A 2,800-token system prompt with declarative rules is vulnerable to drift because abstract rules require the model to reason about them on every turn. Replacing verbose rules with concrete few-shot examples that demonstrate correct proficiency-level adaptation gives the model clear behavioral patterns to match—this is more reliably followed across many turns than abstract instructions. Reminder injection (A) helps but addresses symptoms; end-placement (C) helps initially but not with turn-level drift; regeneration (D) is expensive and corrective.",
+      "rule": "Replace verbose declarative system-prompt rules with concrete few-shot examples to make behavior more reliably followed across many turns.",
       "id": "conversational-ai-q81",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1159,6 +1241,7 @@
       ],
       "correctIndex": 1,
       "explanation": "The system prompt is specifically designed for persistent behavioral constraints and guidelines that apply throughout the entire conversation. Prepending to each user message (A) is redundant overhead. The first assistant message (C) is unreliable because the model can deviate from its own prior statements. Environment variables (D) have no effect on model behavior.",
+      "rule": "Persistent behavioral guidelines like tone, reasoning style, and clarifying-question habits belong in the system prompt, sent with every request.",
       "id": "conversational-ai-q82",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1173,6 +1256,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Prefilling the assistant's response with the beginning of a direct answer prevents greeting patterns at the generation level—the model continues from the prefill rather than generating new opening phrases. System prompt instructions (D) can help but are less reliable since the model may still produce variants. Post-processing (C) is a fragile workaround. Temperature (B) controls randomness, not specific phrase patterns.",
+      "rule": "Prevent repetitive response openings by prefilling the start of the assistant's reply, rather than relying on prompt instructions or post-processing.",
       "id": "conversational-ai-q83",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1187,6 +1271,7 @@
       ],
       "correctIndex": 3,
       "explanation": "Prefixing the status update to the next user message injects real-time context at a natural conversation boundary without disrupting the flow. Modifying the system prompt (A) requires rebuilding the session or is architecturally cumbersome. A synthetic user message (B) can break the natural dialogue flow and confuse attribution. Forcing a tool call each turn (C) is wasteful when events are rare.",
+      "rule": "Inject real-time external events, like a webhook update, as a prefix to the next user message, at a natural conversation boundary.",
       "id": "conversational-ai-q84",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1201,6 +1286,7 @@
       ],
       "correctIndex": 2,
       "explanation": "Stating assumptions explicitly and proceeding gives the user an immediate, useful response while preserving their ability to correct wrong assumptions. Hidden defaults (A) leave the user unaware of what was assumed. A compound question list (B) still demands upfront effort from the user. A structured form (D) adds more friction, not less—contradicting the goal of reducing abandonment.",
+      "rule": "To reduce abandonment from excessive clarifying questions, state reasonable assumptions explicitly and proceed, inviting the user to correct them.",
       "id": "conversational-ai-q85",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1215,6 +1301,7 @@
       ],
       "correctIndex": 2,
       "explanation": "As assistant responses accumulate in the conversation history, the proportion of text reflecting the system prompt's behavioral constraints decreases relative to the growing body of assistant-generated content. The model increasingly pattern-matches to its own prior outputs rather than the system prompt, compounding drift even at short token lengths. The system prompt is included in every API call (D is false as a standalone explanation), and model attention degradation (B) doesn't operate at 2,500 tokens.",
+      "rule": "System-prompt influence dilutes over many turns as accumulated assistant responses grow relative to the original instructions, causing persona drift even within token limits.",
       "id": "conversational-ai-q86",
       "classFile": "guide",
       "lesson": "conversational-ai"
@@ -1229,6 +1316,7 @@
       ],
       "correctIndex": 0,
       "explanation": "Proceeding with reasonable stated assumptions eliminates the back-and-forth entirely while keeping the user informed and in control. Predefined silent interpretations (C) leave users confused when the response doesn't match their intent. A single-question limit (D) still requires turns of back-and-forth. A smaller classification model (B) adds latency and infrastructure complexity without solving the core UX problem.",
+      "rule": "Handle vague requests by making and explicitly stating reasonable assumptions, then offering to adjust, rather than asking multiple clarifying questions or guessing silently.",
       "id": "conversational-ai-q87",
       "classFile": "guide",
       "lesson": "conversational-ai"

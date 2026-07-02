@@ -6,6 +6,7 @@ export interface Question {
   options: [string, string, string, string]
   correctIndex: 0 | 1 | 2 | 3
   explanation: string
+  rule: string
 }
 
 export interface LessonBank {
