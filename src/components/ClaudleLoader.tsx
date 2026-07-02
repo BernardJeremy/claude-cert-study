@@ -1,0 +1,17 @@
+'use client'
+
+import dynamic from 'next/dynamic'
+import type { Question } from '@/types/quiz'
+
+const ClaudleGame = dynamic(() => import('./ClaudleGame'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center min-h-screen">
+      <p className="text-gray-600 text-sm">Loading questions…</p>
+    </div>
+  ),
+})
+
+export default function ClaudleLoader({ questions }: { questions: Question[] }) {
+  return <ClaudleGame questions={questions} />
+}
