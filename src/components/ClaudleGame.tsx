@@ -95,7 +95,7 @@ export default function ClaudleGame({ questions }: Props) {
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <h1 className="text-base font-bold text-white tracking-tight">Claudle</h1>
           <span className="text-sm text-gray-400 tabular-nums">
-            {correctSoFar}&thinsp;/&thinsp;{session.questionIds.length} correct
+            5 questions each day ! 
           </span>
         </div>
       </header>
@@ -244,6 +244,7 @@ function ClaudleResults({
             {copied ? 'Copied!' : 'Copy to clipboard'}
           </button>
           <p className="text-xs text-gray-600">A new Claudle will be available tomorrow.</p>
+          <p className="text-xs text-gray-600">All questions study: <a href="https://claude.bernard.sh" className="text-blue-500 hover:underline">https://claude.bernard.sh</a></p>
         </div>
       </div>
     </div>

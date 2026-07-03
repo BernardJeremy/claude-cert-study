@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
+import Link from 'next/link'
 import type { Question } from '@/types/quiz'
 
 function shuffled(questions: Question[]): Question[] {
@@ -80,9 +81,13 @@ export default function QuizGame({ questions }: Props) {
           <h1 className="text-base font-bold text-white tracking-tight">
             Claude Cert Study
           </h1>
-          <span className="text-sm text-gray-400 tabular-nums">
-            {score.correct}&thinsp;/&thinsp;{score.total} correct
-          </span>
+          <div className="flex items-center gap-3 text-sm text-gray-400 tabular-nums">
+            <span>{score.correct}&thinsp;/&thinsp;{score.total} correct</span>
+            <span className="text-gray-700">|</span>
+            <Link href="/claudle" className="hover:text-white transition-colors">
+              Claudle →
+            </Link>
+          </div>
         </div>
       </header>
 

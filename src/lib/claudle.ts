@@ -94,11 +94,11 @@ export function buildShareText(answers: number[], questions: Question[]): string
     .join('')
 
   return [
-    `CCA-F Study : ${correctCount}/${questions.length}`,
+    `CCA-F Study of the day : ${correctCount}/${questions.length}`,
     '',
     squares,
     '',
     'Study the Claude Certified Architect certification !',
-    'https://claudle.bernard.sh',
+    'https://claude.bernard.sh/claudle',
   ].join('\n')
 }
