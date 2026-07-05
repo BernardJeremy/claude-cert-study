@@ -1112,7 +1112,7 @@
       "lesson": "conversational-ai"
     },
     {
-      "question": "Over several turns discussing investment strategy, a user stated \"I have a very low risk tolerance\" and later \"I want to maximize my returns.\" They now ask: \"What should I invest in?",
+      "question": "Over several turns discussing investment strategy, a user stated \"I have a very low risk tolerance\" and later \"I want to maximize my returns.\" They now ask: \"What should I invest in?\" Which approach best ensures the recommendation aligns with the user's actual priority?",
       "options": [
         "Surface the contradiction and ask the user to clarify which matters more.",
         "Provide separate recommendations for both scenarios.",
@@ -1127,7 +1127,7 @@
       "lesson": "conversational-ai"
     },
     {
-      "question": "Users refine playlist preferences over multiple conversation turns. Two messages after a user said \"I love jazz,\" Claude asks \"What genres do you enjoy?",
+      "question": "Users refine playlist preferences over multiple conversation turns. Two messages after a user said \"I love jazz,\" Claude asks \"What genres do you enjoy?\" What is the most likely cause?",
       "options": [
         "Claude requires a vector database connection to maintain conversation memory.",
         "The model's context window has been exceeded.",
@@ -1187,7 +1187,7 @@
       "lesson": "conversational-ai"
     },
     {
-      "question": "After three months of weekly sessions, conversation history grows to 85,000 tokens. When a user asks \"What did we conclude about the theme of isolation?",
+      "question": "After three months of weekly sessions, conversation history grows to 85,000 tokens. When a user asks \"What did we conclude about the theme of isolation?\", the assistant gives generic answers instead of referencing previous discussions. What is the most effective approach?",
       "options": [
         "Rolling window truncation.",
         "Progressive summarization capturing key conclusions.",
@@ -1307,7 +1307,7 @@
       "lesson": "conversational-ai"
     },
     {
-      "question": "Users ask vague requests like \"Can you help with the report?",
+      "question": "Users ask vague requests like \"Can you help with the report?\" The assistant responds by asking multiple questions (which report? what help? deadline?), causing 40% abandonment. What is the best solution?",
       "options": [
         "Make reasonable assumptions, state them explicitly, and offer to adjust.",
         "Classify ambiguity with a smaller model before responding.",
