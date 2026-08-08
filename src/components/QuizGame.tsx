@@ -84,7 +84,7 @@ export default function QuizGame({ questions }: Props) {
           <div className="flex items-center gap-3 text-sm text-gray-400 tabular-nums">
             <span>{score.correct}&thinsp;/&thinsp;{score.total} correct</span>
             <span className="text-gray-700">|</span>
-            <Link href="/claudle" className="hover:text-white transition-colors">
+            <Link href="https://claudle.bernard.sh" className="hover:text-white transition-colors">
               Claudle →
             </Link>
           </div>

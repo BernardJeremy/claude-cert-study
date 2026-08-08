@@ -714,9 +714,9 @@
         "Create a personal version at `~/.claude/skills/commit/SKILL.md` with the same name.",
         "Set `override: true` in the personal skill frontmatter to prioritize it over the project version."
       ],
-      "correctIndex": 2,
-      "explanation": "Personal skills take precedence over project skills with the same name. A personal skill at `~/.claude/skills/commit/SKILL.md` will override the team's project skill, allowing the developer to customize their workflow while maintaining the familiar `/commit` command name for their personal use. This approach is better than option A because it preserves the original command name, improving the developer's workflow without affecting teammates.",
-      "rule": "A personal skill at `~/.claude/skills/<name>/SKILL.md` overrides a project skill of the same name for that developer only, without affecting teammates.",
+      "correctIndex": 0,
+      "explanation": "Personal skills take precedence over project skills with the same name, so reusing the name `commit` would silently shadow the team's skill for this developer alone — they'd stop receiving updates whenever the team improves `/commit`, and would need to remember they're running a different skill under the same command. Naming the personal variant `/my-commit` avoids that collision entirely: the developer keeps using the team's maintained `/commit` and gets a separate, clearly-named skill for their personal workflow, with no risk of confusing the two or missing team updates.",
+      "rule": "Give a personal skill override a different name (e.g. `/my-commit`) rather than reusing the project skill's name, to avoid silently shadowing the team's version and missing future updates.",
       "id": "code-generation-claude-code-q47",
       "classFile": "guide",
       "lesson": "code-generation-claude-code"
