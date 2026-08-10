@@ -136,6 +136,10 @@ export function saveSession(session: ClaudleSession): void {
   localStorage.setItem(SESSION_KEY, JSON.stringify(session))
 }
 
+export function clearSession(): void {
+  localStorage.removeItem(SESSION_KEY)
+}
+
 export function getOrCreateTodaysSession(allQuestions: Question[]): ClaudleSession {
   const today = getTodayKey()
   const existing = loadSession()

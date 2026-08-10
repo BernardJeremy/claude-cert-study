@@ -5,9 +5,19 @@ import type { Question } from '@/types/quiz'
 import {
   getOrCreateTodaysSession,
   saveSession,
+  clearSession,
   buildShareText,
   type ClaudleSession,
 } from '@/lib/claudle'
+
+declare global {
+  interface Window {
+    claudle?: {
+      reset: () => string
+      session: () => ClaudleSession | null
+    }
+  }
+}
 
 function lessonLabel(lesson: string): string {
   return lesson
@@ -30,6 +40,28 @@ export default function ClaudleGame({ questions }: Props) {
     const firstUnanswered = s.answers.findIndex((a) => a === null)
     setViewIndex(firstUnanswered === -1 ? s.answers.length - 1 : firstUnanswered)
   }, [questions])
+
+  // Devtools escape hatch: today's questions are fixed by the date, so a reset
+  // replays the same 5 rather than dealing new ones.
+  useEffect(() => {
+    window.claudle = {
+      reset: () => {
+        clearSession()
+        const s = getOrCreateTodaysSession(questions)
+        setSession(s)
+        setViewIndex(0)
+        return `Claudle reset — replaying the ${s.questionIds.length} questions for ${s.date}.`
+      },
+      session: () => session,
+    }
+    return () => {
+      delete window.claudle
+    }
+  }, [questions, session])
+
+  useEffect(() => {
+    console.info('Claudle: claudle.reset() clears today’s progress, claudle.session() dumps it.')
+  }, [])
 
   const sessionQuestions = useMemo(() => {
     if (!session) return []
