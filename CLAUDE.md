@@ -49,7 +49,7 @@ A Next.js 14 flashcard/quiz app for studying the Claude API certification. Two p
 
 ## Deployment
 
-Docker via `node:24-alpine` with Next.js standalone output (`output: 'standalone'` in `next.config.mjs`). The final runner stage copies only `.next/standalone/`, `.next/static/`, and `public/` — no full `node_modules` in the runtime image.
+Docker via `node:26-alpine` with Next.js standalone output (`output: 'standalone'` in `next.config.mjs`). The final runner stage copies only `.next/standalone/`, `.next/static/`, and `public/` — no full `node_modules` in the runtime image.
 
 The `.env` file (API key) is excluded from the image via `.dockerignore`; the quiz reads pre-baked JSON from `public/questions/` and needs no API key at runtime.
 

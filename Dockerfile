@@ -1,7 +1,12 @@
-FROM node:24-alpine AS base
+FROM node:26-alpine AS base
+
+# ── build-base: base + yarn (Node 25+ images no longer bundle yarn or corepack) ─
+FROM base AS build-base
+# yarn.lock is Classic (v1) format, which `--frozen-lockfile` below also assumes
+RUN npm install -g yarn@1.22.22
 
 # ── deps: install all dependencies ────────────────────────────────────────────
-FROM base AS deps
+FROM build-base AS deps
 # libc6-compat is required for some native modules on Alpine
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -9,7 +14,7 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 # ── builder: compile the Next.js app ──────────────────────────────────────────
-FROM base AS builder
+FROM build-base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

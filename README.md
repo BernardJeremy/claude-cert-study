@@ -36,7 +36,7 @@ docker build -t claude-cert-study .
 docker run -p 3000:3000 claude-cert-study
 ```
 
-The image uses Next.js standalone output on `node:24-alpine`, so the final layer is around 150–200 MB. The quiz reads question JSON baked into the image at build time — no API key needed at runtime.
+The image uses Next.js standalone output on `node:26-alpine`, so the final layer is around 150–200 MB. The quiz reads question JSON baked into the image at build time — no API key needed at runtime.
 
 ## Project structure
 
